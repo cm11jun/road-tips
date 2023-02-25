@@ -10,9 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_25_144725) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_25_151436) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "features", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trip_features", force: :cascade do |t|
+    t.bigint "feature_id", null: false
+    t.bigint "trip_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["feature_id"], name: "index_trip_features_on_feature_id"
+    t.index ["trip_id"], name: "index_trip_features_on_trip_id"
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "start_point"
+    t.string "end_point"
+    t.string "region"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_trips_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_25_144725) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "trip_features", "features"
+  add_foreign_key "trip_features", "trips"
+  add_foreign_key "trips", "users"
 end
