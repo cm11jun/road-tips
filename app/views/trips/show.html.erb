@@ -1,0 +1,37 @@
+<div class="container">
+<br>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card-trip flex mb-3">
+      <div class="card">
+        <%= image_tag "scotland-wallpaper.jpg" %>
+      </div>
+    </div>
+  </div>
+
+
+<div class="col-sm-6 card-trip flex-end mb-3">
+  <div class="card-trip-infos py-2">
+    <div>
+      <h2><%= @trip.title %></h2>
+      <p><strong>Start: </strong><%= @trip.start_point %></p>
+      <p><strong>End: </strong><%= @trip.end_point %></p>
+      <p><strong>Region: </strong> <%= @trip.region %></p>
+      <p><strong>Summary: </strong> <%= @trip.summary %></p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+  </div>
+</div>

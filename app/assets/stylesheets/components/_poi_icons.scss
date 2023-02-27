@@ -1,0 +1,25 @@
+.poi-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px 50px;
+  color: #274C77;
+}
+
+.poi-icons-links {
+  display: flex;
+  align-items: center;
+}
+
+.poi-icons-links a {
+  color: #274C77;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+
+.poi-icons-links a:hover {
+  opacity: 1;
+}

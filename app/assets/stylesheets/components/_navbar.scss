@@ -1,10 +1,19 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #6096BA;
+}
+
+.navbar-lewagon .nav-link {
+  color: #E7ECEF
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand h1 {
+  font-family: 'Racing Sans One', cursive;
+  color: #E7ECEF;
 }
 
 .navbar-lewagon .navbar-brand img {
