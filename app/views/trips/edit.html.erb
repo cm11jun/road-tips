@@ -1,16 +1,14 @@
-<div>
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('<%= image_path "scotland-wallpaper.jpg" %>')">
-    <div class="container">
-      <h1>RoadTips</h1>
-      <p>For the road ahead...</p>
-      <%= link_to "View trips", trips_path, class: "btn btn-flat" %>
-    </div>
-  </div>
+<div class="container">
+  <h1>Edit Trip</h1>
+  <%= render simple_form_for [@trip] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :start_point %>
+    <%= f.input :end_point %>
+    <%= f.input :region %>
+    <%= f.input :summary %>
+    <%= f.submit "Edit Trip", edit_trip_path(@trip), class: "btn btn-flat" %>
+  <% end %>
 </div>
-
-  <h1>Trending Trips</h1>
-
-
 
 <div class="footer">
   <div class="footer-links">

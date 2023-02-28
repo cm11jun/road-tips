@@ -19,3 +19,17 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.btn-success {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #02c39a;
+  transition: background 0.3s ease;
+  font-family: 'Nunito', cursive;
+}
+
+.btn-success:hover {
+  background: #05cda2;
+  color: #E7ECEF;
+}

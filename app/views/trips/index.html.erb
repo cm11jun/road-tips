@@ -1,14 +1,18 @@
 <div class= "container">
-  <h1>Trips</h1>
 
-<div class="poi-icons row">
+<div class="poi-icons row mb-2">
   <div class="d-flex justify-content-between poi-icons-links">
-    <i class="fa-solid fa-road fa-4x"></i>
-    <i class="fa-solid fa-camera fa-4x"></i>
-    <i class="fa-solid fa-bed fa-4x"></i>
-    <i class="fa-solid fa-utensils fa-4x"></i>
+    <i class="fa-solid fa-bridge-water fa-3x"></i>
+    <i class="fa-solid fa-flag-checkered fa-3x"></i>
+    <i class="fa-solid fa-camera fa-3x"></i>
+    <i class="fa-brands fa-fort-awesome fa-3x"></i>
+    <i class="fa-solid fa-bed fa-3x"></i>
+    <i class="fa-solid fa-utensils fa-3x"></i>
+    <i class="fa-solid fa-gas-pump fa-3x"></i>
   </div>
 </div>
+
+  <h1>Trips</h1>
 
 
       <div class="row">
@@ -19,10 +23,11 @@
               </div>
                 <div class="container card-category-infos pt-1">
                   <h4><%= link_to trip.title, trip_path(trip), class: "card-category-h4 link-dark text-decoration-none" %></h4>
-                  <p><strong>Start: </strong><%= trip.start_point %></p>
-                  <p><strong>End: </strong><%= trip.end_point %></p>
+                  <p><strong>From: </strong><%= trip.start_point %></p>
+                  <p><strong>To: </strong><%= trip.end_point %></p>
                   <p><strong>Region: </strong> <%= trip.region %></p>
                 </div>
+
             </div>
         </div>
       <% end %>

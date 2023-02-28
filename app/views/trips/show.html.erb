@@ -1,6 +1,18 @@
 <div class="container">
 <br>
 
+<div class="poi-icons row mb-2">
+  <div class="d-flex justify-content-between poi-icons-links">
+    <i class="fa-solid fa-bridge-water fa-3x"></i>
+    <i class="fa-solid fa-flag-checkered fa-3x"></i>
+    <i class="fa-solid fa-camera fa-3x"></i>
+    <i class="fa-brands fa-fort-awesome fa-3x"></i>
+    <i class="fa-solid fa-bed fa-3x"></i>
+    <i class="fa-solid fa-utensils fa-3x"></i>
+    <i class="fa-solid fa-gas-pump fa-3x"></i>
+  </div>
+</div>
+
 <div class="row">
   <div class="col-sm-6">
     <div class="card-trip flex mb-3">
@@ -15,10 +27,14 @@
   <div class="card-trip-infos py-2">
     <div>
       <h2><%= @trip.title %></h2>
-      <p><strong>Start: </strong><%= @trip.start_point %></p>
-      <p><strong>End: </strong><%= @trip.end_point %></p>
+      <p><strong>From: </strong><%= @trip.start_point %></p>
+      <p><strong>To: </strong><%= @trip.end_point %></p>
       <p><strong>Region: </strong> <%= @trip.region %></p>
       <p><strong>Summary: </strong> <%= @trip.summary %></p>
+
+      <%# <%= link_to "Edit Trip", edit_trip_path(@trip), class: "btn btn-success" %>
+      <%# <%= link_to "Delete Trip", trip_path(@trip), class: "btn btn-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+
     </div>
   </div>
 </div>
