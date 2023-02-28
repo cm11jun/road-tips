@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_25_165709) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "address"
   end
 
   create_table "trip_pois", force: :cascade do |t|
