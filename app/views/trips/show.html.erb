@@ -59,8 +59,13 @@
       <p><strong>To: </strong><%= @trip.end_point %></p>
       <p><strong>Region: </strong> <%= @trip.region %></p>
       <p><strong>Summary: </strong> <%= @trip.summary %></p>
-      <%= link_to "Edit Trip", edit_trip_path(@trip), class: "btn btn-success" %>
-      <%= button_to "Delete Trip", trip_path(@trip), class: "btn btn-danger", method: :delete, confirm: "Are you sure?"%>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <%= link_to "Edit Trip", edit_trip_path(@trip), class: "btn btn-success my-2" %>
+      <%= button_to "Delete Trip", trip_path(@trip), class: "btn btn-flat", method: :delete, confirm: "Are you sure?"%>
     </div>
 
   </div>
@@ -71,14 +76,26 @@
 
 <div class="card-trip my-3">
   <h3><strong>Reviews</strong></h3>
-  <p><%= link_to "Add review", new_trip_review_path(@trip), class: "btn btn-flat mb-3" %></p>
+
+  <div class="row">
+    <div class="col-xs-4">
+      <%= simple_form_for [@trip, @review] do |f| %>
+        <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
+        <%= f.input :content %>
+        <%= f.submit "Add Review", class: "btn btn-flat mb-2"  %>
+      <% end %>
+    </div>
+  </div>
+
+<h3>User Reviews</h3>
+
   <ul class="list-group list-unstyled">
     <% @trip.reviews.each do |review| %>
       <li class="star-rating"> Rating: <%= review.rating %></li>
         <% if review.rating %>
           <%= '⭐️' * review.rating %>
         <%end%>
-      <li class="list-group-item"><%= review.content %></li>
+      <li class="list-group-item my-2"><%= review.content %></li>
       <%# <%= link_to "Delete", review_path(review), class: "link text-decoration-none", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
     <% end %>
   </ul>
