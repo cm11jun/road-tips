@@ -15,7 +15,7 @@
     class: "form-control",
     placeholder: "Where to..."
   %>
-  <%= submit_tag "Search", class: "btn btn-flat" %>
+  <%= submit_tag "Search Trips", class: "btn btn-flat" %>
 <% end %>
 
 
@@ -26,11 +26,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Create new trip", new_trip_path, class: "btn btn-success" %>
-          </li>
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <%= link_to "All Trips", trips_path, class: "nav-link mx-3" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Create new trip", new_trip_path, class: "btn btn-success mx-3" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

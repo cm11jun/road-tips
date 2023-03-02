@@ -54,12 +54,33 @@
                   <p><strong>To: </strong><%= trip.end_point %></p>
                   <p><strong>Region: </strong> <%= trip.region %></p>
                 </div>
-
+                <div>
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+            </div>
             </div>
         </div>
       <% end %>
     </div>
+
+MAP
+
+
+<div id="map" style='width: 500px ;height: 700px;'>
 </div>
+<script>
+// TO MAKE THE MAP APPEAR YOU MUST
+// ADD YOUR ACCESS TOKEN FROM
+// https://account.mapbox.com
+
+// <%= ENV['MAPBOX_API_KEY'] %>
+mapboxgl.accessToken = 'pk.eyJ1IjoiY20xMWp1biIsImEiOiJjbGVvbzZxb28wNDdmM3VvMTBqeXVub2trIn0.6YeYXqBNO0iFTo6kMuTM-w';
+const map = new mapboxgl.Map({
+container: 'map', // container ID
+style: 'mapbox://styles/mapbox/streets-v12', // style URL
+center: [-74.5, 40], // starting position [lng, lat]
+zoom: 9, // starting zoom
+});
+</script>
 
 
 <div class="footer">
@@ -76,21 +97,3 @@
 </div>
 
  <div>
-
-MAP
-
-
-<div id="map" style='width: 400px ;height: 400px;'>
-</div>
-<script>
-// TO MAKE THE MAP APPEAR YOU MUST
-// ADD YOUR ACCESS TOKEN FROM
-// https://account.mapbox.com
-mapboxgl.accessToken = 'pk.eyJ1IjoiY20xMWp1biIsImEiOiJjbGVvbzZxb28wNDdmM3VvMTBqeXVub2trIn0.6YeYXqBNO0iFTo6kMuTM-w';
-const map = new mapboxgl.Map({
-container: 'map', // container ID
-style: 'mapbox://styles/mapbox/streets-v12', // style URL
-center: [-74.5, 40], // starting position [lng, lat]
-zoom: 9, // starting zoom
-});
-</script>
