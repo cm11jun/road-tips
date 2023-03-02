@@ -12,5 +12,8 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5"
   }
 }

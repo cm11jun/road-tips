@@ -1,9 +1,9 @@
 class ReviewsController < ApplicationController
-  before_action :set_trip, only: [:new, :create]
-  def new
-    @trip = Trip.find(params[:trip_id])
-    @review = Review.new
-  end
+  before_action :set_trip, only: [:create]
+  # def new
+  #   @trip = Trip.find(params[:trip_id])
+  #   @review = Review.new
+  # end
 
   def create
     @review = Review.new(review_params)
@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to trip_path(@trip)
     else
-      render :new, status: :unprocessable_entity
+      render 'trip/show', status: :unprocessable_entity
     end
   end
 
