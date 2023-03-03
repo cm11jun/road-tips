@@ -1,3 +1,12 @@
+<head>
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+
+
+
+
+
 <div class= "container">
 <br>
 <div class="poi-icons row text-center mb-2">
@@ -39,48 +48,46 @@
     </figure>
   </div>
 </div>
-
-  <h1>Trips</h1>
-
-      <div class="row">
-      <% @trips.each do |trip| %>
-        <div class="col-sm-4">
-            <div class="card-trip flex mb-3">
-              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<%= image_path "scotland-wallpaper.jpg" %>')">
+<h1>Trips</h1>
+<div class="main-container">
+  <div class="col-12 col-lg-7">
+    <div class="row">
+          <% @trips.each do |trip| %>
+            <div class="col-sm-6">
+              <div class="card-trip flex mb-4">
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<%= image_path "scotland-wallpaper.jpg" %>')">
+                  </div>
+                    <div class="container card-category-infos pt-1">
+                      <h4><%= link_to trip.title, trip_path(trip), class: "card-category-h4 link-dark text-decoration-none" %></h4>
+                      <p><strong>From: </strong><%= trip.start_point %></p>
+                      <p><strong>To: </strong><%= trip.end_point %></p>
+                      <p><strong>Region: </strong> <%= trip.region %></p>
+                    </div>
+                  <div>
+                    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                  </div>
               </div>
-                <div class="container card-category-infos pt-1">
-                  <h4><%= link_to trip.title, trip_path(trip), class: "card-category-h4 link-dark text-decoration-none" %></h4>
-                  <p><strong>From: </strong><%= trip.start_point %></p>
-                  <p><strong>To: </strong><%= trip.end_point %></p>
-                  <p><strong>Region: </strong> <%= trip.region %></p>
-                </div>
-                <div>
-                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
             </div>
-            </div>
-        </div>
-      <% end %>
+          <% end %>
     </div>
+  </div>
 
-MAP
+  <div id='map' style='width: 100vh; height: 100vh;' div>
+
+    <script>
+      mapboxgl.accessToken = 'pk.eyJ1IjoiY20xMWp1biIsImEiOiJjbGVvbzZxb28wNDdmM3VvMTBqeXVub2trIn0.6YeYXqBNO0iFTo6kMuTM-w';
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11'
+      });
+    </script>
+  </div>
 
 
-<div id="map" style='width: 500px ;height: 100vh;'>
+
+
 </div>
-<script>
-// TO MAKE THE MAP APPEAR YOU MUST
-// ADD YOUR ACCESS TOKEN FROM
-// https://account.mapbox.com
 
-// <%= ENV['MAPBOX_API_KEY'] %>
-mapboxgl.accessToken = 'pk.eyJ1IjoiY20xMWp1biIsImEiOiJjbGVvbzZxb28wNDdmM3VvMTBqeXVub2trIn0.6YeYXqBNO0iFTo6kMuTM-w';
-const map = new mapboxgl.Map({
-container: 'map', // container ID
-style: 'mapbox://styles/mapbox/streets-v12', // style URL
-center: [-74.5, 40], // starting position [lng, lat]
-zoom: 9, // starting zoom
-});
-</script>
 
 
 <div class="footer">
@@ -95,5 +102,3 @@ zoom: 9, // starting zoom
     This footer is made with <i class="fas fa-heart"></i> at Le Wagon
   </div>
 </div>
-
- <div>
