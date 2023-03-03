@@ -52,7 +52,7 @@
 
 
 <div class="col-sm-6 card-trip flex-end mb-3">
-  <div class="card-trip-infos py-2">
+  <div class="card-trip-infos py-3">
     <div>
       <h2><%= @trip.title %></h2>
       <p><strong>From: </strong><%= @trip.start_point %></p>
@@ -64,13 +64,15 @@
       <br>
       <br>
       <br>
-      <%# <p><strong>Rating: </strong> <%= @trip.reviews.rating.average %>
-      <p> - <%= @trip.reviews.count %> reviews</p>
-
+      <br>
+      <br>
       <%= link_to "Edit Trip", edit_trip_path(@trip), class: "btn btn-success my-2" %>
       <%= button_to "Delete Trip", trip_path(@trip), class: "btn btn-flat", method: :delete, confirm: "Are you sure?"%>
-    </div>
-
+      </div>
+      <div class="text-end">
+        <h4>★ <strong><%= @trip.reviews.average(:rating) %> </strong>- <%= @trip.reviews.count %> reviews</h4>
+      </div>
+</div>
   </div>
   <div>
   <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
@@ -98,7 +100,7 @@
       <div>
         <li class="star-rating">
           <% if review.rating %>
-            <%= '⭐️' * review.rating %>
+            <%= '★' * review.rating %>
           <%end%>
           </li>
         <li class="list-group-item-borderless fst-italic"><%= review.user.username %> posted on <%= review.created_at.strftime("%A, %d %b %Y %l:%M %p") %></li>

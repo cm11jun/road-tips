@@ -22,14 +22,6 @@ class ReviewsController < ApplicationController
   #   redirect_to trip_path(@review.trip), status: :see_other
   # end
 
-  # def rating
-  # end
-
-  # def average
-  #   values = @rating
-  #   @average = values.sum / values.size.to_f
-  # end
-
   private
 
   def set_trip
