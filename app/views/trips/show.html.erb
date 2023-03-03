@@ -74,7 +74,7 @@
 </div>
 </div>
 
-<div class="card-trip my-3">
+<div class="col-sm-6 card-trip my-3 vh-100">
   <h3><strong>Reviews</strong></h3>
 
   <div class="row">
@@ -87,20 +87,26 @@
     </div>
   </div>
 
+<div>
 <h3>User Reviews</h3>
 
   <ul class="list-group list-unstyled">
     <% @trip.reviews.each do |review| %>
-      <li class="star-rating"> Rating: <%= review.rating %></li>
-        <% if review.rating %>
-          <%= '⭐️' * review.rating %>
-        <%end%>
-      <li class="list-group-item my-2"><%= review.content %></li>
+      <div>
+        <li class="star-rating">
+          <% if review.rating %>
+            <%= '⭐️' * review.rating %>
+          <%end%>
+          </li>
+        <li class="list-group-item-borderless fst-italic"><%= review.user.username %> posted on <%= review.created_at.strftime("%A, %d %b %Y %l:%M %p") %></li>
+        <li class="list-group-item-borderless fw-bolder mb-2"><%= review.content %></li>
+      </div>
       <%# <%= link_to "Delete", review_path(review), class: "link text-decoration-none", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
     <% end %>
-  </ul>
+    </ul>
+  </div>
 </div>
-</div>
+
 
 <div class="footer">
   <div class="footer-links">

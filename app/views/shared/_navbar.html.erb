@@ -4,7 +4,7 @@
       <h1>RoadTips</h1>
     <% end %>
 
-<%= form_with url: "#", method: :get, class: "d-flex" do %>
+<%= form_with url: trips_path, method: :get, class: "d-flex" do %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
