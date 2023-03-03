@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   resources :trips do
     resources :reviews, only: [:create]
+    resources :pois, only: [:index, :show] do
   end
+end
   # resources :features, only: [:index, :show]
   # resources :trip_features, only: []
   # Defines the root path route ("/")
