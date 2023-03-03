@@ -1,3 +1,8 @@
+<head>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+
 <div class="container">
 <br>
 
@@ -41,60 +46,70 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-sm-6">
+<div class="row flex-wrap">
+  <div class="row col-sm-6 card-trip mb-3">
+    <div class="card-trip-infos py-3">
+      <div>
+        <h2><%= @trip.title %></h2>
+        <p><strong>From: </strong><%= @trip.start_point %></p>
+        <p><strong>To: </strong><%= @trip.end_point %></p>
+        <p><strong>Region: </strong> <%= @trip.region %></p>
+        <p><strong>Summary: </strong> <%= @trip.summary %></p>
+        <br>
+        <%# <%= link_to "Favourite", favorites_update_path(trip: @trip), class: "btn btn-success my-2" %>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <%= link_to "Edit Trip", edit_trip_path(@trip), class: "btn btn-success my-2" %>
+        <%= button_to "Delete Trip", trip_path(@trip), class: "btn btn-flat", method: :delete, confirm: "Are you sure?"%>
+          <h4 class="text-right">★ <strong><%= @trip.reviews.average(:rating) %> </strong>- <%= @trip.reviews.count %> reviews</h4>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="flex col-sm-6 mx-2">
     <div class="card-trip flex mb-3">
+      <div id='map' style='width: 50vw; height: 80vh;'>
+        <script>
+          mapboxgl.accessToken = 'pk.eyJ1IjoiY20xMWp1biIsImEiOiJjbGVvbzZxb28wNDdmM3VvMTBqeXVub2trIn0.6YeYXqBNO0iFTo6kMuTM-w';
+          var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11'
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+
+    <%# <div class="card-trip flex mb-3">
       <div class="card">
         <%= image_tag "scotland-wallpaper.jpg" %>
-      </div>
+      <%# </div>
     </div>
-  </div>
-
-
-<div class="col-sm-6 card-trip flex-end mb-3">
-  <div class="card-trip-infos py-3">
-    <div>
-      <h2><%= @trip.title %></h2>
-      <p><strong>From: </strong><%= @trip.start_point %></p>
-      <p><strong>To: </strong><%= @trip.end_point %></p>
-      <p><strong>Region: </strong> <%= @trip.region %></p>
-      <p><strong>Summary: </strong> <%= @trip.summary %></p>
-      <br>
-      <%# <%= link_to "Favourite", favorites_update_path(trip: @trip), class: "btn btn-success my-2" %>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <%= link_to "Edit Trip", edit_trip_path(@trip), class: "btn btn-success my-2" %>
-      <%= button_to "Delete Trip", trip_path(@trip), class: "btn btn-flat", method: :delete, confirm: "Are you sure?"%>
-      </div>
-      <div class="text-end">
-        <h4>★ <strong><%= @trip.reviews.average(:rating) %> </strong>- <%= @trip.reviews.count %> reviews</h4>
-      </div>
-</div>
-  </div>
-  <div>
+  </div> %>
+<%# <div>
   <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-</div>
-</div>
+</div> %>
 
-<div class="col-sm-6 card-trip my-3 vh-100">
-  <h3><strong>Reviews</strong></h3>
 
-  <div class="row">
-    <div class="col-xs-4">
-      <%= simple_form_for [@trip, @review] do |f| %>
-        <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
-        <%= f.input :content %>
-        <%= f.submit "Add Review", class: "btn btn-flat mb-2"  %>
-      <% end %>
+<div class="col-sm-6">
+  <div class="card-trip my-3 px-3 py-3 vh-100">
+    <h3><strong>Reviews</strong></h3>
+    <div class="row">
+      <div class="col-xs-4">
+        <%= simple_form_for [@trip, @review] do |f| %>
+          <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
+          <%= f.input :content %>
+          <%= f.submit "Add Review", class: "btn btn-flat mb-2"  %>
+        <% end %>
+      </div>
     </div>
-  </div>
 
 <div>
 <h3>User Reviews</h3>
-
   <ul class="list-group list-unstyled">
     <% @trip.reviews.each do |review| %>
       <div>
@@ -103,15 +118,21 @@
             <%= '★' * review.rating %>
           <%end%>
           </li>
-        <li class="list-group-item-borderless fst-italic"><%= review.user.username %> posted on <%= review.created_at.strftime("%A, %d %b %Y %l:%M %p") %></li>
-        <li class="list-group-item-borderless fw-bolder mb-2"><%= review.content %></li>
+        <li class="list-group-item-borderless fst-italic mb-1"><%= review.user.username %> posted on <%= review.created_at.strftime("%A, %d %b %Y %l:%M %p") %></li>
+        <li class="list-group-item-borderless mb-3"><%= review.content %></li>
       </div>
       <%# <%= link_to "Delete", review_path(review), class: "link text-decoration-none", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
     <% end %>
     </ul>
   </div>
 </div>
+</div>
 
+<div class="col-sm-6">
+  <div class="card-trip my-3 px-3 py-3 vh-100">
+  <h3>Points of interest</h3>
+</div>
+</div>
 
 <div class="footer">
   <div class="footer-links">

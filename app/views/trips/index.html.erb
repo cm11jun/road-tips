@@ -63,17 +63,21 @@
                       <p><strong>To: </strong><%= trip.end_point %></p>
                       <p><strong>Region: </strong> <%= trip.region %></p>
                     </div>
+                      <div class="text-end mx-2">
+                        <p>★ <strong><%= trip.reviews.average(:rating) %> </strong></p>
+                      </div>
                   <div>
-                    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered ml-1 mb-1" />
                   </div>
               </div>
             </div>
+
           <% end %>
+
     </div>
   </div>
 
-  <div id='map' style='width: 100vh; height: 100vh;' div>
-
+  <div id='map' style='width: 100vh; height: 100vh;'>
     <script>
       mapboxgl.accessToken = 'pk.eyJ1IjoiY20xMWp1biIsImEiOiJjbGVvbzZxb28wNDdmM3VvMTBqeXVub2trIn0.6YeYXqBNO0iFTo6kMuTM-w';
       var map = new mapboxgl.Map({
@@ -82,10 +86,6 @@
       });
     </script>
   </div>
-
-
-
-
 </div>
 
 
