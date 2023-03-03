@@ -1,6 +1,11 @@
 class TripsController < ApplicationController
   def index
-    @trips = Trip.all
+    if params[:query].present?
+      sql_query = "start_point ILIKE :query OR end_point ILIKE :query OR region ILIKE :query"
+      @trips = Trip.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @trips = Trip.all
+    end
   end
 
   def show
@@ -16,7 +21,7 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     # @trip.user = current_user
     if @trip.save
-      redirect_to new_trip_path(@trip), notice: "Trip created!"
+      redirect_to trip_path(@trip), notice: "Trip created!"
     else
       render :new, status: :unprocessable_entity
     end
