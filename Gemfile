@@ -29,6 +29,9 @@ gem "jbuilder"
 
 gem "geocoder"
 
+gem 'acts_as_favoritor'
+
+gem 'jquery-rails'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

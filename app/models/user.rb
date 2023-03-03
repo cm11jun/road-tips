@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :trips
   has_many :reviews
+  acts_as_favoritor
 
   # validates :username, presence: true
 
