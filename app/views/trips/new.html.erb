@@ -6,6 +6,7 @@
     <%= f.input :end_point %>
     <%= f.input :region %>
     <%= f.input :summary %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.submit "Create Trip", class: "btn btn-success" %>
   <% end %>
 </div>

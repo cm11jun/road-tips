@@ -6,5 +6,6 @@ class Trip < ApplicationRecord
   validates :summary, length: { in: 10..500 }
   validates :region, presence: true
   has_many :reviews
+  has_many_attached :photos
   acts_as_favoritable
 end
