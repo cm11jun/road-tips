@@ -11,6 +11,8 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find(params[:id])
     @review = Review.new
+    @start_coords = Geocoder.search(@trip.start_point).first.coordinates.reverse
+    @end_coords = Geocoder.search(@trip.end_point).first.coordinates.reverse
   end
 
   def new
