@@ -128,7 +128,7 @@
             <%= '★' * review.rating %>
           <%end%>
           </li>
-        <li class="list-group-item-borderless fst-italic mb-1"><%= review.user.username %> posted on <%= review.created_at.strftime("%A, %d %b %Y %l:%M %p") %></li>
+        <li class="list-group-item-borderless"><strong><%= review.user.username %></strong>, <i><%= review.created_at.strftime("%b %d, %Y") %></i></li>
         <li class="list-group-item-borderless mb-3"><%= review.content %></li>
       </div>
       <%# <%= link_to "Delete", review_path(review), class: "link text-decoration-none", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
