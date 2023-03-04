@@ -40,6 +40,15 @@ northern_ireland = Trip.new(
 )
 northern_ireland.save
 
+dales = Trip.new(
+  title: "Dales to the Lakes",
+  start_point: "Buttertubs Pass",
+  end_point: "Ambleside",
+  region: "England",
+  summary: "The drive takes you to down the winding A684 from Buttertubs Pass down to Lake Windermere and then on to Ambleside."
+)
+dales.save
+
 # stonehenge = Poi.new(
 #   name: "Stonehenge",
 #   type: "landmarks",
