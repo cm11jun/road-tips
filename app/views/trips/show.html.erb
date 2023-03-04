@@ -120,27 +120,29 @@
 
 
 <div>
-<h3>User Reviews</h3>
-  <ul class="list-group list-unstyled">
-    <% @trip.reviews.each do |review| %>
-      <div>
-        <li class="star-rating">
-          <% if review.rating %>
-            <%= '★' * review.rating %>
-          <%end%>
-          </li>
-        <li class="list-group-item-borderless"><strong><%= review.user.username %></strong>, <i><%= review.created_at.strftime("%b %d, %Y") %></i></li>
-        <li class="list-group-item-borderless mb-3"><%= review.content %></li>
-      </div>
-      <%# <%= link_to "Delete", review_path(review), class: "link text-decoration-none", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-    <% end %>
+<% if @trip.reviews.count > 0 %>
+  <h3>User Reviews</h3>
+    <ul class="list-group list-unstyled">
+      <% @trip.reviews.each do |review| %>
+        <div>
+          <li class="star-rating">
+            <% if review.rating %>
+              <%= '★' * review.rating %>
+            <%end%>
+            </li>
+            <li class="list-group-item-borderless"><strong><%= review.user.username %></strong>, <i><%= review.created_at.strftime("%b %d, %Y") %></i></li>
+            <li class="list-group-item-borderless mb-3"><%= review.content %></li>
+        </div>
+        <%# <%= link_to "Delete", review_path(review), class: "link text-decoration-none", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+        <% end %>
     </ul>
-  </div>
+<% end %>
+</div>
 </div>
 </div>
 
 <div class="col-sm-6">
-  <div class="card-trip my-3 px-3 py-3 vh-100">
+  <div class="card-trip my-3 px-3 py-3">
     <div>
       <% @pois.each do |poi|%>
         <h2><strong><%= poi.category %></strong></h2>
