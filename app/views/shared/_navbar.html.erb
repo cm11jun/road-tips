@@ -5,11 +5,6 @@
     <% end %>
 
 <%= form_with url: trips_path, method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Where from..."
-  %>
     <%= text_field_tag :query,
     params[:query],
     class: "form-control",

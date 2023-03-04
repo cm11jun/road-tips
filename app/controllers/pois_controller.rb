@@ -9,7 +9,7 @@ class PoisController < ApplicationController
 
   private
 
-  def video_game_params
+  def poi_params
     params.require(:poi).permit(:name, :type, :description, :address, photos: [])
   end
 end

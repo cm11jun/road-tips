@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :reviews
   acts_as_favoritor
 
-  # validates :username, presence: true
+  validates :username, presence: true
 
 
   # Include default devise modules. Others available are:
