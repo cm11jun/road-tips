@@ -65,7 +65,12 @@
         <br>
         <%= link_to "Edit Trip", edit_trip_path(@trip), class: "btn btn-flat my-2" %>
         <%= button_to "Delete Trip", trip_path(@trip), class: "btn btn-light", method: :delete, confirm: "Are you sure?"%>
+
+        <% if @trip.reviews.count > 0 %>
           <h4 class="text-right">★ <strong><%= @trip.reviews.average(:rating).round(2) %> </strong>- <%= @trip.reviews.count %> reviews</h4>
+        <% else %>
+          <p>No reviews</p>
+        <% end %>
       </div>
     </div>
   </div>

@@ -49,6 +49,12 @@ dales = Trip.new(
 )
 dales.save
 
+puts "Cleaning database..."
+Poi.destroy_all
+
+puts "Creating pois..."
+
+
 # stonehenge = Poi.new(
 #   name: "Stonehenge",
 #   type: "landmarks",
@@ -59,7 +65,7 @@ dales.save
 
 # cheddar_gorge = Poi.new(
 #   name: "Cheddar Gorge",
-#   type: "technical/fun roads",
+#   type: "fun roads",
 #   description: "Cheddar Gorge is a limestone gorge in the Mendip Hills. It is a great scenic drive but also contains many caves and the oldest complete human skeleton, among other sights.",
 #   address: "BS27 3QF"
 # )
@@ -75,7 +81,7 @@ dales.save
 
 # black_mountain_pass = Poi.new(
 #   name: "Black Mountain Pass",
-#   type: "technical/fun roads",
+#   type: "fun roads",
 #   description: "Black Mountain Pass is known as the most beautiful drive in Wales. The route winds its way through rolling hills, valleys and pastures, across narrow bridges and over mountain streams.",
 #   address: "SA20 0AR"
 # )
@@ -91,7 +97,7 @@ dales.save
 
 # keswick_loop = Poi.new(
 #   name: "Keswick Loop",
-#   type: "technical/fun roads",
+#   type: "fun roads",
 #   description: "A drive of many natural wonders starting from Keswick visiting some of the most beautiful lakes, valleys and mountain passes in the Lake District.",
 #   address: "CA13 9XA"
 # )
@@ -121,17 +127,17 @@ dales.save
 # )
 # the_angel_inn.save
 
-# buttertubs_pass = Poi.new(
-#   name: "Buttertubs Pass",
-#   type: "scenic roads",
-#   description: "Buttertubs Pass is a mountain pass located in the Yorkshire Dales. The climb was rated by Jeremy Clarkson as England’s only truly spectacular road.",
-#   address: "DL11 6DR"
-# )
-# buttertubs_pass.save
+buttertubs_pass = Poi.new(
+  name: "Buttertubs Pass",
+  type: "scenic roads",
+  description: "Buttertubs Pass is a mountain pass located in the Yorkshire Dales. The climb was rated by Jeremy Clarkson as England’s only truly spectacular road.",
+  address: "DL11 6DR"
+)
+buttertubs_pass.save
 
 # evo_triangle = Poi.new(
 #   name: "Evo Triangle",
-#   type: "technical/ fun roads",
+#   type: "fun roads",
 #   description: "The route offers a fantastic mix of wonderful winding corners as well as superb open straights. The whole route only takes around half an hour but there's nothing stopping you from having a few goes at it!",
 #   address: "LL24 0TA"
 # )
