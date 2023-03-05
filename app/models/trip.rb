@@ -2,7 +2,7 @@ class Trip < ApplicationRecord
   validates :title, presence: true
   validates :start_point, presence: true
   validates :end_point, presence: true
-  validates :summary, length: { in: 10..500 }
+  validates :summary, length: { in: 10..1000 }
   validates :region, presence: true
 
   has_many :reviews

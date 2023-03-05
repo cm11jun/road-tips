@@ -11,24 +11,27 @@ User.destroy_all
 
 puts "Creating users..."
 
-test = User.new(email: "test@roadtips.com")
+test = User.new(email: "test@roadtips.com", username: "test")
 test.save
+
+jaimie = User.new(email: "jaimie@roadtips.co.uk", username: "jaimie", password: "123456")
+jaimie.save
 
 puts "Cleaning database..."
 Trip.destroy_all
 
 puts "Creating trips..."
 
-scotland = Trip.new(
+nc500 = Trip.new(
   title: "North Coast 500",
   start_point: "Inverness Castle",
   end_point: "Inverness Castle",
   region: "Scotland",
   summary: "The North Coast 500 is a 516-mile scenic route around the north coast of Scotland, starting and ending at
-   Inverness Castle. The route is also known as the NC500 and was launched in 2015, linking many features in the north
+  Inverness Castle. The route is also known as the NC500 and was launched in 2015, linking many features in the north
     Highlands of Scotland in one touring route."
 )
-scotland.save
+nc500.save
 
 northern_ireland = Trip.new(
   title: "Causeway Coastal Route",
@@ -36,17 +39,40 @@ northern_ireland = Trip.new(
   end_point: "Derry",
   region: "Northern Ireland",
   summary: "The drive takes you to several of Northern Ireland’s main tourist attractions and landmarks – the Giant’s
-   Causeway itself, Carrick-a-Rede Rope Bridge, Dunluce Castle, Dark Hedges and the Glens of Antrim."
+  Causeway itself, Carrick-a-Rede Rope Bridge, Dunluce Castle, Dark Hedges and the Glens of Antrim."
 )
 northern_ireland.save
 
+west_scotland = Trip.new(
+  title: "Highlands to the Islands",
+  start_point: "Fort William",
+  end_point: "Isle of Skye",
+  region: "Scotland",
+  summary: "Starting at Fort William take the coastal road past Glenfinnan Viaduct (the Harry Potter Bridge,
+  and on to the village of Arisaig. Stay on Camusarach beach where the film Local Hero was filmed. Take the ferry to
+  Skye and spend 2/3 days exploring the island. Tour the Talisker whisky distillery and hike the Old Man of
+  Storr and Quiraing.)"
+)
+west_scotland.save
+
+dales1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1678020123/malham_huexmk.jpg")
+dales2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678020123/ribblehead_uzc9nj.jpg")
+dales3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678020122/donkey_nv00bj.jpg")
 dales = Trip.new(
   title: "Dales to the Lakes",
-  start_point: "Buttertubs Pass",
-  end_point: "Ambleside",
+  start_point: "Yorkshire Sculpture Park",
+  end_point: "Windermere",
   region: "England",
-  summary: "The drive takes you to down the winding A684 from Buttertubs Pass down to Lake Windermere and then on to Ambleside."
+  summary: "Starting off at Yorkshire Sculpture Park. Drive up to stay for a couple of nights in Malham. Visit Malham
+  Cove, Gordale Scarr, and the village of Kettlewell in the Dales. Drive to Ingleton to see the waterfalls, and then on
+  to Ribblehead Viaduct. Stop off for lunch in Hawes before driving the scenic Buttertubs Pass. Then drive down the
+  winding A684 to Lake Windermere to stay in a converted Shepherds Hut. Hire out a boat on Lake Windermere, and hike
+  Loughrigg Fell for a 360 degree view of the lakes and the surrounding mountains. Visit the town of Ambleside and go
+  for a swim in Rydal Water (if it's warm enough!)"
 )
+dales.photos.attach(io: dales1, filename: "malham_huexmk", content_type: "image/jpg")
+dales.photos.attach(io: dales2, filename: "ribblehead_uzc9nj", content_type: "image/jpg")
+dales.photos.attach(io: dales3, filename: "donkey_nv00bj", content_type: "image/jpg")
 dales.save
 
 puts "Cleaning database..."
@@ -174,12 +200,126 @@ rushton_hall = Poi.new(
 )
 rushton_hall.save
 
+loughrigg = Poi.new(
+  name: "Loughrigg Fell",
+  category: "Sights",
+  description: "Loughrigg Fell is a hill in the central part of the English Lake District. It stands on the end of the
+  long ridge coming down from High Raise over Silver How towards Ambleside, and is separated from its neighbours by the
+  depression of Red Bank.",
+  address: "Loughrigg Fell"
+)
+loughrigg.save
+
+malham = Poi.new(
+  name: "Malham Cove",
+  category: "Sights",
+  description: "Malham Cove is a large curved limestone formation 0.6 miles north of the village of Malham, North
+  Yorkshire, England. It was formed by a waterfall carrying meltwater from glaciers at the end of the last Ice Age more
+  than 12,000 years ago.",
+  address: "Malham, Skipton BD23 4DJ"
+)
+malham.save
+
+kettlewell = Poi.new(
+  name: "Kettlewell",
+  category: "Landmarks",
+  description: "Kettlewell is a village in Upper Wharfedale, North Yorkshire, England. Historically part of the West
+  Riding of Yorkshire, it lies 6 miles north of Grassington, at the point where Wharfedale is joined by a minor road
+  which leads north-east from the village over Park Rash Pass to Coverdale.",
+  address: "BD23"
+)
+kettlewell.save
+
+ribblehead = Poi.new(
+  name: "Ribblehead Viaduct",
+  category: "Landmarks",
+  description: "The Ribblehead Viaduct or Batty Moss Viaduct carries the Settle–Carlisle railway across Batty Moss
+  in the Ribble Valley at Ribblehead, in North Yorkshire, England. The viaduct, built by the Midland Railway, is 28
+  miles north-west of Skipton and 26 miles south-east of Kendal. It is a Grade II* listed structure.",
+  address: "Low Sleights Rd, Carnforth LA6 3AU"
+)
+ribblehead.save
+
+ingleton = Poi.new(
+  name: "Ingleton Waterfalls Trail",
+  category: "Sights",
+  description: "Ingleton Waterfalls Trail is a well-known circular trail beginning and ending in the village of
+  Ingleton in the English county of North Yorkshire, now maintained by the Ingleton Scenery Company.",
+  address: "Broadwood Entrance, Ingleton, Carnforth LA6 3ET"
+)
+ingleton.save
+
+rydal = Poi.new(
+  name: "Rydal Water",
+  category: "Sights",
+  description: "Rydal Water is a small body of water in the central part of the English Lake District, in the county of
+  Cumbria. It is located near the hamlet of Rydal, between Grasmere and Ambleside in the Rothay Valley. The lake is
+  1,290 yards long and varies in width up to a maximum of 380 yards, covering an area of 0.12 mi².",
+  address: "Rydal"
+)
+rydal.save
+
+windermere = Poi.new(
+  name: "Windermere",
+  category: "Sights",
+  description: "Windermere is a large lake in Cumbria’s Lake District National Park, northwest England. It’s surrounded
+  by mountain peaks and villages, including Bowness-on-Windermere, where The World of Beatrix Potter Attraction has
+  modern displays on the children’s writer. In the north, trails lead to Orrest Head, a hill with views across the lake
+  and the fells beyond, and Holehird Gardens, with their alpines, heathers and shrubs.",
+  address: "Windermere"
+)
+windermere.save
+
+gordale = Poi.new(
+  name: "Gordale Scar",
+  category: "Sights",
+  description: "Gordale Scar is a limestone ravine 1 mile northeast of Malham, North Yorkshire, England. It contains
+  two waterfalls and has overhanging limestone cliffs over 330 feet high. The gorge could have been formed by water
+  from melting glaciers or a cavern collapse.",
+  address: "Malham, Skipton BD23 4DL"
+)
+gordale.save
+
+pantry = Poi.new(
+  name: "Wensleydale Pantry",
+  category: "Eats",
+  description: "Cafe, British",
+  address: "1 Market Pl, Hawes DL8 3QX"
+)
+pantry.save
+
+green_grove = Poi.new(
+  name: "Green Grove Country House",
+  category: "Sleeps",
+  description: "This 160 year-old cottage is set on the edge of the Yorkshire Dales National Park in Bell Busk.
+  It offers spacious accommodation with countryside views, 7 miles from Skipton.",
+  address: "Green Grove Country House, Malham, BD23 4DU, United Kingdom"
+)
+green_grove.save
+
+pie = Poi.new(
+  name: "Great North Pie Company",
+  category: "Eats",
+  description: "Pie restaurant",
+  address: "Unit 2, Great north pie, Rothay Rd, Ambleside LA22 0EE"
+)
+pie.save
+
 puts "Cleaning database..."
 TripPoi.destroy_all
 
 puts "creating trip_pois"
 
 TripPoi.create!(trip: dales, poi: buttertubs_pass)
-TripPoi.create!(trip: dales, poi: the_white_bear)
+TripPoi.create!(trip: dales, poi: malham)
+TripPoi.create!(trip: dales, poi: kettlewell)
+TripPoi.create!(trip: dales, poi: ribblehead)
+TripPoi.create!(trip: dales, poi: ingleton)
+TripPoi.create!(trip: dales, poi: rydal)
+TripPoi.create!(trip: dales, poi: windermere)
+TripPoi.create!(trip: dales, poi: gordale)
+TripPoi.create!(trip: dales, poi: pantry)
+TripPoi.create!(trip: dales, poi: green_grove)
+TripPoi.create!(trip: dales, poi: pie)
 
 puts "Finished!"

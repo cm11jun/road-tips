@@ -64,6 +64,7 @@
         <p><%= @trip.summary %></p>
         <%# <%= link_to "Favourite", favorites_update_path(trip: @trip), class: "btn btn-success my-2" %>
         <br>
+        <i class="fas fa-heart"></i>
         <br>
         <%= link_to "Edit Trip", edit_trip_path(@trip), class: "btn btn-flat my-2" %>
         <%= button_to "Delete Trip", trip_path(@trip), class: "btn btn-light", method: :delete, confirm: "Are you sure?"%>
@@ -86,18 +87,9 @@
   </div>
 
     <div class="d-flex justify-content-between">
-      <div class="card border-white mx-1">
-        <%= image_tag "scotland-wallpaper.jpg", class: "rounded" %>
-        <%# <%= cl_image_tag @trip.photo.key, class: "rounded" %>
-      </div>
-
-      <div class="card border-white mx-1">
-        <%= image_tag "scotland-wallpaper.jpg", class: "rounded" %>
-      </div>
-
-      <div class="card border-white mx-1">
-        <%= image_tag "scotland-wallpaper.jpg", class: "rounded" %>
-      </div>
+  <% @trip.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "rounded" %>
+  <% end %>
 </div>
 
 <%# <div>
