@@ -45,9 +45,9 @@ northern_ireland = Trip.new(
 )
 northern_ireland.save
 
-west_scotland1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678020110/storr_vympeh.jpg")
-west_scotland2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678110541/rum_gswqgl.jpg")
-west_scotland3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678110640/beach-sunset_jabj8e.jpg")
+west_scotland1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678138904/storr_jbpten.jpg")
+west_scotland2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678138904/rum_jljwi2.jpg")
+west_scotland3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678138904/beach-sunset_u4bnnd.jpg")
 west_scotland = Trip.new(
   title: "Highlands to the Islands",
   start_point: "Fort William",
@@ -58,9 +58,9 @@ west_scotland = Trip.new(
   Skye and spend 2/3 days exploring the island. Tour the Talisker whisky distillery and hike the Old Man of
   Storr and Quiraing.)"
 )
-west_scotland.photos.attach(io: west_scotland1, filename: "storr_vympeh", content_type: "image/jpg")
-west_scotland.photos.attach(io: west_scotland2, filename: "rum_gswqgl", content_type: "image/jpg")
-west_scotland.photos.attach(io: west_scotland3, filename: "beach-sunset_jabj8e", content_type: "image/jpg")
+west_scotland.photos.attach(io: west_scotland1, filename: "storr_jbpten", content_type: "image/jpg")
+west_scotland.photos.attach(io: west_scotland2, filename: "rum_jljwi2", content_type: "image/jpg")
+west_scotland.photos.attach(io: west_scotland3, filename: "beach-sunset_u4bnnd", content_type: "image/jpg")
 west_scotland.save
 
 dales1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1678020123/malham_huexmk.jpg")
@@ -200,25 +200,65 @@ rushton_hall = Poi.new(
 )
 rushton_hall.save
 
-# dales Pois
-buttertubs_pass = Poi.new(
-  name: "Buttertubs Pass",
+# west_scotland pois start
+glenfinnan = Poi.new(
+  name: "Glenfinnan Viaduct",
+  category: "Landmarks",
+  description: "The Glenfinnan Viaduct is a railway viaduct on the West Highland Line in Glenfinnan, Inverness-shire,
+  Scotland, built from 1897 to 1901. Located at the top of Loch Shiel in the West Scottish Highlands, the viaduct
+  overlooks the Glenfinnan Monument and the waters of Loch Shiel.",
+  address: "A830 Rd, Glenfinnan PH37 4LT"
+)
+glenfinnan.save
+
+a830 = Poi.new(
+  name: "A830",
   category: "Scenic roads",
-  description: "Buttertubs Pass is a mountain pass located in the Yorkshire Dales. The climb was rated by Jeremy Clarkson as England’s only truly spectacular road.",
-  address: "DL11 6DR"
+  description: "Coastal road from Fort William to Mallaig.",
+  address: "Lochailort station, adjacent, A830, Lochailort PH38 4L"
 )
-buttertubs_pass.save
+a830.save
 
-loughrigg = Poi.new(
-  name: "Loughrigg Fell",
+camusdarach_beach = Poi.new(
+  name: "Camusdarach Beach",
   category: "Sights",
-  description: "Loughrigg Fell is a hill in the central part of the English Lake District. It stands on the end of the
-  long ridge coming down from High Raise over Silver How towards Ambleside, and is separated from its neighbours by the
-  depression of Red Bank.",
-  address: "Loughrigg Fell"
+  description: "Camusdarach Beach is an arc of white, glistening sand and clear water just south of the estuary of
+  River Morar.",
+  address: "Mallaig PH40 4PD"
 )
-loughrigg.save
+camusdarach_beach.save
 
+talisker_distillery = Poi.new(
+  name: "Talisker distillery",
+  category: "Landmarks",
+  description: "Talisker distillery is an island single malt Scotch whisky distillery based in Carbost, Scotland on the
+  Minginish Peninsula on the Isle of Skye. The distillery is operated by Diageo and Taliskers 10 year old whisky has
+  been nominated as part of their Classic Malts series.",
+  address: "Carbost, Isle of Skye IV47 8SR"
+)
+talisker_distillery.save
+
+storr = Poi.new(
+  name: "Old Man of Storr",
+  category: "Sights",
+  description: "The Storr is a rocky hill on the Trotternish peninsula of the Isle of Skye in Scotland. The hill
+  presents a steep rocky eastern face overlooking the Sound of Raasay, contrasting with gentler grassy slopes to the
+  west.",
+  address: "Portree IV51 9HX"
+)
+storr.save
+
+quiraing = Poi.new(
+  name: "Quiraing",
+  category: "Sights",
+  description: "The Quiraing is a landslip on the eastern face of Meall na Suiramach, the northernmost summit of the
+  Trotternish on the Isle of Skye, Scotland.",
+  address: "Portree IV51 9LA"
+)
+quiraing.save
+# west_scotland pois end
+
+# dales pois start
 malham = Poi.new(
   name: "Malham Cove",
   category: "Sights",
@@ -228,6 +268,25 @@ malham = Poi.new(
   address: "Malham, Skipton BD23 4DJ"
 )
 malham.save
+
+green_grove = Poi.new(
+  name: "Green Grove Country House",
+  category: "Sleeps",
+  description: "This 160 year-old cottage is set on the edge of the Yorkshire Dales National Park in Bell Busk.
+  It offers spacious accommodation with countryside views, 7 miles from Skipton.",
+  address: "Green Grove Country House, Malham, BD23 4DU, United Kingdom"
+)
+green_grove.save
+
+gordale = Poi.new(
+  name: "Gordale Scar",
+  category: "Sights",
+  description: "Gordale Scar is a limestone ravine 1 mile northeast of Malham, North Yorkshire, England. It contains
+  two waterfalls and has overhanging limestone cliffs over 330 feet high. The gorge could have been formed by water
+  from melting glaciers or a cavern collapse.",
+  address: "Malham, Skipton BD23 4DL"
+)
+gordale.save
 
 kettlewell = Poi.new(
   name: "Kettlewell",
@@ -258,15 +317,21 @@ ingleton = Poi.new(
 )
 ingleton.save
 
-rydal = Poi.new(
-  name: "Rydal Water",
-  category: "Sights",
-  description: "Rydal Water is a small body of water in the central part of the English Lake District, in the county of
-  Cumbria. It is located near the hamlet of Rydal, between Grasmere and Ambleside in the Rothay Valley. The lake is
-  1,290 yards long and varies in width up to a maximum of 380 yards, covering an area of 0.12 mi².",
-  address: "Rydal"
+pantry = Poi.new(
+  name: "Wensleydale Pantry",
+  category: "Eats",
+  description: "Cafe, British",
+  address: "1 Market Pl, Hawes DL8 3QX"
 )
-rydal.save
+pantry.save
+
+buttertubs_pass = Poi.new(
+  name: "Buttertubs Pass",
+  category: "Scenic roads",
+  description: "Buttertubs Pass is a mountain pass located in the Yorkshire Dales. The climb was rated by Jeremy Clarkson as England’s only truly spectacular road.",
+  address: "DL11 6DR"
+)
+buttertubs_pass.save
 
 windermere = Poi.new(
   name: "Windermere",
@@ -279,32 +344,25 @@ windermere = Poi.new(
 )
 windermere.save
 
-gordale = Poi.new(
-  name: "Gordale Scar",
+loughrigg = Poi.new(
+  name: "Loughrigg Fell",
   category: "Sights",
-  description: "Gordale Scar is a limestone ravine 1 mile northeast of Malham, North Yorkshire, England. It contains
-  two waterfalls and has overhanging limestone cliffs over 330 feet high. The gorge could have been formed by water
-  from melting glaciers or a cavern collapse.",
-  address: "Malham, Skipton BD23 4DL"
+  description: "Loughrigg Fell is a hill in the central part of the English Lake District. It stands on the end of the
+  long ridge coming down from High Raise over Silver How towards Ambleside, and is separated from its neighbours by the
+  depression of Red Bank.",
+  address: "Loughrigg Fell"
 )
-gordale.save
+loughrigg.save
 
-pantry = Poi.new(
-  name: "Wensleydale Pantry",
-  category: "Eats",
-  description: "Cafe, British",
-  address: "1 Market Pl, Hawes DL8 3QX"
+rydal = Poi.new(
+  name: "Rydal Water",
+  category: "Sights",
+  description: "Rydal Water is a small body of water in the central part of the English Lake District, in the county of
+  Cumbria. It is located near the hamlet of Rydal, between Grasmere and Ambleside in the Rothay Valley. The lake is
+  1,290 yards long and varies in width up to a maximum of 380 yards, covering an area of 0.12 mi².",
+  address: "Rydal"
 )
-pantry.save
-
-green_grove = Poi.new(
-  name: "Green Grove Country House",
-  category: "Sleeps",
-  description: "This 160 year-old cottage is set on the edge of the Yorkshire Dales National Park in Bell Busk.
-  It offers spacious accommodation with countryside views, 7 miles from Skipton.",
-  address: "Green Grove Country House, Malham, BD23 4DU, United Kingdom"
-)
-green_grove.save
+rydal.save
 
 pie = Poi.new(
   name: "Great North Pie Company",
@@ -313,25 +371,35 @@ pie = Poi.new(
   address: "Unit 2, Great north pie, Rothay Rd, Ambleside LA22 0EE"
 )
 pie.save
-# dales Pois
+# dales pois end
 
 puts "Cleaning database..."
 TripPoi.destroy_all
 
 puts "creating trip_pois"
 
-# dales TripPois
-TripPoi.create!(trip: dales, poi: buttertubs_pass)
+# west_scotland TripPois start
+TripPoi.create!(trip: west_scotland, poi: glenfinnan)
+TripPoi.create!(trip: west_scotland, poi: a830)
+TripPoi.create!(trip: west_scotland, poi: camusdarach_beach)
+TripPoi.create!(trip: west_scotland, poi: talisker_distillery)
+TripPoi.create!(trip: west_scotland, poi: storr)
+TripPoi.create!(trip: west_scotland, poi: quiraing)
+# west_scotland TripPois end
+
+# dales TripPois start
 TripPoi.create!(trip: dales, poi: malham)
+TripPoi.create!(trip: dales, poi: green_grove)
+TripPoi.create!(trip: dales, poi: gordale)
 TripPoi.create!(trip: dales, poi: kettlewell)
 TripPoi.create!(trip: dales, poi: ribblehead)
 TripPoi.create!(trip: dales, poi: ingleton)
-TripPoi.create!(trip: dales, poi: rydal)
-TripPoi.create!(trip: dales, poi: windermere)
-TripPoi.create!(trip: dales, poi: gordale)
 TripPoi.create!(trip: dales, poi: pantry)
-TripPoi.create!(trip: dales, poi: green_grove)
+TripPoi.create!(trip: dales, poi: buttertubs_pass)
+TripPoi.create!(trip: dales, poi: windermere)
+TripPoi.create!(trip: dales, poi: loughrigg)
+TripPoi.create!(trip: dales, poi: rydal)
 TripPoi.create!(trip: dales, poi: pie)
-# dales TripPois
+# dales TripPois end
 
 puts "Finished!"
