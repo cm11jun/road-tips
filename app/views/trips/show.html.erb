@@ -137,10 +137,8 @@
   <div class="card-trip my-3 px-3 py-3">
     <div>
       <% @pois.each do |poi|%>
-        <h2><strong><%= poi.category %></strong></h2>
-        <br>
-        <h4><strong><%= poi.name %></strong></h4>
-        <br>
+        <h2 class="my-1"><strong><%= poi.category %></strong></h2>
+        <h4 class="my-1"><strong><%= poi.name %></strong></h4>
         <p><strong>Description</strong></p>
         <p><%= poi.description %></p>
         <p><strong>Address</strong></p>
