@@ -14,7 +14,9 @@ puts "Creating users..."
 test = User.new(email: "test@roadtips.com", username: "test")
 test.save
 
-jaimie = User.new(email: "jaimie@roadtips.co.uk", username: "jaimie", password: "123456")
+jaimie_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678103392/Jaimie-profile_aiwwzf.jpg")
+jaimie = User.new(email: "jaimie@roadtips.co.uk", username: "Jaimie", password: "123456")
+jaimie.avatar.attach(io: jaimie_avatar, filename: "Jaimie-profile_aiwwzf", content_type: "image/jpg")
 jaimie.save
 
 puts "Cleaning database..."
@@ -43,6 +45,9 @@ northern_ireland = Trip.new(
 )
 northern_ireland.save
 
+west_scotland1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678020110/storr_vympeh.jpg")
+west_scotland2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678110541/rum_gswqgl.jpg")
+west_scotland3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678110640/beach-sunset_jabj8e.jpg")
 west_scotland = Trip.new(
   title: "Highlands to the Islands",
   start_point: "Fort William",
@@ -53,6 +58,9 @@ west_scotland = Trip.new(
   Skye and spend 2/3 days exploring the island. Tour the Talisker whisky distillery and hike the Old Man of
   Storr and Quiraing.)"
 )
+west_scotland.photos.attach(io: west_scotland1, filename: "storr_vympeh", content_type: "image/jpg")
+west_scotland.photos.attach(io: west_scotland2, filename: "rum_gswqgl", content_type: "image/jpg")
+west_scotland.photos.attach(io: west_scotland3, filename: "beach-sunset_jabj8e", content_type: "image/jpg")
 west_scotland.save
 
 dales1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1678020123/malham_huexmk.jpg")
@@ -152,14 +160,6 @@ the_angel_inn = Poi.new(
 )
 the_angel_inn.save
 
-buttertubs_pass = Poi.new(
-  name: "Buttertubs Pass",
-  category: "Scenic roads",
-  description: "Buttertubs Pass is a mountain pass located in the Yorkshire Dales. The climb was rated by Jeremy Clarkson as England’s only truly spectacular road.",
-  address: "DL11 6DR"
-)
-buttertubs_pass.save
-
 evo_triangle = Poi.new(
   name: "Evo Triangle",
   category: "Fun roads",
@@ -199,6 +199,15 @@ rushton_hall = Poi.new(
   address: "NN14 1RR"
 )
 rushton_hall.save
+
+# dales Pois
+buttertubs_pass = Poi.new(
+  name: "Buttertubs Pass",
+  category: "Scenic roads",
+  description: "Buttertubs Pass is a mountain pass located in the Yorkshire Dales. The climb was rated by Jeremy Clarkson as England’s only truly spectacular road.",
+  address: "DL11 6DR"
+)
+buttertubs_pass.save
 
 loughrigg = Poi.new(
   name: "Loughrigg Fell",
@@ -304,12 +313,14 @@ pie = Poi.new(
   address: "Unit 2, Great north pie, Rothay Rd, Ambleside LA22 0EE"
 )
 pie.save
+# dales Pois
 
 puts "Cleaning database..."
 TripPoi.destroy_all
 
 puts "creating trip_pois"
 
+# dales TripPois
 TripPoi.create!(trip: dales, poi: buttertubs_pass)
 TripPoi.create!(trip: dales, poi: malham)
 TripPoi.create!(trip: dales, poi: kettlewell)
@@ -321,5 +332,6 @@ TripPoi.create!(trip: dales, poi: gordale)
 TripPoi.create!(trip: dales, poi: pantry)
 TripPoi.create!(trip: dales, poi: green_grove)
 TripPoi.create!(trip: dales, poi: pie)
+# dales TripPois
 
 puts "Finished!"
