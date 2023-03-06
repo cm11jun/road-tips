@@ -11,8 +11,13 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find(params[:id])
     @review = Review.new
+    @pois = @trip.pois
+    # iterate over the array and for each trip_poi, find the poi it belongs to
+    # return an array of pois
+
     @start_coords = Geocoder.search(@trip.start_point).first.coordinates.reverse
     @end_coords = Geocoder.search(@trip.end_point).first.coordinates.reverse
+
   end
 
   def new

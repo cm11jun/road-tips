@@ -8,10 +8,44 @@
   </div>
 </div>
 
+<div class="container card-trip my-3 px-3 py-3">
 <h1>Trending Trips</h1>
+<div class="main-container">
 
-<%# <p><%= user.all_favorites %>
+  <div class="col-sm-12">
+    <div class="row">
+          <% @trips.each do |trip| %>
+            <div class="col-sm-3">
+              <div class="card-trip flex mb-4">
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<%= image_path "scotland-wallpaper.jpg" %>')">
+                  </div>
+                    <div class="container card-category-infos pt-1">
+                      <h4><%= link_to trip.title, trip_path(trip), class: "card-category-h4 link-dark text-decoration-none" %></h4>
+                      <p><strong>From: </strong><%= trip.start_point %></p>
+                      <p><strong>To: </strong><%= trip.end_point %></p>
+                      <p><strong>Region: </strong> <%= trip.region %></p>
+                      <br>
+                      <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="text-end mr-3">
+                    <% if trip.reviews.count > 0 %>
+                        <p>★ <strong><%= trip.reviews.average(:rating).round(2) %> </strong></p>
+                    <% else %>
+                      <p>No reviews</p>
+                    <% end %>
+                    </div>
+                  <div>
+                    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered ml-1 mb-1" />
+                  </div>
+              </div>
+            </div>
 
+          <% end %>
+
+    </div>
+  </div>
+  </div>
+</div>
 
 <div class="footer">
   <div class="footer-links">
