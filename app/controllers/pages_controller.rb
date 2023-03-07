@@ -6,6 +6,10 @@ class PagesController < ApplicationController
     # @trending_trips = @trips.rand
   end
 
+  # display all created trips cards for current_user
+
+  # display favorited trips by the user
+
   private
 
   def trip_params

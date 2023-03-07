@@ -15,9 +15,32 @@ test = User.new(email: "test@roadtips.com", username: "test")
 test.save
 
 jaimie_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678103392/Jaimie-profile_aiwwzf.jpg")
-jaimie = User.new(email: "jaimie@roadtips.co.uk", username: "Jaimie", password: "123456")
+jaimie_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226545/robin_btlnp0.jpg")
+jaimie = User.new(email: "jaimie@roadtips.co.uk", username: "Jaimie", password: "123456", car: "Reliant Robin")
 jaimie.avatar.attach(io: jaimie_avatar, filename: "Jaimie-profile_aiwwzf", content_type: "image/jpg")
+jaimie.car_photo.attach(io: jaimie_car_photo, filename: "robin_btlnp0", content_type: "image/jpg")
 jaimie.save
+
+chris_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678221930/chris_g6kbzi.jpg")
+chris_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226546/mini_gtw5ck.webp")
+chris = User.new(email: "chris@roadtips.co.uk", username: "Chris", password: "123456", car: "Mini")
+chris.avatar.attach(io: chris_avatar, filename: "chris_g6kbzi", content_type: "image/jpg")
+chris.car_photo.attach(io: chris_car_photo, filename: "mini_gtw5ck", content_type: "image/webp")
+chris.save
+
+isk_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678221931/isk_mbjok8.jpg")
+isk_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226546/cozy-coupe_ubh4qq.jpg")
+isk = User.new(email: "isk@roadtips.co.uk", username: "Isk", password: "123456", car: "Honda S2000")
+isk.avatar.attach(io: isk_avatar, filename: "isk_mbjok8", content_type: "image/jpg")
+isk.car_photo.attach(io: isk_car_photo, filename: "cozy-coupe_ubh4qq", content_type: "image/jpg")
+isk.save
+
+raj_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678221931/raj_ybqxdn.jpg")
+raj_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+raj = User.new(email: "raj@roadtips.co.uk", username: "Raj", password: "123456", car: "Toyota Prius")
+raj.avatar.attach(io: raj_avatar, filename: "raj_ybqxdn", content_type: "image/jpg")
+raj.car_photo.attach(io: raj_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+raj.save
 
 puts "Cleaning database..."
 Trip.destroy_all
@@ -25,6 +48,7 @@ Trip.destroy_all
 puts "Creating trips..."
 
 nc500 = Trip.new(
+  user_id: 3,
   title: "North Coast 500",
   start_point: "Inverness Castle",
   end_point: "Inverness Castle",
@@ -36,6 +60,7 @@ nc500 = Trip.new(
 nc500.save
 
 northern_ireland = Trip.new(
+  user_id: 1,
   title: "Causeway Coastal Route",
   start_point: "Belfast",
   end_point: "Derry",
@@ -49,6 +74,7 @@ west_scotland1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v16
 west_scotland2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678138904/rum_jljwi2.jpg")
 west_scotland3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678138904/beach-sunset_u4bnnd.jpg")
 west_scotland = Trip.new(
+  user_id: 1,
   title: "Highlands to the Islands",
   start_point: "Fort William",
   end_point: "Isle of Skye",
@@ -67,6 +93,7 @@ dales1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/w_1000,ar_1
 dales2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678020123/ribblehead_uzc9nj.jpg")
 dales3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678020122/donkey_nv00bj.jpg")
 dales = Trip.new(
+  user_id: 1,
   title: "Dales to the Lakes",
   start_point: "Yorkshire Sculpture Park",
   end_point: "Windermere",
