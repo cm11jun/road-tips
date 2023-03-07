@@ -161,11 +161,16 @@
     zoom: 10
   });
 
+
   var directions = new MapboxDirections({
     accessToken: 'pk.eyJ1IjoiY20xMWp1biIsImEiOiJjbGVvbzZxb28wNDdmM3VvMTBqeXVub2trIn0.6YeYXqBNO0iFTo6kMuTM-w',
     unit: 'metric',
     profile: 'mapbox/driving'
   });
-
   map.addControl(directions, 'top-left');
+  map.on('load', function() {
+directions.setOrigin(<%= @start_coords %>); // On load, set the origin to "Toronto, Ontario".
+directions.setDestination(<%= @end_coords %>); // On load, set the destination to "Montreal, Quebec".
+});
+
 </script>
