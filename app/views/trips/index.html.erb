@@ -78,10 +78,14 @@
                 <span class="sr-only">Next</span>
               </a>
             </div>
+
             </div>
 
           <div class="container card-category-infos pt-1">
-            <h4><%= link_to trip.title, trip_path(trip), class: "card-category-h4 link-dark text-decoration-none" %></h4>
+          <div class="text-end">
+            <%= cl_image_tag trip.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+          </div>
+            <h4><%= link_to trip.title, trip_path(trip), class: "card-category-h4 link-dark text-decoration-none" %> by <%= trip.user.username %></h4>
             <p><strong>From: </strong><%= trip.start_point %></p>
             <p><strong>To: </strong><%= trip.end_point %></p>
             <p><strong>Region: </strong> <%= trip.region %></p>
@@ -95,9 +99,6 @@
             <p>No reviews</p>
           <% end %>
           </div>
-        <div>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered ml-1 mb-1" />
-        </div>
     </div>
   </div>
 
