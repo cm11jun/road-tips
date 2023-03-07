@@ -55,7 +55,8 @@ nc500 = Trip.new(
   region: "Scotland",
   summary: "The North Coast 500 is a 516-mile scenic route around the north coast of Scotland, starting and ending at
   Inverness Castle. The route is also known as the NC500 and was launched in 2015, linking many features in the north
-    Highlands of Scotland in one touring route."
+    Highlands of Scotland in one touring route.",
+  day: "5-7 days"
 )
 nc500.save
 
@@ -66,7 +67,8 @@ northern_ireland = Trip.new(
   end_point: "Derry",
   region: "Northern Ireland",
   summary: "The drive takes you to several of Northern Ireland’s main tourist attractions and landmarks – the Giant’s
-  Causeway itself, Carrick-a-Rede Rope Bridge, Dunluce Castle, Dark Hedges and the Glens of Antrim."
+  Causeway itself, Carrick-a-Rede Rope Bridge, Dunluce Castle, Dark Hedges and the Glens of Antrim.",
+  day: "1-2 days"
 )
 northern_ireland.save
 
@@ -82,7 +84,8 @@ west_scotland = Trip.new(
   summary: "Starting at Fort William take the coastal road past Glenfinnan Viaduct (the Harry Potter Bridge,
   and on to the village of Arisaig. Stay on Camusarach beach where the film Local Hero was filmed. Take the ferry to
   Skye and spend 2/3 days exploring the island. Tour the Talisker whisky distillery and hike the Old Man of
-  Storr and Quiraing.)"
+  Storr and Quiraing.)",
+  day: "4-6 days"
 )
 west_scotland.photos.attach(io: west_scotland1, filename: "storr_jbpten", content_type: "image/jpg")
 west_scotland.photos.attach(io: west_scotland2, filename: "rum_jljwi2", content_type: "image/jpg")
@@ -103,7 +106,8 @@ dales = Trip.new(
   to Ribblehead Viaduct. Stop off for lunch in Hawes before driving the scenic Buttertubs Pass. Then drive down the
   winding A684 to Lake Windermere to stay in a converted Shepherds Hut. Hire out a boat on Lake Windermere, and hike
   Loughrigg Fell for a 360 degree view of the lakes and the surrounding mountains. Visit the town of Ambleside and go
-  for a swim in Rydal Water (if it's warm enough!)"
+  for a swim in Rydal Water (if it's warm enough!)",
+  day: "3-5 days"
 )
 dales.photos.attach(io: dales1, filename: "malham_huexmk", content_type: "image/jpg")
 dales.photos.attach(io: dales2, filename: "ribblehead_uzc9nj", content_type: "image/jpg")

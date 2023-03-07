@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-    resources :profile
 
   root to: "pages#home"
+
+  resources :profile, only: [:index]
 
   resources :trips do
     resources :reviews, only: [:create]
