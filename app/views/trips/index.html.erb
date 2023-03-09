@@ -96,13 +96,15 @@
           <div>
             <h2><%= trip.day %></h2>
           </div>
-          <% if trip.reviews.count > 0 %>
-              <p>★ <strong><%= trip.reviews.average(:rating).round(2) %> </strong></p>
-          <% else %>
-            <p>No reviews</p>
-          <% end %>
+          <div class="pb-3">
+            <% if trip.reviews.count > 0 %>
+                <h4>★ <strong><%= trip.reviews.average(:rating).round(2) %> </strong></h4>
+            <% else %>
+              <h4>No reviews</h4>
+            <% end %>
           </div>
-    </div>
+          </div>
+          </div>
   </div>
 
 <% end %>
@@ -119,20 +121,5 @@
         style: 'mapbox://styles/mapbox/streets-v11'
       });
     </script>
-  </div>
-</div>
-
-
-
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
-  <div class="footer-copyright">
-    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
   </div>
 </div>

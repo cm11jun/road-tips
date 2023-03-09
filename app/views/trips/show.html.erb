@@ -54,7 +54,8 @@
       <div>
         <h2><%= @trip.title %></h2>
         <h2>by <%= @trip.user.username %></h2>
-        <%= cl_image_tag @trip.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+        <%= cl_image_tag @trip.user.avatar.key, class: "card-trip-user avatar" %>
+        <p class= "text-end">Joined in <%= @trip.user.created_at.strftime("%B %Y")  %></p>
         <p><strong>From</strong></p>
         <p><%= @trip.start_point %></p>
         <p><strong>To</strong></p>
@@ -152,19 +153,6 @@
         <br>
       <% end %>
     </div>
-  </div>
-</div>
-
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
-  <div class="footer-copyright">
-    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
   </div>
 </div>
 
