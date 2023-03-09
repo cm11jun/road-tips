@@ -5,11 +5,16 @@ export default class extends Controller {
   static values = { apiKey: String }
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
-    const map = new mapboxgl.Map({
+    this.map = new mapboxgl.Map({
     container: this.element, // container ID
     style: 'mapbox://styles/mapbox/streets-v12', // style URL
-    center: [-74.5, 40], // starting position [lng, lat]
-    zoom: 9, // starting zoom
    });
+   this.#addMarkersToMap
+ }
+
+ #addMarkersToMap() {
+    new mapboxgl.Marker()
+      .setLngLat([51.5072, 0.1276])
+      .addTo(this.map);
  }
 }
