@@ -106,6 +106,7 @@
   <div data-controller="map"
     id='map'
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+    data-map-markers-value="<%= @markers.to_json %>"
     style='width: 100vh; height: 100vh;'></div>
   </div>
 </div>

@@ -1,7 +1,7 @@
 class PoisController < ApplicationController
 
   def index
-    @poi = Poi.all
+    @pois = Poi.all
     # The `geocoded` scope filters only flats with coordinates
     @markers = @pois.geocoded.map do |poi|
       {
@@ -10,6 +10,20 @@ class PoisController < ApplicationController
       }
     end
   end
+
+  def new
+    @Poi.new
+  end
+
+  def edit
+  end
+
+  def create
+    @poi = Poi.new(poi_params)
+    poi.save
+  end
+
+
 
   def show
     @poi = Poi.find(params[:id])
