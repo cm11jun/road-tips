@@ -6,6 +6,16 @@ class TripsController < ApplicationController
     else
       @trips = Trip.all
     end
+
+    @pois = Poi.all
+    # The `geocoded` scope filters only flats with coordinates
+    @markers = @pois.geocoded.map do |poi|
+      {
+        lat: poi.latitude,
+        lng: poi.longitude,
+        info_window: render_to_string(partial: "popup", locals: {poi: poi})
+      }
+    end
   end
 
   def show

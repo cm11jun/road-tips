@@ -1,5 +1,4 @@
 class PoisController < ApplicationController
-
   def index
     @pois = Poi.all
     # The `geocoded` scope filters only flats with coordinates
@@ -9,29 +8,5 @@ class PoisController < ApplicationController
         lng: poi.longitude
       }
     end
-  end
-
-  def new
-    @Poi.new
-  end
-
-  def edit
-  end
-
-  def create
-    @poi = Poi.new(poi_params)
-    poi.save
-  end
-
-
-
-  def show
-    @poi = Poi.find(params[:id])
-  end
-
-  private
-
-  def poi_params
-    params.require(:poi).permit(:name, :category, :description, :address, photos: [])
   end
 end
