@@ -2,7 +2,8 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
-  height: 700px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .banner h1 {
@@ -12,6 +13,13 @@
   font-size: 50px;
   font-weight: bold;
   font-family: 'Nunito', cursive;
+}
+
+.banner h3 {
+  font-family: Rancho;
+  font-size: 60px;
+  margin: 40px 0;
+  text-align: center;
 }
 
 .banner p {

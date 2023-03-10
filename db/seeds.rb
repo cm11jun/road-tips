@@ -9,6 +9,7 @@
 puts "Cleaning database..."
 User.destroy_all
 
+Profile.destroy_all
 puts "Creating users..."
 
 test = User.new(email: "test@roadtips.com", username: "test")
@@ -21,12 +22,26 @@ jaimie.avatar.attach(io: jaimie_avatar, filename: "Jaimie-profile_aiwwzf", conte
 jaimie.car_photo.attach(io: jaimie_car_photo, filename: "robin_btlnp0", content_type: "image/jpg")
 jaimie.save
 
+jaimie_profile = Profile.create!(
+  name: 'Jaimie',
+  bio: 'I am a web developer.',
+  user_id: 1
+)
+jaimie_profile.save
+
 chris_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678221930/chris_g6kbzi.jpg")
 chris_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226546/mini_gtw5ck.webp")
 chris = User.new(email: "chris@roadtips.co.uk", username: "Chris", password: "123456", car: "Mini")
 chris.avatar.attach(io: chris_avatar, filename: "chris_g6kbzi", content_type: "image/jpg")
 chris.car_photo.attach(io: chris_car_photo, filename: "mini_gtw5ck", content_type: "image/webp")
 chris.save
+
+chris_profile = Profile.create!(
+  name: 'Chris',
+  bio: 'I am a web developer.',
+  user_id: 2
+)
+chris_profile.save
 
 isk_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678221931/isk_mbjok8.jpg")
 isk_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226546/cozy-coupe_ubh4qq.jpg")
@@ -35,12 +50,26 @@ isk.avatar.attach(io: isk_avatar, filename: "isk_mbjok8", content_type: "image/j
 isk.car_photo.attach(io: isk_car_photo, filename: "cozy-coupe_ubh4qq", content_type: "image/jpg")
 isk.save
 
+isk_profile = Profile.create!(
+  name: 'Isk',
+  bio: 'I am a web developer.',
+  user_id: 3
+)
+isk_profile.save
+
 raj_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678221931/raj_ybqxdn.jpg")
 raj_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
 raj = User.new(email: "raj@roadtips.co.uk", username: "Raj", password: "123456", car: "Toyota Prius")
 raj.avatar.attach(io: raj_avatar, filename: "raj_ybqxdn", content_type: "image/jpg")
 raj.car_photo.attach(io: raj_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
 raj.save
+
+raj_profile = Profile.create!(
+  name: 'Raj',
+  bio: 'I am a web developer.',
+  user_id: 4
+)
+raj_profile.save
 
 puts "Cleaning database..."
 Trip.destroy_all

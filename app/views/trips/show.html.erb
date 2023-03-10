@@ -68,7 +68,7 @@
         <br>
         <i class="fas fa-heart"></i>
         <br>
-        <% if @trip.user %>
+        <% if @trip.user == current_user %>
           <%= link_to "Edit Trip", edit_trip_path(@trip), class: "btn btn-flat my-2" %>
           <%= button_to "Delete Trip", trip_path(@trip), class: "btn btn-light", method: :delete, confirm: "Are you sure?"%>
         <% end %>
@@ -88,16 +88,29 @@
 
   <div class="flex col-sm-8 ml-2">
     <div class="card-trip flex mb-3">
-      <div id='map' style='width: 100%; height: 80vh;'>
+      <div id='map' style='width: 100%; height: 100vh;'>
       </div>
     </div>
   </div>
 
-    <div class="d-flex justify-content-between">
+
+<div class="row">
   <% @trip.photos.each do |photo| %>
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <a href="https://res.cloudinary.com/doaf60lu6/image/upload/v1678138904/storr_jbpten.jpg">
       <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "rounded" %>
+        <div class="caption">
+          <p><%= photo.filename %></p>
+        </div>
+      </a>
+    </div>
+  </div>
   <% end %>
 </div>
+
+
+<%# <div class="container d-flex justify-content-between"> %>
 
 <%# <div>
   <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
