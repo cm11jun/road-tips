@@ -2,6 +2,8 @@ class User < ApplicationRecord
   has_many :trips
   has_many :reviews
 
+  has_one :profile
+
   has_one_attached :avatar
   has_one_attached :car_photo
 

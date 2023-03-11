@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_07_230859) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_10_193324) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -69,6 +69,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_230859) do
     t.string "address"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.text "bio"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.text "content"
     t.integer "rating"
@@ -118,6 +127,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_230859) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "profiles", "users"
   add_foreign_key "reviews", "trips"
   add_foreign_key "reviews", "users"
   add_foreign_key "trip_pois", "pois"

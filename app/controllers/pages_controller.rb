@@ -2,8 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
-    @trips = Trip.all
-    # @trending_trips = @trips.rand
+    @trips = Trip.all.limit(4)
   end
 
   private
