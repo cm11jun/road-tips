@@ -116,7 +116,7 @@ west_scotland = Trip.new(
   start_point: "Fort William",
   end_point: "Isle of Skye",
   region: "Scotland",
-  summary: "Starting at Fort William take the coastal road past Glenfinnan Viaduct (the Harry Potter Bridge,
+  summary: "Starting at Fort William, take the coastal road past Glenfinnan Viaduct (the Harry Potter Bridge,
   and on to the village of Arisaig. Stay on Camusarach beach where the film Local Hero was filmed. Take the ferry to
   Skye and spend 2/3 days exploring the island. Tour the Talisker whisky distillery and hike the Old Man of
   Storr and Quiraing.)",
