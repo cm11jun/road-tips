@@ -1,7 +1,7 @@
 class TripsController < ApplicationController
   def index
     if params[:query].present?
-      sql_query = "start_point ILIKE :query OR end_point ILIKE :query OR region ILIKE :query"
+      sql_query = "title ILIKE :query OR start_point ILIKE :query OR end_point ILIKE :query OR region ILIKE :query"
       @trips = Trip.where(sql_query, query: "%#{params[:query]}%")
     else
       @trips = Trip.all

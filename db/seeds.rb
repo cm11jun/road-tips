@@ -402,7 +402,7 @@ kettlewell = Poi.new(
   description: "Kettlewell is a village in Upper Wharfedale, North Yorkshire, England. Historically part of the West
   Riding of Yorkshire, it lies 6 miles north of Grassington, at the point where Wharfedale is joined by a minor road
   which leads north-east from the village over Park Rash Pass to Coverdale.",
-  address: "BD23"
+  address: "Kettlewell, Skipton BD23 5QZ"
 )
 kettlewell.save
 
@@ -468,7 +468,7 @@ rydal = Poi.new(
   description: "Rydal Water is a small body of water in the central part of the English Lake District, in the county of
   Cumbria. It is located near the hamlet of Rydal, between Grasmere and Ambleside in the Rothay Valley. The lake is
   1,290 yards long and varies in width up to a maximum of 380 yards, covering an area of 0.12 mi².",
-  address: "Rydal"
+  address: "Ambleside LA22 9HQ"
 )
 rydal.save
 
