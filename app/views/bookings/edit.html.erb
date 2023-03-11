@@ -1,0 +1,7 @@
+<%= form_for @booking do |f| %>
+  <p>User ID: <%= f.text_field :user_id %></p>
+  <p>Road Trip ID: <%= f.text_field :trip_id %></p>
+  <p>Start Date: <%= f.date_select :start_date %></p>
+  <p>End Date: <%= f.date_select :end_date %></p>
+  <%= f.submit "Update Booking" %>
+<% end %>

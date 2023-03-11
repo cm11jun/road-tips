@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
@@ -11,4 +14,4 @@ import StarRatingController from "./star_rating_controller"
 application.register("star-rating", StarRatingController)
 
 import TripShowMapController from "./trip_show_map_controller"
-application.register("trip_show_map", TripShowMapController)
+application.register("trip-show-map", TripShowMapController)

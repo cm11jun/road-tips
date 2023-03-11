@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :trips
   has_many :reviews
+  has_many :bookings
 
   has_one :profile
 
