@@ -1,0 +1,6 @@
+<% @bookings.each do |booking| %>
+  <p>User ID: <%= booking.user_id %></p>
+  <p>Road Trip ID: <%= booking.trip_id %></p>
+  <p>Start Date: <%= booking.start_date %></p>
+  <p>End Date: <%= booking.end_date %></p>
+<% end %>

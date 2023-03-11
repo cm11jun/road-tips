@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
 
   resources :trips do
+    resources :bookings
     resources :reviews, only: [:create]
     resources :pois, only: [:index, :show] do
   end
