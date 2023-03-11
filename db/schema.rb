@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_11_114722) do
+
+ActiveRecord::Schema[7.0].define(version: 2023_03_11_113746) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -73,11 +74,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_11_114722) do
 
   create_table "pois", force: :cascade do |t|
     t.string "name"
-    t.string "category"
-    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "category"
+    t.text "description"
   end
 
   create_table "profiles", force: :cascade do |t|

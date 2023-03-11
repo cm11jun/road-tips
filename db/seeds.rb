@@ -7,10 +7,12 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "Cleaning database..."
-User.destroy_all
-
+Review.destroy_all
+TripPoi.destroy_all
+Trip.destroy_all
+Poi.destroy_all
 Profile.destroy_all
-puts "Creating users..."
+User.destroy_all
 
 test = User.new(email: "test@roadtips.com", username: "test")
 test.save
@@ -25,7 +27,7 @@ jaimie.save
 jaimie_profile = Profile.create!(
   name: 'Jaimie',
   bio: 'I am a web developer.',
-  user_id: 1
+  user_id: jaimie.id
 )
 jaimie_profile.save
 
@@ -39,7 +41,7 @@ chris.save
 chris_profile = Profile.create!(
   name: 'Chris',
   bio: 'I am a web developer.',
-  user_id: 2
+  user_id: chris.id
 )
 chris_profile.save
 
@@ -53,7 +55,7 @@ isk.save
 isk_profile = Profile.create!(
   name: 'Isk',
   bio: 'I am a web developer.',
-  user_id: 3
+  user_id: isk.id
 )
 isk_profile.save
 
@@ -67,17 +69,14 @@ raj.save
 raj_profile = Profile.create!(
   name: 'Raj',
   bio: 'I am a web developer.',
-  user_id: 4
+  user_id: raj.id
 )
 raj_profile.save
 
 puts "Cleaning database..."
-Trip.destroy_all
-
-puts "Creating trips..."
 
 nc500 = Trip.new(
-  user_id: 3,
+  user_id: isk.id,
   title: "North Coast 500",
   start_point: "Inverness Castle",
   end_point: "Inverness Castle",
@@ -93,7 +92,7 @@ northern_ireland1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/
 northern_ireland2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678302977/Giants-Causeway_pzmrd7.jpg")
 northern_ireland3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678302977/rope-bridge_k3rfo6.jpg")
 northern_ireland = Trip.new(
-  user_id: 1,
+  user_id: jaimie.id,
   title: "Causeway Coastal Route",
   start_point: "Belfast",
   end_point: "Derry",
@@ -111,12 +110,12 @@ west_scotland1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v16
 west_scotland2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678138904/rum_jljwi2.jpg")
 west_scotland3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678138904/beach-sunset_u4bnnd.jpg")
 west_scotland = Trip.new(
-  user_id: 1,
+  user_id: jaimie.id,
   title: "Highlands to the Islands",
   start_point: "Fort William",
   end_point: "Isle of Skye",
   region: "Scotland",
-  summary: "Starting at Fort William take the coastal road past Glenfinnan Viaduct (the Harry Potter Bridge,
+  summary: "Starting at Fort William, take the coastal road past Glenfinnan Viaduct (the Harry Potter Bridge,
   and on to the village of Arisaig. Stay on Camusarach beach where the film Local Hero was filmed. Take the ferry to
   Skye and spend 2/3 days exploring the island. Tour the Talisker whisky distillery and hike the Old Man of
   Storr and Quiraing.)",
@@ -131,7 +130,7 @@ dales1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/w_1000,ar_1
 dales2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678020123/ribblehead_uzc9nj.jpg")
 dales3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678020122/donkey_nv00bj.jpg")
 dales = Trip.new(
-  user_id: 1,
+  user_id: jaimie.id,
   title: "Dales to the Lakes",
   start_point: "Yorkshire Sculpture Park",
   end_point: "Windermere",
@@ -481,9 +480,6 @@ pie = Poi.new(
 )
 pie.save
 # dales pois end
-
-puts "Cleaning database..."
-TripPoi.destroy_all
 
 puts "creating trip_pois"
 
