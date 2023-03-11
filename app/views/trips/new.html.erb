@@ -1,14 +1,30 @@
-<div class="container px-4 my-5 py-5 card-trip w-50">
-  <h1>New Trip</h1>
-  <%= simple_form_for [@trip] do |f| %>
-    <%= f.input :title %>
-    <%= f.input :start_point %>
-    <%= f.input :end_point %>
-    <%= f.input :region %>
-    <%= f.input :summary %>
-    <%= f.input :day %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.submit "Create Trip", class: "btn btn-success" %>
-  <% end %>
-</div>
+<head>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
+</head>
+
+<div class="main-container flex">
+  <div class="col-12 col-lg-6">
+    <div class="row">
+      <h1>New Trip</h1>
+      <%= simple_form_for [@trip] do |f| %>
+        <%= f.input :title %>
+        <%= f.input :start_point %>
+        <%= f.input :end_point %>
+        <%= f.input :region %>
+        <%= f.input :summary %>
+        <%= f.input :day %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.submit "Create Trip", class: "btn btn-success" %>
+      <% end %>
+    </div>
+    <div data-controller="map"
+      id='map'
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+      data-map-markers-value="<%= @markers.to_json %>"
+      style='width: 100vh; height: 100vh;'>
+      </div>
+    </div>
 </div>
