@@ -36,7 +36,7 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
-    # @trip.user = current_user
+    @trip.user = current_user
     if @trip.save
       redirect_to trip_path(@trip), notice: "Trip created!"
     else
@@ -66,6 +66,6 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:title, :start_point, :end_point, :region, :summary, photos: [])
+    params.require(:trip).permit(:title, :start_point, :end_point, :region, :summary, :day, photos: [])
   end
 end

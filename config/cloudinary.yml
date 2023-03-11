@@ -1,0 +1,10 @@
+development:
+  cloud_name: "dpgeukxfw"
+  api_key: "856339694495668"
+  api_secret: "gZzczyj8uq_R7KVqOIMJdi3Ea5A"
+  secure: true
+production:
+  cloud_name: "dpgeukxfw"
+  api_key: "856339694495668"
+  api_secret: "gZzczyj8uq_R7KVqOIMJdi3Ea5A"
+  secure: true

@@ -9,15 +9,67 @@
 puts "Cleaning database..."
 User.destroy_all
 
+Profile.destroy_all
 puts "Creating users..."
 
 test = User.new(email: "test@roadtips.com", username: "test")
 test.save
 
 jaimie_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678103392/Jaimie-profile_aiwwzf.jpg")
-jaimie = User.new(email: "jaimie@roadtips.co.uk", username: "Jaimie", password: "123456")
+jaimie_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226545/robin_btlnp0.jpg")
+jaimie = User.new(email: "jaimie@roadtips.co.uk", username: "Jaimie", password: "123456", car: "Reliant Robin")
 jaimie.avatar.attach(io: jaimie_avatar, filename: "Jaimie-profile_aiwwzf", content_type: "image/jpg")
+jaimie.car_photo.attach(io: jaimie_car_photo, filename: "robin_btlnp0", content_type: "image/jpg")
 jaimie.save
+
+jaimie_profile = Profile.create!(
+  name: 'Jaimie',
+  bio: 'I am a web developer.',
+  user_id: 1
+)
+jaimie_profile.save
+
+chris_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678221930/chris_g6kbzi.jpg")
+chris_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226546/mini_gtw5ck.webp")
+chris = User.new(email: "chris@roadtips.co.uk", username: "Chris", password: "123456", car: "Mini")
+chris.avatar.attach(io: chris_avatar, filename: "chris_g6kbzi", content_type: "image/jpg")
+chris.car_photo.attach(io: chris_car_photo, filename: "mini_gtw5ck", content_type: "image/webp")
+chris.save
+
+chris_profile = Profile.create!(
+  name: 'Chris',
+  bio: 'I am a web developer.',
+  user_id: 2
+)
+chris_profile.save
+
+isk_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678221931/isk_mbjok8.jpg")
+isk_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226546/cozy-coupe_ubh4qq.jpg")
+isk = User.new(email: "isk@roadtips.co.uk", username: "Isk", password: "123456", car: "Honda S2000")
+isk.avatar.attach(io: isk_avatar, filename: "isk_mbjok8", content_type: "image/jpg")
+isk.car_photo.attach(io: isk_car_photo, filename: "cozy-coupe_ubh4qq", content_type: "image/jpg")
+isk.save
+
+isk_profile = Profile.create!(
+  name: 'Isk',
+  bio: 'I am a web developer.',
+  user_id: 3
+)
+isk_profile.save
+
+raj_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678221931/raj_ybqxdn.jpg")
+raj_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+raj = User.new(email: "raj@roadtips.co.uk", username: "Raj", password: "123456", car: "Toyota Prius")
+raj.avatar.attach(io: raj_avatar, filename: "raj_ybqxdn", content_type: "image/jpg")
+raj.car_photo.attach(io: raj_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+raj.save
+
+raj_profile = Profile.create!(
+  name: 'Raj',
+  bio: 'I am a web developer.',
+  user_id: 4
+)
+raj_profile.save
 
 puts "Cleaning database..."
 Trip.destroy_all
@@ -25,30 +77,41 @@ Trip.destroy_all
 puts "Creating trips..."
 
 nc500 = Trip.new(
+  user_id: 3,
   title: "North Coast 500",
   start_point: "Inverness Castle",
   end_point: "Inverness Castle",
   region: "Scotland",
   summary: "The North Coast 500 is a 516-mile scenic route around the north coast of Scotland, starting and ending at
   Inverness Castle. The route is also known as the NC500 and was launched in 2015, linking many features in the north
-    Highlands of Scotland in one touring route."
+    Highlands of Scotland in one touring route.",
+  day: "5-7 days"
 )
 nc500.save
 
+northern_ireland1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678302977/dark-hedges_g3wgt2.jpg")
+northern_ireland2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678302977/Giants-Causeway_pzmrd7.jpg")
+northern_ireland3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678302977/rope-bridge_k3rfo6.jpg")
 northern_ireland = Trip.new(
+  user_id: 1,
   title: "Causeway Coastal Route",
   start_point: "Belfast",
   end_point: "Derry",
   region: "Northern Ireland",
   summary: "The drive takes you to several of Northern Ireland’s main tourist attractions and landmarks – the Giant’s
-  Causeway itself, Carrick-a-Rede Rope Bridge, Dunluce Castle, Dark Hedges and the Glens of Antrim."
+  Causeway itself, Carrick-a-Rede Rope Bridge, Bushmills Distillery, Dunluce Castle, Dark Hedges and the Glens of Antrim.",
+  day: "1-2 days"
 )
+northern_ireland.photos.attach(io: northern_ireland1, filename: "dark-hedges_g3wgt2", content_type: "image/jpg")
+northern_ireland.photos.attach(io: northern_ireland2, filename: "Giants-Causeway_pzmrd7", content_type: "image/jpg")
+northern_ireland.photos.attach(io: northern_ireland3, filename: "rope-bridge_k3rfo6", content_type: "image/jpg")
 northern_ireland.save
 
 west_scotland1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678138904/storr_jbpten.jpg")
 west_scotland2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678138904/rum_jljwi2.jpg")
 west_scotland3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678138904/beach-sunset_u4bnnd.jpg")
 west_scotland = Trip.new(
+  user_id: 1,
   title: "Highlands to the Islands",
   start_point: "Fort William",
   end_point: "Isle of Skye",
@@ -56,7 +119,8 @@ west_scotland = Trip.new(
   summary: "Starting at Fort William take the coastal road past Glenfinnan Viaduct (the Harry Potter Bridge,
   and on to the village of Arisaig. Stay on Camusarach beach where the film Local Hero was filmed. Take the ferry to
   Skye and spend 2/3 days exploring the island. Tour the Talisker whisky distillery and hike the Old Man of
-  Storr and Quiraing.)"
+  Storr and Quiraing.)",
+  day: "4-6 days"
 )
 west_scotland.photos.attach(io: west_scotland1, filename: "storr_jbpten", content_type: "image/jpg")
 west_scotland.photos.attach(io: west_scotland2, filename: "rum_jljwi2", content_type: "image/jpg")
@@ -67,6 +131,7 @@ dales1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/w_1000,ar_1
 dales2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678020123/ribblehead_uzc9nj.jpg")
 dales3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678020122/donkey_nv00bj.jpg")
 dales = Trip.new(
+  user_id: 1,
   title: "Dales to the Lakes",
   start_point: "Yorkshire Sculpture Park",
   end_point: "Windermere",
@@ -76,7 +141,8 @@ dales = Trip.new(
   to Ribblehead Viaduct. Stop off for lunch in Hawes before driving the scenic Buttertubs Pass. Then drive down the
   winding A684 to Lake Windermere to stay in a converted Shepherds Hut. Hire out a boat on Lake Windermere, and hike
   Loughrigg Fell for a 360 degree view of the lakes and the surrounding mountains. Visit the town of Ambleside and go
-  for a swim in Rydal Water (if it's warm enough!)"
+  for a swim in Rydal Water (if it's warm enough!)",
+  day: "3-5 days"
 )
 dales.photos.attach(io: dales1, filename: "malham_huexmk", content_type: "image/jpg")
 dales.photos.attach(io: dales2, filename: "ribblehead_uzc9nj", content_type: "image/jpg")
@@ -199,6 +265,49 @@ rushton_hall = Poi.new(
   address: "NN14 1RR"
 )
 rushton_hall.save
+
+# northern_ireland pois start
+giants_causeway = Poi.new(
+  name: "Giant's Causeway",
+  category: "Sights",
+  description: "The Giant's Causeway (Irish: Clochán an Aifir) is an area of about 40,000 interlocking basalt columns,
+  the result of an ancient volcanic fissure eruption.",
+  address: "Bushmills BT57 8SU"
+)
+giants_causeway.save
+
+
+rope_bridge = Poi.new(
+  name: "Carrick-a-Rede Rope Bridge",
+  category: "Sights",
+  description: "The Carrick-a-Rede Rope Bridge is a rope bridge near Ballintoy in County Antrim, Northern Ireland. The
+  bridge links the mainland to the tiny island of Carrickarede. It spans 20 metres and is 30 metres above the rocks
+  below.",
+  address: "119a Whitepark Rd, Ballintoy, Antrim, Ballycastle BT54 6LS"
+)
+rope_bridge.save
+
+
+bushmills = Poi.new(
+  name: "Old Bushmills Distillery",
+  category: "Landmarks",
+  description: "The Old Bushmills Distillery is an alcohol distillery in Bushmills, County Antrim, Northern Ireland,
+  owned by Proximo Spirits. Bushmills Distillery uses water drawn from Saint Columb's Rill, which is a tributary of the
+  River Bush. The distillery is a popular tourist attraction, with around 120,000 visitors per year.",
+  address: "2 Distillery Rd, Bushmills BT57 8XH"
+)
+bushmills.save
+
+
+dark_hedges = Poi.new(
+  name: "The Dark Hedges",
+  category: "Sights",
+  description: "The Dark Hedges is an avenue of beech trees along Bregagh Road between Armoy and Stranocum in County
+  Antrim, Northern Ireland.",
+  address: "Bregagh Rd, Stranocum, Ballymoney BT53 8PX"
+)
+dark_hedges.save
+# northern_ireland pois end
 
 # west_scotland pois start
 glenfinnan = Poi.new(
@@ -377,6 +486,13 @@ puts "Cleaning database..."
 TripPoi.destroy_all
 
 puts "creating trip_pois"
+
+# northern_ireland TripPois start
+TripPoi.create!(trip: northern_ireland, poi: giants_causeway)
+TripPoi.create!(trip: northern_ireland, poi: rope_bridge)
+TripPoi.create!(trip: northern_ireland, poi: bushmills)
+TripPoi.create!(trip: northern_ireland, poi: dark_hedges)
+# northern_ireland TripPois start
 
 # west_scotland TripPois start
 TripPoi.create!(trip: west_scotland, poi: glenfinnan)

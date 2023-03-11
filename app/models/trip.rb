@@ -4,7 +4,10 @@ class Trip < ApplicationRecord
   validates :end_point, presence: true
   validates :summary, length: { in: 10..1000 }
   validates :region, presence: true
+  validates :day, presence: true
 
+
+  belongs_to :user
   has_many :reviews
   has_many :trip_pois
   has_many :pois, through: :trip_pois
