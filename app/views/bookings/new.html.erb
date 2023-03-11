@@ -1,13 +1,4 @@
-<div class="container">
-  <%= simple_form_for [@trip, @booking], data: { controller: 'flatpickr' } do |f| %>
-    <%= f.input :user_id %>
-    <%= f.input :trip_id %>
-    <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
-    <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
-    <%= f.submit 'Book trip', class: "btn btn-flat"%>
-  <% end %>
 
-<div>
 
 <%# <%= form_for @booking do |f| %>
   <%# <p>User ID: <%= f.text_field :user_id %>
