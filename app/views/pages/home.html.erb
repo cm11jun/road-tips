@@ -43,7 +43,9 @@
 
           <div class="container card-category-infos pt-1">
           <div class="text-end">
-            <%= cl_image_tag trip.user.avatar.key, class: "card-trip-user avatar" %>
+            <% if trip.user %>
+              <%= cl_image_tag trip.user.avatar.key, class: "card-trip-user avatar" %>
+            <% end %>
           </div>
               <h4><%= link_to trip.title, trip_path(trip), class: "card-category-h4 link-dark text-decoration-none" %> by <%= trip.user.username %></h4>
               <div class="card-category-infos">
