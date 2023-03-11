@@ -83,7 +83,9 @@
 
           <div class="container card-category-infos pt-1">
           <div class="text-end">
-            <%= cl_image_tag trip.user.try(:avatar).try(:key), class: "card-trip-user avatar-bordered" %>
+            <% if trip.user.present? %>
+              <%= cl_image_tag trip.user.try(:avatar).try(:key), class: "card-trip-user avatar-bordered" %>
+            <% end %>
           </div>
             <h4><%= link_to trip.title, trip_path(trip), class: "card-category-h4 link-dark text-decoration-none" %> by <%= trip.user&.username %></h4>
             <p><strong>From: </strong><%= trip.start_point %></p>
