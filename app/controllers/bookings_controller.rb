@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.trip = @trip
     if @booking.save
-      redirect_to trip_path(@trip), notice: "Booking successful!"
+      redirect_to bookings_path, notice: "Booking successful!"
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,9 +33,24 @@ class BookingsController < ApplicationController
   #   end
   # end
 
-  # def edit
-  #   @booking = Booking.find(params[:id])
-  # end
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      redirect_to bookings_path, notice: "Trip updated!"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy!
+    redirect_to bookings_path, status: :see_other
+  end
 
   private
 
