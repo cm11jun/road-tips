@@ -1,6 +1,25 @@
-<% @bookings.each do |booking| %>
-  <p>User ID: <%= booking.user_id %></p>
-  <p>Road Trip ID: <%= booking.trip_id %></p>
-  <p>Start Date: <%= booking.start_date %></p>
-  <p>End Date: <%= booking.end_date %></p>
-<% end %>
+<div class='container card vh-100 w-50 my-3'>
+  <h1>Booked Trips</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bookings.each do |booking| %>
+        <tr>
+          <td><%= booking.trip.title %></td>
+          <td><%= booking.start_date.strftime("%m/%d/%Y") %></td>
+          <td><%= booking.end_date.strftime("%m/%d/%Y") %></td>
+          <%# <td><%= link_to "Change Booking", edit_trip_booking_path, class: "btn btn-flat my-2" %>
+          <%# <%= button_to "Delete Trip", trip_path(@trip), class: "btn btn-light", method: :delete, confirm: "Are you sure?"%>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

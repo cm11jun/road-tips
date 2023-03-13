@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   # resources :profiles, only: [:show]
   get 'profile' => 'profile#show'
 
+  resources :bookings, only: [:index]
+
 
   resources :trips do
     resources :bookings

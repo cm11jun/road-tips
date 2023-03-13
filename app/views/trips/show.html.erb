@@ -158,6 +158,18 @@
 
 <div class="col-sm-6">
   <div class="card-trip my-3 px-3 py-3">
+    <h2>Book this trip</h2>
+    <br>
+      <%= simple_form_for [@trip, @booking] do |f| %>
+        <%= f.input :start_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
+        <%= f.input :end_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
+        <%= f.submit 'Book Trip', class: "btn btn-flat"%>
+      <% end %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="card-trip my-3 px-3 py-3">
     <div>
       <% @pois.each do |poi|%>
         <h2 class="my-1"><strong><%= poi.category %></strong></h2>
@@ -171,6 +183,7 @@
     </div>
   </div>
 </div>
+
 
 <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoiY20xMWp1biIsImEiOiJjbGVvbzZxb28wNDdmM3VvMTBqeXVub2trIn0.6YeYXqBNO0iFTo6kMuTM-w';
