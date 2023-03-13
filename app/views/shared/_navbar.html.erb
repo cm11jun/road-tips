@@ -34,7 +34,6 @@
             <%= link_to "Create new trip", new_trip_path, class: "btn btn-flat mx-3" %>
           </li>
           <li class="nav-item dropdown">
-            <%# <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> %>
             <% if current_user.avatar.present? %>
               <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>

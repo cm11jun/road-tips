@@ -54,7 +54,9 @@
       <div>
         <h2><%= @trip.title %></h2>
         <h2>by <%= @trip.user.username %></h2>
+        <%= link_to profile_path(@profile) do %>
         <%= cl_image_tag @trip.user.avatar.key, class: "card-trip-user avatar" %>
+        <% end %>
         <p class= "text-end">Joined in <%= @trip.user.created_at.strftime("%B %Y")  %></p>
         <p><strong>From</strong></p>
         <p><%= @trip.start_point %></p>

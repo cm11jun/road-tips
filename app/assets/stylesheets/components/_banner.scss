@@ -30,6 +30,16 @@
   font-family: 'Nunito', cursive;
 }
 
+.fade-in-text {
+  font-family: 'Nunito', cursive;
+  animation: fadeIn 5s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 .btn-flat {
   color: white;
   padding: 8px 24px;
