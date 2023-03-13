@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.trip = @trip
     if @booking.save
-      redirect_to trips_path, notice: "Booking successful!"
+      redirect_to trip_path(@trip), notice: "Booking successful!"
     else
       render :new, status: :unprocessable_entity
     end
