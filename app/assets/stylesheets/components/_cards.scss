@@ -62,7 +62,7 @@ body {
 .card-banner {
   background-size: cover;
   background-position: center;
-  height: 440px;
+  height: 370px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,6 +73,8 @@ body {
   // border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   font-family: 'Racing Sans One', cursive;
+  font-size: 50px;
+
 }
 
 .card-category h4 {

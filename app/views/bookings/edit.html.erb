@@ -1,7 +1,11 @@
-<%= form_for @booking do |f| %>
-  <p>User ID: <%= f.text_field :user_id %></p>
-  <p>Road Trip ID: <%= f.text_field :trip_id %></p>
-  <p>Start Date: <%= f.date_select :start_date %></p>
-  <p>End Date: <%= f.date_select :end_date %></p>
-  <%= f.submit "Update Booking" %>
-<% end %>
+<div class="container w-50">
+  <div class="card-trip my-3 px-3 py-3">
+    <h2>Change trip</h2>
+    <br>
+      <%= simple_form_for [@trip, @booking] do |f| %>
+        <%= f.input :start_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
+        <%= f.input :end_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
+        <%= f.submit 'Change Trip', class: "btn btn-flat"%>
+      <% end %>
+  </div>
+</div>

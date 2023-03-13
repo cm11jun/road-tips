@@ -41,10 +41,10 @@
           </div>
               <h4><%= booking.trip.title %> by <%= booking.trip.user.username %></h4>
               <div class="card-category-infos">
-                <h6><strong>From: </strong><%= booking.trip.start_point %></h6>
-                <h6><strong>To: </strong><%= booking.trip.end_point %></h6>
                 <h6><strong>Start date: </strong> <%= booking.start_date.strftime("%m/%d/%Y") %></h6>
                 <h6><strong>End date: </strong> <%= booking.start_date.strftime("%m/%d/%Y") %></h6>
+                <%= link_to "Edit Trip", edit_booking_path(booking), class: "btn btn-flat my-2" %>
+                <%= button_to "Cancel Trip", bookings_path, class: "btn btn-light", method: :delete, confirm: "Are you sure?"%>
               </div>
             <br>
             <i class="fas fa-heart"></i>

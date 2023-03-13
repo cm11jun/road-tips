@@ -5,26 +5,27 @@
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
 </head>
 
-<div class="main-container flex">
-  <div class="col-12 col-lg-6">
-    <div class="row">
+<div class="container my-3 py-3 px-3">
+  <div class="card-trip">
       <h1>New Trip</h1>
+      <div class="d-flex col-5">
       <%= simple_form_for [@trip] do |f| %>
         <%= f.input :title %>
         <%= f.input :start_point %>
         <%= f.input :end_point %>
         <%= f.input :region %>
         <%= f.input :summary %>
-        <%= f.input :day %>
+        <%= f.input :day, label: 'Number of days', hint: 'e.g. 2-3' %>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.submit "Create Trip", class: "btn btn-success" %>
       <% end %>
-    </div>
-    <div data-controller="map"
-      id='map'
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-      data-map-markers-value="<%= @markers.to_json %>"
-      style='width: 100vh; height: 100vh;'>
+<div class="col-2">
+      <div data-controller="map"
+        id='map'
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+        data-map-markers-value="<%= @markers.to_json %>"
+        style='width: 100vh; height: 100vh;'>
+        </div>
       </div>
     </div>
 </div>
