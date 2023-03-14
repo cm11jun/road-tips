@@ -8,6 +8,7 @@
 
 puts "Cleaning database..."
 Review.destroy_all
+Booking.destroy_all
 TripPoi.destroy_all
 Trip.destroy_all
 Poi.destroy_all
