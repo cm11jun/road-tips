@@ -19,7 +19,7 @@
       <br>
       <h3>Achievements 🏆</h3>
       <p class="my-2">🎖️ - Earned the 'OG' medal for becoming a RoadTipper on Day 1! (Very rare - Only 2.5% of RoadTipper's have this medal!)</p>
-      <p class="my-2">🥇 - Earned the 'Creator' medal for creating 3 trips! (Rare - Only 15%% of RoadTipper's have this medal!)</p>
+      <p class="my-2">🥇 - Earned the 'Creator' medal for creating 3x trips! (Rare - Only 15%% of RoadTipper's have this medal!)</p>
       <p class="my-2">🥉 - Earned the 'My First Trip' medal for creating a trip! (Common - 65%% of RoadTipper's have this medal!)</p>
     </div>
   </div>
@@ -46,10 +46,12 @@
         <div class="col-sm-3">
           <div class="card-trip flex mb-4">
             <div class="card-category">
-              <% if trip.photos.attached? %>
-                <%= cl_image_tag trip.photos.first.key, height: 300, width: 400, crop: :fill, class:  %>
-              <% else %>
-                <%= image_tag "scotland-wallpaper.jpg", height: 300, width: 400, crop: :fill, class:  %>
+              <%= link_to trip_path(trip) do %>
+                <% if trip.photos.attached? %>
+                  <%= cl_image_tag trip.photos.first.key, height: 300, width: 400, crop: :fill, class:  %>
+                <% else %>
+                  <%= image_tag "scotland-wallpaper.jpg", height: 300, width: 400, crop: :fill, class:  %>
+                <% end %>
               <% end %>
             </div>
             <div class="container card-category-infos pt-1">
@@ -67,7 +69,7 @@
             </div>
             <div class="text-end mr-3">
             <div>
-              <h2><%= trip.day %></h2>
+              <h2><%= trip.day %> days</h2>
             </div>
             <div class="pb-3">
               <% if trip.reviews.count > 0 %>
@@ -122,7 +124,7 @@
           </div>
           <div class="text-end mr-3">
           <div>
-            <h2><%= booking.trip.day %></h2>
+            <h2><%= booking.trip.day %> days</h2>
           </div>
           <div class="pb-3">
             <% if booking.trip.reviews.count > 0 %>

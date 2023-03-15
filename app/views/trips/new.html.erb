@@ -15,7 +15,7 @@
         <%= f.input :end_point %>
         <%= f.input :region %>
         <%= f.input :summary %>
-        <%= f.input :day, label: 'Number of days', hint: 'e.g. 2-3' %>
+        <%= f.input :day, collection: (1..50), label: 'Number of Days' %>
         <%= f.input :photos, label: 'Select up to 3 photos', as: :file, input_html: { multiple: true } %>
         <%= f.submit "Create Trip", class: "btn btn-success" %>
       <% end %>
