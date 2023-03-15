@@ -1,70 +1,122 @@
-<div>
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('<%= image_path "scotland-wallpaper.jpg" %>')">
-    <div class="container vh-100">
-      <div class="fade-in-text">
-        <h1 class="mb-2">RoadTips</h1>
-        <p>The social UK road trip planner</p>
-        <p>For the road ahead.....</p>
-        <%= link_to "View trips", trips_path, class: "btn btn-flat" %>
-      </div>
-<div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="fade-in-text main-container mx-2">
-  <div class="col-sm-12">
-    <div><p>Trending Trips</p></div>
-    <div class="row">
-      <% @trips.each do |trip| %>
-        <div class="col-sm-3">
-          <div class="card-trip flex mb-4">
-            <div class="card-category">
-              <%= link_to trip_path(trip) do %>
-                <% if trip.photos.attached? %>
-                  <%= cl_image_tag trip.photos.first.key, height: 300, width: 400, crop: :fill, class:  %>
-                <% else %>
-                  <%= image_tag "scotland-wallpaper.jpg", height: 300, width: 400, crop: :fill, class:  %>
-                <% end %>
-              <% end %>
-            </div>
-          <div class="container card-category-infos pt-1">
-          <div class="text-end">
-            <% if trip.user %>
-              <%= cl_image_tag trip.user.avatar.key, class: "card-trip-user avatar-bordered" %>
-            <% end %>
-          </div>
-              <h4><%= link_to trip.title, trip_path(trip), class: "card-category-h4 link-dark text-decoration-none" %> by <%= trip.user.username %></h4>
-              <div class="card-category-infos">
-                <h6><strong>From: </strong><%= trip.start_point %></h6>
-                <h6><strong>To: </strong><%= trip.end_point %></h6>
-                <h6><strong>Region: </strong> <%= trip.region %></h6>
-              </div>
-            <br>
-            <i class="fas fa-heart"></i>
-          </div>
-          <div class="text-end mr-3">
-          <div>
-            <h2><%= trip.day %> days</h2>
-          </div>
-          <div class="pb-3">
-            <% if trip.reviews.count > 0 %>
-                <h4>★ <strong><%= trip.reviews.average(:rating).round(2) %> </strong></h4>
-            <% else %>
-              <h4>No reviews</h4>
-            <% end %>
-          </div>
-          </div>
-          </div>
-  </div>
 
-<% end %>
-</div>
-</div>
-</div>
-</div>
-</div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('<%= image_path "scotland-wallpaper.jpg" %>')">
+  <div class="container">
+    <div class="fade-in-text">
+      <h1 class="mb-2">RoadTips</h1>
+      <p>The social UK road trip planner</p>
+      <p>For the road ahead.....</p>
+      <%= link_to "View trips", trips_path, class: "btn btn-flat" %>
+    </div>
+    <div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="fade-in-text main-container mx-2">
+        <div class="col-sm-12">
+          <div>
+            <p>Trending Trips 🔥</p>
+          </div>
+          <div class="row">
+            <% @trips.each do |trip| %>
+              <div class="col-sm-3">
+                <div class="card-trip flex mb-4">
+                  <div class="card-category">
+                    <%= link_to trip_path(trip) do %>
+                      <% if trip.photos.attached? %>
+                        <%= cl_image_tag trip.photos.first.key, height: 300, width: 400, crop: :fill, class:  %>
+                      <% else %>
+                        <%= image_tag "scotland-wallpaper.jpg", height: 300, width: 400, crop: :fill, class:  %>
+                      <% end %>
+                    <% end %>
+                  </div>
+                  <div class="container card-category-infos pt-1">
+                    <div class="text-end">
+                      <% if trip.user %>
+                        <%= cl_image_tag trip.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+                      <% end %>
+                    </div>
+                    <h4><%= link_to trip.title, trip_path(trip), class: "card-category-h4 link-dark text-decoration-none" %> by <%= trip.user.username %></h4>
+                    <div class="card-category-infos">
+                      <h6><strong>From: </strong><%= trip.start_point %></h6>
+                      <h6><strong>To: </strong><%= trip.end_point %></h6>
+                      <h6><strong>Region: </strong> <%= trip.region %></h6>
+                    </div>
+                    <br>
+                    <i class="fas fa-heart"></i>
+                  </div>
+                  <div class="text-end mr-3">
+                    <div>
+                      <h2><%= trip.day %> days</h2>
+                    </div>
+                    <div class="pb-3">
+                      <% if trip.reviews.count > 0 %>
+                        <h4>★ <strong><%= trip.reviews.average(:rating).round(2) %> </strong></h4>
+                      <% else %>
+                        <h4>No reviews</h4>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="fade-in-text main-container mx-2">
+        <div class="col-sm-12">
+          <div>
+            <p>Recently Added Trips</p>
+          </div>
+          <div class="row">
+            <% @latest.each do |trip| %>
+              <div class="col-sm-3">
+                <div class="card-trip flex mb-4">
+                  <div class="card-category">
+                    <%= link_to trip_path(trip) do %>
+                      <% if trip.photos.attached? %>
+                        <%= cl_image_tag trip.photos.first.key, height: 300, width: 400, crop: :fill, class:  %>
+                      <% else %>
+                        <%= image_tag "scotland-wallpaper.jpg", height: 300, width: 400, crop: :fill, class:  %>
+                      <% end %>
+                    <% end %>
+                  </div>
+                  <div class="container card-category-infos pt-1">
+                    <div class="text-end">
+                      <% if trip.user %>
+                        <%= cl_image_tag trip.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+                      <% end %>
+                    </div>
+                    <h4><%= link_to trip.title, trip_path(trip), class: "card-category-h4 link-dark text-decoration-none" %> by <%= trip.user.username %></h4>
+                    <div class="card-category-infos">
+                      <h6><strong>From: </strong><%= trip.start_point %></h6>
+                      <h6><strong>To: </strong><%= trip.end_point %></h6>
+                      <h6><strong>Region: </strong> <%= trip.region %></h6>
+                    </div>
+                    <br>
+                    <i class="fas fa-heart"></i>
+                  </div>
+                  <div class="text-end mr-3">
+                    <div>
+                      <h2><%= trip.day %> days</h2>
+                    </div>
+                    <div class="pb-3">
+                      <% if trip.reviews.count > 0 %>
+                        <h4>★ <strong><%= trip.reviews.average(:rating).round(2) %> </strong></h4>
+                      <% else %>
+                        <h4>No reviews</h4>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

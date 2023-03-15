@@ -1,89 +1,75 @@
 <head>
-<script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
-<link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
-<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
-<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
 </head>
-
-
 <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('<%= image_path "glencoe.jpg" %>')">
   Trips
 </div>
-
-
-
 <div>
-<br>
-<div class="poi-icons row text-center mb-2">
-  <div class="d-flex justify-content-between poi-icons-links">
-
-    <figure>
-    <i class="fa-solid fa-bridge-water fa-3x"></i>
-    <figcaption>Scenic Roads</figcaption>
-    </figure>
-
-    <figure>
-    <i class="fa-solid fa-flag-checkered fa-3x"></i>
-    <figcaption>Fun Roads</figcaption>
-    </figure>
-
-    <figure>
-    <i class="fa-solid fa-camera fa-3x"></i>
-    <figcaption>Sights</figcaption>
-    </figure>
-
-    <figure>
-    <i class="fa-brands fa-fort-awesome fa-3x"></i>
-    <figcaption>Landmarks</figcaption>
-    </figure>
-
-    <figure>
-    <i class="fa-solid fa-bed fa-3x"></i>
-    <figcaption>Sleeps</figcaption>
-    </figure>
-
-    <figure>
-    <i class="fa-solid fa-utensils fa-3x"></i>
-    <figcaption>Eats</figcaption>
-    </figure>
-
-    <figure>
-    <i class="fa-solid fa-gas-pump fa-3x"></i>
-    <figcaption>Services</figcaption>
-    </figure>
+  <br>
+  <div class="poi-icons row text-center mb-2">
+    <div class="d-flex justify-content-between poi-icons-links">
+      <figure>
+        <i class="fa-solid fa-bridge-water fa-3x"></i>
+        <figcaption>Scenic Roads</figcaption>
+      </figure>
+      <figure>
+        <i class="fa-solid fa-flag-checkered fa-3x"></i>
+        <figcaption>Fun Roads</figcaption>
+      </figure>
+      <figure>
+        <i class="fa-solid fa-camera fa-3x"></i>
+        <figcaption>Sights</figcaption>
+      </figure>
+      <figure>
+        <i class="fa-brands fa-fort-awesome fa-3x"></i>
+        <figcaption>Landmarks</figcaption>
+      </figure>
+      <figure>
+        <i class="fa-solid fa-bed fa-3x"></i>
+        <figcaption>Sleeps</figcaption>
+      </figure>
+      <figure>
+        <i class="fa-solid fa-utensils fa-3x"></i>
+        <figcaption>Eats</figcaption>
+      </figure>
+      <figure>
+        <i class="fa-solid fa-gas-pump fa-3x"></i>
+        <figcaption>Services</figcaption>
+      </figure>
+    </div>
   </div>
-</div>
-
-
-<div class="main-container row">
-  <div class="col-12 col-lg-5 mx-3">
-    <div class="row">
-      <% @trips.each do |trip| %>
-        <div class="col-sm-6">
-          <div class="card-trip flex mb-4">
-            <div class="card-category">
-              <%= link_to trip_path(trip) do %>
-                <% if trip.photos.attached? %>
-                  <%= cl_image_tag trip.photos.first.key, height: 300, width: 400, crop: :fill, class:  %>
-                <% else %>
-                  <%= image_tag "scotland-wallpaper.jpg", height: 300, width: 400, crop: :fill, class:  %>
+  <div class="main-container row">
+    <div class="col-12 col-lg-5 mx-3">
+      <div class="row">
+        <% @trips.each do |trip| %>
+          <div class="col-sm-6">
+            <div class="card-trip flex mb-4">
+              <div class="card-category">
+                <%= link_to trip_path(trip) do %>
+                  <% if trip.photos.attached? %>
+                    <%= cl_image_tag trip.photos.first.key, height: 300, width: 400, crop: :fill, class:  %>
+                  <% else %>
+                    <%= image_tag "scotland-wallpaper.jpg", height: 300, width: 400, crop: :fill, class:  %>
+                  <% end %>
                 <% end %>
-              <% end %>
-            </div>
-            <div class="container card-category-infos pt-1">
-              <div class="text-end">
-              <%= cl_image_tag trip.user.avatar.key, class: "card-trip-user avatar-bordered" %>
               </div>
-              <h4><%= link_to trip.title, trip_path(trip), class: "card-category-h4 link-dark text-decoration-none" %> by <%= trip.user.username %></h4>
-              <p><strong>From: </strong><%= trip.start_point %></p>
-              <p><strong>To: </strong><%= trip.end_point %></p>
-              <p><strong>Region: </strong> <%= trip.region %></p>
-              <br>
-              <i class="fas fa-heart"></i>
+              <div class="container card-category-infos pt-1">
+                <div class="text-end">
+                  <%= cl_image_tag trip.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+                </div>
+                <h4><%= link_to trip.title, trip_path(trip), class: "card-category-h4 link-dark text-decoration-none" %> by <%= trip.user.username %></h4>
+                <p><strong>From: </strong><%= trip.start_point %></p>
+                <p><strong>To: </strong><%= trip.end_point %></p>
+                <p><strong>Region: </strong> <%= trip.region %></p>
+                <br>
+                <i class="fas fa-heart"></i>
               </div>
               <div class="text-end mr-3">
                 <div>
-                <h2><%= trip.day %> days</h2>
+                  <h2><%= trip.day %> days</h2>
                 </div>
                 <div class="pb-3">
                   <% if trip.reviews.count > 0 %>
@@ -95,14 +81,13 @@
               </div>
             </div>
           </div>
-          <% end %>
-        </div>
+        <% end %>
       </div>
+    </div>
     <div data-controller="map"
       id='map'
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
       data-map-markers-value="<%= @markers.to_json %>"
       style='width: 100vh; height: 100vh;'></div>
-    </div>
   </div>
 </div>
