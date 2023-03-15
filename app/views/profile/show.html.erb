@@ -1,11 +1,12 @@
 <div class= "container mt-2 py-2">
 <div class= "row">
-  <div class="col-5 card-trip mr-1 px-3 py-3">
+  <div class="col-5 card-trip mr-1 px-2 py-3">
     <div class="col-12">
       <div class= "d-flex flex-row">
         <div class="col-6">
           <h1>Hi, I'm <%= @profile.name %></h1>
           <p>I've been RoadTippin' since <%= @current_user.created_at.strftime("%B %Y") %></p>
+          <p>I've created <%= @profile.user.trips.count %> trips</p>
           <%# <p><%= @profile.bio %>
         </div>
 
@@ -17,10 +18,12 @@
       </div>
       <br>
       <br>
+      <div class="px-3">
       <h3>Achievements 🏆</h3>
-      <p class="my-2">🎖️ - Earned the 'OG' medal for becoming a RoadTipper on Day 1! (Very rare - Only 2.5% of RoadTipper's have this medal!)</p>
-      <p class="my-2">🥇 - Earned the 'Creator' medal for creating 3x trips! (Rare - Only 15%% of RoadTipper's have this medal!)</p>
-      <p class="my-2">🥉 - Earned the 'My First Trip' medal for creating a trip! (Common - 65%% of RoadTipper's have this medal!)</p>
+        <p class="my-2">🎖️ - Earned the 'OG' medal for becoming a RoadTipper on Day 1! (Very rare - Only 2.5% of RoadTipper's have this medal!)</p>
+        <p class="my-2">🥇 - Earned the 'Creator' medal for creating 3x trips! (Rare - Only 15% of RoadTipper's have this medal!)</p>
+        <p class="my-2">🥉 - Earned the 'My First Trip' medal for creating a trip! (Common - 65% of RoadTipper's have this medal!)</p>
+      </div>
     </div>
   </div>
 
@@ -147,4 +150,38 @@
   <h2>My wish list <i class="fas fa-heart"></i></h2>
 </div>
 
+<div class="col-12 row">
+  <div class="col-6">
+    <div class="card-trip mt-2 px-3 py-3">
+      <h2 class="mb-2">Reviews I've posted (<%= @profile.user.reviews.count %>)</h2>
+          <ul class="list-group list-unstyled">
+            <% @current_user.reviews.each do |review| %>
+            <div>
+              <h4><%= review.trip.title %> by <%= review.trip.user.username %></h4>
+              <li><%= '★' * review.rating %></li>
+              <li class="list-group-item-borderless"><strong><%= review.user.username %></strong>, <%= review.created_at.strftime("%b %d, %Y") %></li>
+              <li class="list-group-item-borderless mb-3"><%= review.content %></li>
+            </div>
+          <% end %>
+          </ul>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="card-trip mt-2 px-3 py-3">
+      <h2 class="mb-2">Reviews of my trips (<%= @profile.user.reviews.count %>)</h2>
+          <ul class="list-group list-unstyled">
+            <% @current_user.reviews.each do |review| %>
+            <div>
+              <h4><%= review.trip.title %> by <%= review.trip.user.username %></h4>
+              <li><%= '★' * review.rating %></li>
+              <li class="list-group-item-borderless"><strong><%= review.user.username %></strong>, <%= review.created_at.strftime("%b %d, %Y") %></li>
+              <li class="list-group-item-borderless mb-3"><%= review.content %></li>
+            </div>
+          <% end %>
+          </ul>
+    </div>
+  </div>
+
+</div>
 </div>
