@@ -23,10 +23,12 @@
         <div class="col-sm-3">
           <div class="card-trip flex mb-4">
             <div class="card-category">
-              <% if trip.photos.attached? %>
-                <%= cl_image_tag trip.photos.first.key, height: 300, width: 400, crop: :fill, class:  %>
-              <% else %>
-                <%= image_tag "scotland-wallpaper.jpg", height: 300, width: 400, crop: :fill, class:  %>
+              <%= link_to trip_path(trip) do %>
+                <% if trip.photos.attached? %>
+                  <%= cl_image_tag trip.photos.first.key, height: 300, width: 400, crop: :fill, class:  %>
+                <% else %>
+                  <%= image_tag "scotland-wallpaper.jpg", height: 300, width: 400, crop: :fill, class:  %>
+                <% end %>
               <% end %>
             </div>
           <div class="container card-category-infos pt-1">
@@ -46,7 +48,7 @@
           </div>
           <div class="text-end mr-3">
           <div>
-            <h2><%= trip.day %></h2>
+            <h2><%= trip.day %> days</h2>
           </div>
           <div class="pb-3">
             <% if trip.reviews.count > 0 %>
