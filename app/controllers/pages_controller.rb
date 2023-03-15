@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @trips = Trip.all.limit(4)
+    @latest = Trip.all.last(4)
   end
 
   private
