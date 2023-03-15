@@ -158,13 +158,19 @@
 
 <div class="col-sm-6">
   <div class="card-trip my-3 px-3 py-3">
-    <h2>Book this trip</h2>
+  <%# <% if @trip.user.bookings %>
+      <%# <h2>You booked this trip on <%= @booking.created_at.strftime("%d/%m/%Y") %>
+      <%# <p><strong>Start date: </strong> <%= @booking.start_date.strftime("%d/%m/%Y") %>
+      <%# <p><strong>End date: </strong> <%= @booking.end_date.strftime("%d/%m/%Y") %>
+    <%# <% else %>
+    <%# <h2>Book this trip</h2> %>
     <br>
       <%= simple_form_for [@trip, @booking] do |f| %>
         <%= f.input :start_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
         <%= f.input :end_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
         <%= f.submit 'Book Trip', class: "btn btn-flat"%>
       <% end %>
+    <%# <% end %>
   </div>
 </div>
 

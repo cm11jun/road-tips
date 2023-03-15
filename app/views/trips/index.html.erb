@@ -85,7 +85,7 @@
                 </div>
                 <div class="pb-3">
                   <% if trip.reviews.count > 0 %>
-                      <h4>★ <strong><%= trip.reviews.average(:rating).round(2) %> </strong></h4>
+                    <h4>★ <strong><%= trip.reviews.average(:rating).round(2) %> </strong></h4>
                   <% else %>
                     <h4>No reviews</h4>
                   <% end %>

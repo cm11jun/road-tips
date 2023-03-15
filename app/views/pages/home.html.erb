@@ -2,9 +2,9 @@
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('<%= image_path "scotland-wallpaper.jpg" %>')">
     <div class="container vh-100">
       <div class="fade-in-text">
-        <h1>RoadTips</h1>
-        <p>For the road ahead...</p>
+        <h1 class="mb-2">RoadTips</h1>
         <p>The social UK road trip planner</p>
+        <p>For the road ahead.....</p>
         <%= link_to "View trips", trips_path, class: "btn btn-flat" %>
       </div>
 <div>
@@ -32,7 +32,7 @@
           <div class="container card-category-infos pt-1">
           <div class="text-end">
             <% if trip.user %>
-              <%= cl_image_tag trip.user.avatar.key, class: "card-trip-user avatar" %>
+              <%= cl_image_tag trip.user.avatar.key, class: "card-trip-user avatar-bordered" %>
             <% end %>
           </div>
               <h4><%= link_to trip.title, trip_path(trip), class: "card-category-h4 link-dark text-decoration-none" %> by <%= trip.user.username %></h4>
