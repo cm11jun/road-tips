@@ -1,7 +1,6 @@
-
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('<%= image_path "scotland-wallpaper.jpg" %>')">
-  <div class="container">
-    <div class="fade-in-text">
+  <div class="container fade-in-text">
+    <div>
       <h1 class="mb-2">RoadTips</h1>
       <p>The social UK road trip planner</p>
       <p>For the road ahead.....</p>
@@ -15,7 +14,35 @@
       <br>
       <br>
       <br>
-      <div class="fade-in-text main-container mx-2">
+      <div class="wrapper">
+        <p>Photos of the Week 📷</p>
+        <div class="item">
+          <div class="polaroid"><%= cl_image_tag "ebl554u93x9jbz53zf7i5qnez6qj" %>
+            <div class="caption"><h5>Sunset on the beach</h5></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="polaroid"><%= cl_image_tag "0lzjqgdb3ir3qis7l2jtrb3d0jhi" %>
+            <div class="caption"><h5>Making new friends! 🐴</h5></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="polaroid"><%= cl_image_tag "hx4jl6wai1qjwxnblnfbrlb1cs7b" %>
+            <div class="caption"><h5>Falling down Malham Cove 😱</h5></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="polaroid"><%= cl_image_tag "zboolixw5w9uj0rncdrzgsyofy6o" %>
+            <div class="caption"><h5>The one and only Giant's Causeway</h5></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="polaroid"><%= cl_image_tag "s4od951q3j9moaampcgk68bxvp6f" %>
+            <div class="caption"><h5>Looking out to the Isle of Rùm</h5></div>
+          </div>
+        </div>
+      </div>
+      <div class="main-container mx-2">
         <div class="col-sm-12">
           <div>
             <p>Trending Trips 🔥</p>
@@ -66,7 +93,7 @@
           </div>
         </div>
       </div>
-      <div class="fade-in-text main-container mx-2">
+      <div class="main-container mx-2">
         <div class="col-sm-12">
           <div>
             <p>Recently Added Trips</p>
