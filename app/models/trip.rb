@@ -15,7 +15,7 @@ class Trip < ApplicationRecord
   has_many_attached :photos
 
   acts_as_favoritable
-
+  accepts_nested_attributes_for :trip_pois
   scope :trending, -> {
     joins(:bookings)
       .group('trips.id')
