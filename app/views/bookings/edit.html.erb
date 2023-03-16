@@ -1,5 +1,5 @@
 <div class="container w-50">
-  <div class="card-trip my-3 px-3 py-3">
+  <div class="card-background my-3 px-3 py-3">
     <h2>Edit Booking for <%= @booking.trip.title %> by <%= @booking.trip.user.username %></h2>
     <br>
       <%= simple_form_for [@trip, @booking] do |f| %>
