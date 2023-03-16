@@ -25,14 +25,19 @@
         </div>
       </div>
     </div>
-    <div class="col-5 card-trip ml-1 py-3">
+    <div class="col-5 ">
       <div>
+
         <div class= "d-flex justify-content-center">
-          <%= cl_image_tag @current_user.car_photo.key, height: 450, width: 600, crop: :fill, class: "rounded" %>
+
+      <div class="wrapper">
+        <div class="item-large">
+          <div class="polaroid"><%= cl_image_tag @current_user.car_photo.key %>
+            <div class="caption"><h5>I drive a <%= @current_user.car %></h5></div>
+          </div>
         </div>
-        <div class= "d-flex justify-content-center">
-          <p>I drive a <%= @current_user.car %></p>
-        </div>
+      </div>
+      </div>
       </div>
     </div>
     <br>
