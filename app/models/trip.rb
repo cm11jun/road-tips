@@ -15,4 +15,10 @@ class Trip < ApplicationRecord
   has_many_attached :photos
 
   acts_as_favoritable
+
+  scope :trending, -> {
+    joins(:bookings)
+      .group('trips.id')
+      .order(Arel.sql('COUNT(*) DESC'))
+  }
 end
