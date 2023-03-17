@@ -90,7 +90,7 @@ wes_profile.save
 
 ilaria_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679070534/Ilaria_qcje20.jpg")
 ilaria_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
-ilaria = User.new(email: "ilaria@roadtips.co.uk", username: "ilaria", password: "123456", car: "Toyota Prius")
+ilaria = User.new(email: "ilaria@roadtips.co.uk", username: "Ilaria", password: "123456", car: "Toyota Prius")
 ilaria.avatar.attach(io: ilaria_avatar, filename: "Ilaria_qcje20", content_type: "image/jpg")
 ilaria.car_photo.attach(io: ilaria_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
 ilaria.save
@@ -104,7 +104,7 @@ ilaria_profile.save
 
 alex_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679073340/alex_pitebt.jpg")
 alex_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
-alex = User.new(email: "alex@roadtips.co.uk", username: "alex", password: "123456", car: "Toyota Prius")
+alex = User.new(email: "alex@roadtips.co.uk", username: "Alex", password: "123456", car: "Toyota Prius")
 alex.avatar.attach(io: alex_avatar, filename: "alex_pitebt", content_type: "image/jpg")
 alex.car_photo.attach(io: alex_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
 alex.save
@@ -118,7 +118,7 @@ alex_profile.save
 
 antonio_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679073340/antonio_sepqd6.jpg")
 antonio_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
-antonio = User.new(email: "antonio@roadtips.co.uk", username: "antonio", password: "123456", car: "Toyota Prius")
+antonio = User.new(email: "antonio@roadtips.co.uk", username: "Antonio", password: "123456", car: "Toyota Prius")
 antonio.avatar.attach(io: antonio_avatar, filename: "antonio_sepqd6", content_type: "image/jpg")
 antonio.car_photo.attach(io: antonio_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
 antonio.save
@@ -132,7 +132,7 @@ antonio_profile.save
 
 jon_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679073340/jon_l59rbx.jpg")
 jon_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
-jon = User.new(email: "jon@roadtips.co.uk", username: "jon", password: "123456", car: "Toyota Prius")
+jon = User.new(email: "jon@roadtips.co.uk", username: "Jon", password: "123456", car: "Toyota Prius")
 jon.avatar.attach(io: jon_avatar, filename: "jon_l59rbx", content_type: "image/jpg")
 jon.car_photo.attach(io: jon_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
 jon.save
@@ -146,7 +146,7 @@ jon_profile.save
 
 zuzanna_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679073340/zuzanna_ouq4mv.jpg")
 zuzanna_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
-zuzanna = User.new(email: "zuzanna@roadtips.co.uk", username: "zuzanna", password: "123456", car: "Toyota Prius")
+zuzanna = User.new(email: "zuzanna@roadtips.co.uk", username: "Zuzanna", password: "123456", car: "Toyota Prius")
 zuzanna.avatar.attach(io: zuzanna_avatar, filename: "zuzanna_ouq4mv", content_type: "image/jpg")
 zuzanna.car_photo.attach(io: zuzanna_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
 zuzanna.save
@@ -160,7 +160,7 @@ zuzanna_profile.save
 
 gador_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679073340/gador_ptzv9y.jpg")
 gador_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
-gador = User.new(email: "gador@roadtips.co.uk", username: "gador", password: "123456", car: "Toyota Prius")
+gador = User.new(email: "gador@roadtips.co.uk", username: "Gador", password: "123456", car: "Toyota Prius")
 gador.avatar.attach(io: gador_avatar, filename: "gador_ptzv9y", content_type: "image/jpg")
 gador.car_photo.attach(io: gador_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
 gador.save
@@ -174,7 +174,7 @@ gador_profile.save
 
 fran_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679073340/francesca_hgmq3x.jpg")
 fran_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
-fran = User.new(email: "fran@roadtips.co.uk", username: "fran", password: "123456", car: "Toyota Prius")
+fran = User.new(email: "fran@roadtips.co.uk", username: "Fran", password: "123456", car: "Toyota Prius")
 fran.avatar.attach(io: fran_avatar, filename: "francesca_hgmq3x", content_type: "image/jpg")
 fran.car_photo.attach(io: fran_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
 fran.save
@@ -315,6 +315,26 @@ date.save
 puts "Cleaning database..."
 Poi.destroy_all
 
+glasto1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679077940/pyramid_vggmp5.jpg")
+glasto2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679077940/amaya_dcu6ub.jpg")
+glasto3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679077941/pyramid2_enrild.jpg")
+glasto = Trip.new(
+  user_id: jon.id,
+  title: "Trip to headline Glastonbury 2023",
+  start_point: "London",
+  end_point: "Glastonbury, Somerset, England, United Kingdom",
+  region: "England",
+  summary: "My trip to headline the Pyramid stage at Glastonbury 2023! Stopping off at Stonehenge on the way.",
+  day: 1
+)
+glasto.photos.attach(io: glasto1, filename: "pyramid_vggmp5", content_type: "image/jpg")
+glasto.photos.attach(io: glasto2, filename: "amaya_dcu6ub", content_type: "image/jpg")
+glasto.photos.attach(io: glasto3, filename: "pyramid2_enrild", content_type: "image/jpg")
+glasto.save
+
+puts "Cleaning database..."
+Poi.destroy_all
+
 puts "Creating pois..."
 
 stonehenge = Poi.new(
@@ -324,6 +344,14 @@ stonehenge = Poi.new(
   address: "SP4 7DE"
 )
 stonehenge.save
+
+pyramid = Poi.new(
+  name: "Pyramid Stage at Glastonbury Festival",
+  category: "Landmarks",
+  description: "The Pyramid Stage, is the most instantly recognised festival stage in the world. Rising from the site of a blind spring close to the Glastonbury Abbey/Stonehenge ley line, it is now in its third incarnation.",
+  address: "Glastonbury, Somerset, England, United Kingdom"
+)
+pyramid.save
 
 cheddar_gorge = Poi.new(
   name: "Cheddar Gorge",
@@ -716,5 +744,8 @@ TripPoi.create!(trip: leamington, poi: wagamama)
 TripPoi.create!(trip: wine, poi: wine_shop)
 
 TripPoi.create!(trip: date, poi: ritz)
+
+TripPoi.create!(trip: glasto, poi: stonehenge)
+TripPoi.create!(trip: glasto, poi: pyramid)
 
 puts "Finished!"
