@@ -60,7 +60,9 @@
                 </div>
                 <div class="container card-category-infos pt-1">
                   <div class="text-end">
-                    <%= cl_image_tag trip.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+                    <% if trip.user %>
+                      <%= cl_image_tag trip.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+                    <% end %>
                   </div>
                   <h4><%= link_to trip.title, trip_path(trip), class: "card-category-h4 link-dark text-decoration-none" %> by <%= trip.user.username %></h4>
                   <div class="card-category-infos">
@@ -142,37 +144,39 @@
     <div class="card-background mt-2 px-3 py-3">
       <h2>My wish list <i class="fas fa-heart"></i></h2>
     </div>
-    <div class="col-12 row">
-      <div class="col-6">
-        <div class="card-background mt-2 px-3 py-3">
-          <h2 class="mb-2">Reviews I've posted (<%= @profile.user.reviews.count %>)</h2>
-          <ul class="list-group list-unstyled">
-            <% @current_user.reviews.each do |review| %>
-              <div>
-                <h4><%= link_to review.trip.title, trip_path(review.trip), class: "card-category-h4 link-dark text-decoration-none" %> by <%= review.trip.user.username %></h4>
-                <li><%= '★' * review.rating %></li>
-                <li class="list-group-item-borderless"><strong><%= review.user.username %></strong>, <%= review.created_at.strftime("%b %d, %Y") %></li>
-                <li class="list-group-item-borderless mb-3"><%= review.content %></li>
-              </div>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-      <div class="col-6">
-        <div class="card-background mt-2 px-3 py-3">
-          <h2 class="mb-2">Reviews of my trips (<%= @profile.user.reviews.count %>)</h2>
-          <ul class="list-group list-unstyled">
-            <% @current_user.trips.each do |trip| %>
-              <% trip.reviews.each do |review| %>
+    <div class="col-12">
+      <div class="row">
+        <div class="card-background mt-2 px-3 py-3 col-6">
+          <div class="mt-2 px-3 py-3">
+            <h2 class="mb-2">Reviews I've posted (<%= @profile.user.reviews.count %>)</h2>
+            <ul class="list-group list-unstyled">
+              <% @current_user.reviews.each do |review| %>
                 <div>
-                  <h4><%= link_to review.trip.title, trip_path(trip), class: "card-category-h4 link-dark text-decoration-none" %> by <%= review.trip.user.username %></h4>
+                  <h4><%= link_to review.trip.title, trip_path(review.trip), class: "card-category-h4 link-dark text-decoration-none" %> by <%= review.trip.user.username %></h4>
                   <li><%= '★' * review.rating %></li>
                   <li class="list-group-item-borderless"><strong><%= review.user.username %></strong>, <%= review.created_at.strftime("%b %d, %Y") %></li>
                   <li class="list-group-item-borderless mb-3"><%= review.content %></li>
                 </div>
               <% end %>
-            <% end %>
-          </ul>
+            </ul>
+          </div>
+        </div>
+        <div class="card-background mt-2 px-3 py-3 col-6">
+          <div class="mt-2 px-3 py-3">
+            <h2 class="mb-2">Reviews of my trips (<%= @profile.user.reviews.count %>)</h2>
+            <ul class="list-group list-unstyled">
+              <% @current_user.trips.each do |trip| %>
+                <% trip.reviews.each do |review| %>
+                  <div>
+                    <h4><%= link_to review.trip.title, trip_path(trip), class: "card-category-h4 link-dark text-decoration-none" %> by <%= review.trip.user.username %></h4>
+                    <li><%= '★' * review.rating %></li>
+                    <li class="list-group-item-borderless"><strong><%= review.user.username %></strong>, <%= review.created_at.strftime("%b %d, %Y") %></li>
+                    <li class="list-group-item-borderless mb-3"><%= review.content %></li>
+                  </div>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

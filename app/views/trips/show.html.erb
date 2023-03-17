@@ -44,8 +44,10 @@
         <div>
           <h2><%= @trip.title %></h2>
           <h2>by <%= @trip.user.username %></h2>
-          <%= link_to profile_path(@trip.user) do %>
-            <%= cl_image_tag @trip.user.avatar.key, class: "card-trip-user avatar" %>
+          <% if @trip.user %>
+            <%= link_to profile_path(@trip.user) do %>
+              <%= cl_image_tag @trip.user.avatar.key, class: "card-trip-user avatar" %>
+            <% end %>
           <% end %>
           <p class= "text-end">Joined in <%= @trip.user.created_at.strftime("%B %Y")  %></p>
           <p><strong>From</strong></p>
@@ -171,20 +173,22 @@
             <%# <% end %>
           </div>
         </div>
-        <div class="col-sm-6">
-          <div class="card-background my-3 px-3 py-3">
-            <div>
-              <% @pois.each do |poi|%>
-                <h2 class="my-1"><strong><%= poi.category %></strong></h2>
-                <h4 class="my-1"><strong><%= poi.name %></strong></h4>
-                <p><strong>Description</strong></p>
-                <p><%= poi.description %></p>
-                <p><strong>Address</strong></p>
-                <p><%= poi.address %></p>
-                <br>
-              <% end %>
+        <% if @poi %>
+          <div class="col-sm-6">
+            <div class="card-background my-3 px-3 py-3">
+              <div>
+                <% @pois.each do |poi|%>
+                  <h2 class="my-1"><strong><%= poi.category %></strong></h2>
+                  <h4 class="my-1"><strong><%= poi.name %></strong></h4>
+                  <p><strong>Description</strong></p>
+                  <p><%= poi.description %></p>
+                  <p><strong>Address</strong></p>
+                  <p><%= poi.address %></p>
+                  <br>
+                <% end %>
+              </div>
             </div>
-          </div>
+          <% end %>
         </div>
         <script>
           mapboxgl.accessToken = 'pk.eyJ1IjoiY20xMWp1biIsImEiOiJjbGVvbzZxb28wNDdmM3VvMTBqeXVub2trIn0.6YeYXqBNO0iFTo6kMuTM-w';
