@@ -13,7 +13,8 @@ class TripsController < ApplicationController
       {
         lat: poi.latitude,
         lng: poi.longitude,
-        info_window: render_to_string(partial: "popup", locals: {poi: poi})
+        info_window: render_to_string(partial: "popup", locals: {poi: poi}),
+        image_url: poi.image_url
       }
     end
   end
