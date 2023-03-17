@@ -7,10 +7,13 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "Cleaning database..."
-User.destroy_all
-
+Review.destroy_all
+Booking.destroy_all
+TripPoi.destroy_all
+Trip.destroy_all
+Poi.destroy_all
 Profile.destroy_all
-puts "Creating users..."
+User.destroy_all
 
 test = User.new(email: "test@roadtips.com", username: "test")
 test.save
@@ -25,7 +28,7 @@ jaimie.save
 jaimie_profile = Profile.create!(
   name: 'Jaimie',
   bio: 'I am a web developer.',
-  user_id: 1
+  user_id: jaimie.id
 )
 jaimie_profile.save
 
@@ -39,7 +42,7 @@ chris.save
 chris_profile = Profile.create!(
   name: 'Chris',
   bio: 'I am a web developer.',
-  user_id: 2
+  user_id: chris.id
 )
 chris_profile.save
 
@@ -53,7 +56,7 @@ isk.save
 isk_profile = Profile.create!(
   name: 'Isk',
   bio: 'I am a web developer.',
-  user_id: 3
+  user_id: isk.id
 )
 isk_profile.save
 
@@ -67,17 +70,14 @@ raj.save
 raj_profile = Profile.create!(
   name: 'Raj',
   bio: 'I am a web developer.',
-  user_id: 4
+  user_id: raj.id
 )
 raj_profile.save
 
 puts "Cleaning database..."
-Trip.destroy_all
-
-puts "Creating trips..."
 
 nc500 = Trip.new(
-  user_id: 3,
+  user_id: isk.id,
   title: "North Coast 500",
   start_point: "Inverness Castle",
   end_point: "Inverness Castle",
@@ -85,7 +85,7 @@ nc500 = Trip.new(
   summary: "The North Coast 500 is a 516-mile scenic route around the north coast of Scotland, starting and ending at
   Inverness Castle. The route is also known as the NC500 and was launched in 2015, linking many features in the north
     Highlands of Scotland in one touring route.",
-  day: "5-7 days"
+  day: 7
 )
 nc500.save
 
@@ -93,14 +93,14 @@ northern_ireland1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/
 northern_ireland2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678302977/Giants-Causeway_pzmrd7.jpg")
 northern_ireland3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678302977/rope-bridge_k3rfo6.jpg")
 northern_ireland = Trip.new(
-  user_id: 1,
+  user_id: jaimie.id,
   title: "Causeway Coastal Route",
   start_point: "Belfast",
   end_point: "Derry",
   region: "Northern Ireland",
   summary: "The drive takes you to several of Northern Ireland’s main tourist attractions and landmarks – the Giant’s
   Causeway itself, Carrick-a-Rede Rope Bridge, Bushmills Distillery, Dunluce Castle, Dark Hedges and the Glens of Antrim.",
-  day: "1-2 days"
+  day: 2
 )
 northern_ireland.photos.attach(io: northern_ireland1, filename: "dark-hedges_g3wgt2", content_type: "image/jpg")
 northern_ireland.photos.attach(io: northern_ireland2, filename: "Giants-Causeway_pzmrd7", content_type: "image/jpg")
@@ -111,16 +111,16 @@ west_scotland1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v16
 west_scotland2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678138904/rum_jljwi2.jpg")
 west_scotland3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678138904/beach-sunset_u4bnnd.jpg")
 west_scotland = Trip.new(
-  user_id: 1,
+  user_id: jaimie.id,
   title: "Highlands to the Islands",
   start_point: "Fort William",
   end_point: "Isle of Skye",
   region: "Scotland",
-  summary: "Starting at Fort William take the coastal road past Glenfinnan Viaduct (the Harry Potter Bridge,
+  summary: "Starting at Fort William, take the coastal road past Glenfinnan Viaduct (the Harry Potter Bridge,
   and on to the village of Arisaig. Stay on Camusarach beach where the film Local Hero was filmed. Take the ferry to
   Skye and spend 2/3 days exploring the island. Tour the Talisker whisky distillery and hike the Old Man of
   Storr and Quiraing.)",
-  day: "4-6 days"
+  day: 6
 )
 west_scotland.photos.attach(io: west_scotland1, filename: "storr_jbpten", content_type: "image/jpg")
 west_scotland.photos.attach(io: west_scotland2, filename: "rum_jljwi2", content_type: "image/jpg")
@@ -131,7 +131,7 @@ dales1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/w_1000,ar_1
 dales2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678020123/ribblehead_uzc9nj.jpg")
 dales3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678020122/donkey_nv00bj.jpg")
 dales = Trip.new(
-  user_id: 1,
+  user_id: jaimie.id,
   title: "Dales to the Lakes",
   start_point: "Yorkshire Sculpture Park",
   end_point: "Windermere",
@@ -142,7 +142,7 @@ dales = Trip.new(
   winding A684 to Lake Windermere to stay in a converted Shepherds Hut. Hire out a boat on Lake Windermere, and hike
   Loughrigg Fell for a 360 degree view of the lakes and the surrounding mountains. Visit the town of Ambleside and go
   for a swim in Rydal Water (if it's warm enough!)",
-  day: "3-5 days"
+  day: 4
 )
 dales.photos.attach(io: dales1, filename: "malham_huexmk", content_type: "image/jpg")
 dales.photos.attach(io: dales2, filename: "ribblehead_uzc9nj", content_type: "image/jpg")
@@ -481,9 +481,6 @@ pie = Poi.new(
 )
 pie.save
 # dales pois end
-
-puts "Cleaning database..."
-TripPoi.destroy_all
 
 puts "creating trip_pois"
 

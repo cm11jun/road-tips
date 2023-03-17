@@ -24,23 +24,22 @@
           <li class="nav-item">
             <%= link_to "All Trips", trips_path, class: "nav-link mx-3" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Profile", profile_path(@profile), class: "nav-link mx-3" %>
-          </li>
+          <%# <li class="nav-item"> %>
+            <%# <%= link_to "Profile", profile_path(@profile), class: "nav-link mx-3" %>
+          <%# </li> %>
           <li class="nav-item active">
             <%= link_to "Create new trip", new_trip_path, class: "btn btn-flat mx-3" %>
           </li>
           <li class="nav-item dropdown">
-            <%# <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> %>
             <% if current_user.avatar.present? %>
               <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
               <!-- add fallback image or text here -->
             <% end %>
-
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Profile", my_profile_path, class: "dropdown-item" %>
+              <%= link_to "Community", profile_index_path, class: "dropdown-item" %>
+              <%= link_to "Bookings", bookings_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>

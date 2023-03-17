@@ -1,18 +1,31 @@
-<div class="container px-4 my-5 py-5 card-trip w-50">
-  <h1>New Trip</h1>
-  <%= simple_form_for [@trip] do |f| %>
-    <%= f.input :title %>
-    <%= f.input :start_point %>
-    <%= f.input :end_point %>
-    <%= f.input :region %>
-    <%= f.input :summary %>
-    <%= f.input :day %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.input :pois,
-                input_html: {data: {address_autocomplete_target: "address"}},
-                wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
-%>
-    <%= f.submit "Create Trip", class: "btn btn-success" %>
-  <% end %>
-</div>
-</div>
+<head>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
+</head>
+<div>
+  <div class="container card-background my-3 py-3 px-3">
+    <h1>New Trip</h1>
+    <div class="d-flex col-5">
+      <%= simple_form_for [@trip] do |f| %>
+        <%= f.input :title %>
+        <%= f.input :start_point %>
+        <%= f.input :end_point %>
+        <%= f.input :region %>
+        <%= f.input :summary %>
+        <%= f.input :day, collection: (1..50), label: 'Number of Days' %>
+        <%= f.input :photos, label: 'Select up to 3 photos', as: :file, input_html: { multiple: true } %>
+        <%= f.submit "Create Trip", class: "btn btn-success" %>
+      <% end %>
+      <div class="col-2">
+        <div data-controller="map"
+        id='map'
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+        data-map-markers-value="<%= @markers.to_json %>"
+        style='width: 100vh; height: 100vh;'>
+        </div>
+      </div>
+    </div>
+  </div>
+

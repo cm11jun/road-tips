@@ -1,193 +1,218 @@
 <head>
-<script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
-<link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
-<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
-<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
 </head>
-
 <div class="container">
-<br>
-
-<div class="poi-icons row text-center mb-2">
-  <div class="d-flex justify-content-between poi-icons-links">
-
-    <figure>
-    <i class="fa-solid fa-bridge-water fa-3x"></i>
-    <figcaption>Scenic Roads</figcaption>
-    </figure>
-
-    <figure>
-    <i class="fa-solid fa-flag-checkered fa-3x"></i>
-    <figcaption>Fun Roads</figcaption>
-    </figure>
-
-    <figure>
-    <i class="fa-solid fa-camera fa-3x"></i>
-    <figcaption>Sights</figcaption>
-    </figure>
-
-    <figure>
-    <i class="fa-brands fa-fort-awesome fa-3x"></i>
-    <figcaption>Landmarks</figcaption>
-    </figure>
-
-    <figure>
-    <i class="fa-solid fa-bed fa-3x"></i>
-    <figcaption>Sleeps</figcaption>
-    </figure>
-
-    <figure>
-    <i class="fa-solid fa-utensils fa-3x"></i>
-    <figcaption>Eats</figcaption>
-    </figure>
-
-    <figure>
-    <i class="fa-solid fa-gas-pump fa-3x"></i>
-    <figcaption>Services</figcaption>
-    </figure>
-  </div>
-</div>
-
-<div class="row flex-wrap">
-  <div class="row col-sm-4 card-trip mb-3">
-    <div class="card-trip-infos py-3">
-      <div>
-        <h2><%= @trip.title %></h2>
-        <h2>by <%= @trip.user.username %></h2>
-        <%= cl_image_tag @trip.user.avatar.key, class: "card-trip-user avatar" %>
-        <p class= "text-end">Joined in <%= @trip.user.created_at.strftime("%B %Y")  %></p>
-        <p><strong>From</strong></p>
-        <p><%= @trip.start_point %></p>
-        <p><strong>To</strong></p>
-        <p><%= @trip.end_point %></p>
-        <p><strong>Region</strong></p>
-        <p><%= @trip.region %></p>
-        <p><strong>Summary</strong></p>
-        <p><%= @trip.summary %></p>
-        <%# <%= link_to "Favourite", favorites_update_path(trip: @trip), class: "btn btn-success my-2" %>
-        <br>
-        <i class="fas fa-heart"></i>
-        <br>
-        <% if @trip.user == current_user %>
-          <%= link_to "Edit Trip", edit_trip_path(@trip), class: "btn btn-flat my-2" %>
-          <%= button_to "Delete Trip", trip_path(@trip), class: "btn btn-light", method: :delete, confirm: "Are you sure?"%>
-        <% end %>
-        <div class="text-end mr-3">
-          <h2><%= @trip.day %></h2>
-        <% if @trip.reviews.count > 0 %>
-          <h4 class="text-right">★ <strong><%= @trip.reviews.average(:rating).round(2) %> </strong>- <%= @trip.reviews.count %> reviews</h4>
-        <% else %>
-          <p>No reviews</p>
-        <% end %>
-        </div>
-      </div>
-
+  <br>
+  <div class="poi-icons row text-center mb-2">
+    <div class="d-flex justify-content-between poi-icons-links">
+      <figure>
+        <i class="fa-solid fa-bridge-water fa-3x"></i>
+        <figcaption>Scenic Roads</figcaption>
+      </figure>
+      <figure>
+        <i class="fa-solid fa-flag-checkered fa-3x"></i>
+        <figcaption>Fun Roads</figcaption>
+      </figure>
+      <figure>
+        <i class="fa-solid fa-camera fa-3x"></i>
+        <figcaption>Sights</figcaption>
+      </figure>
+      <figure>
+        <i class="fa-brands fa-fort-awesome fa-3x"></i>
+        <figcaption>Landmarks</figcaption>
+      </figure>
+      <figure>
+        <i class="fa-solid fa-bed fa-3x"></i>
+        <figcaption>Sleeps</figcaption>
+      </figure>
+      <figure>
+        <i class="fa-solid fa-utensils fa-3x"></i>
+        <figcaption>Eats</figcaption>
+      </figure>
+      <figure>
+        <i class="fa-solid fa-gas-pump fa-3x"></i>
+        <figcaption>Services</figcaption>
+      </figure>
     </div>
   </div>
-
-
-  <div class="flex col-sm-8 ml-2">
-    <div class="card-trip flex mb-3">
-      <div id='map' style='width: 100%; height: 100vh;'>
-      </div>
-    </div>
-  </div>
-
-
-<div class="row">
-  <% @trip.photos.each do |photo| %>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="https://res.cloudinary.com/doaf60lu6/image/upload/v1678138904/storr_jbpten.jpg">
-      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "rounded" %>
-        <div class="caption">
-          <p><%= photo.filename %></p>
-        </div>
-      </a>
-    </div>
-  </div>
-  <% end %>
-</div>
-
-
-<%# <div class="container d-flex justify-content-between"> %>
-
-<%# <div>
-  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-</div> %>
-
-
-<div class="col-sm-6">
-  <div class="card-trip my-3 px-3 py-3">
-    <h3><strong>Reviews</strong></h3>
-    <div class="row">
-      <div class="col-xs-4">
-        <%= simple_form_for [@trip, @review] do |f| %>
-          <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
-          <%= f.input :content %>
-          <%= f.submit "Add Review", class: "btn btn-flat mb-2"  %>
-        <% end %>
-      </div>
-    </div>
-
-
-<div>
-<% if @trip.reviews.count > 0 %>
-  <h3>User Reviews</h3>
-    <ul class="list-group list-unstyled">
-      <% @trip.reviews.each do |review| %>
+  <div class="row flex-wrap">
+    <div class="row col-sm-4 card-background mb-3">
+      <div class="card-background-infos py-3">
         <div>
-          <li class="star-rating">
-            <% if review.rating %>
-              <%= '★' * review.rating %>
-            <%end%>
-            </li>
-            <li class="list-group-item-borderless"><strong><%= review.user.username %></strong>, <i><%= review.created_at.strftime("%b %d, %Y") %></i></li>
-            <li class="list-group-item-borderless mb-3"><%= review.content %></li>
+          <h2><%= @trip.title %></h2>
+          <h2>by <%= @trip.user.username %></h2>
+          <% if @trip.user %>
+            <%= link_to profile_path(@trip.user) do %>
+              <%= cl_image_tag @trip.user.avatar.key, class: "card-trip-user avatar" %>
+            <% end %>
+          <% end %>
+          <p class= "text-end">Joined in <%= @trip.user.created_at.strftime("%B %Y")  %></p>
+          <p><strong>From</strong></p>
+          <p><%= @trip.start_point %></p>
+          <p><strong>To</strong></p>
+          <p><%= @trip.end_point %></p>
+          <p><strong>Region</strong></p>
+          <p><%= @trip.region %></p>
+          <p><strong>Summary</strong></p>
+          <p><%= @trip.summary %></p>
+          <%# <%= link_to "Favourite", favorites_update_path(trip: @trip), class: "btn btn-success my-2" %>
+          <br>
+          <i class="fas fa-heart"></i>
+          <br>
+          <% if @trip.user == current_user %>
+            <%= link_to "Edit Trip", edit_trip_path(@trip), class: "btn btn-flat my-2" %>
+            <%= button_to "Delete Trip", trip_path(@trip), class: "btn btn-light", method: :delete, confirm: "Are you sure?"%>
+          <% end %>
+          <div class="text-end mr-3">
+            <h2><%= @trip.day %> days</h2>
+            <% if @trip.reviews.count > 0 %>
+              <h4 class="text-right">★ <strong><%= @trip.reviews.average(:rating).round(2) %> </strong>- <%= @trip.reviews.count %> reviews</h4>
+            <% else %>
+              <p>No reviews</p>
+            <% end %>
+          </div>
         </div>
-        <%# <%= link_to "Delete", review_path(review), class: "link text-decoration-none", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-        <% end %>
-    </ul>
-<% end %>
-</div>
-</div>
-</div>
-
-<div class="col-sm-6">
-  <div class="card-trip my-3 px-3 py-3">
-    <div>
-      <% @pois.each do |poi|%>
-        <h2 class="my-1"><strong><%= poi.category %></strong></h2>
-        <h4 class="my-1"><strong><%= poi.name %></strong></h4>
-        <p><strong>Description</strong></p>
-        <p><%= poi.description %></p>
-        <p><strong>Address</strong></p>
-        <p><%= poi.address %></p>
-        <br>
-      <% end %>
+      </div>
     </div>
-  </div>
-</div>
+    <div class="flex col-sm-8 ml-2">
+      <div class="card-background flex mb-3">
+        <div id='map' style='width: 100%; height: 100vh;'>
+        </div>
+      </div>
+    </div>
+    <%# <div class="row"> %>
+    <%# <% @trip.photos.each do |photo| %>
+      <%# <div class="col-md-4"> %>
+      <%# <div class="thumbnail"> %>
+      <%# <a href="https://res.cloudinary.com/doaf60lu6/image/upload/v1678138904/storr_jbpten.jpg"> %>
+      <%# <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "rounded" %>
+      <%# <div class="caption"> %>
+      <%# <p><%= photo.filename %>
+      <%# </div> %>
+      <%# </a> %>
+      <%# </div> %>
+      <%# </div> %>
+      <%# <% end %>
+      <%# </div> %>
+      <% if @trip.photos.attached? %>
+        <div class="wrapper">
+          <div class="item">
+            <div class="polaroid"><%= cl_image_tag @trip.photos.first.key %>
+              <%# <div class="caption"><h5>Sunset on the beach</h5></div> %>
+            </div>
+          </div>
+          <div class="item">
+            <div class="polaroid"><%= cl_image_tag @trip.photos.second.key %>
+              <%# <div class="caption"><h5>Making new friends! 🐴</h5></div> %>
+            </div>
+          </div>
+          <div class="item">
+            <div class="polaroid"><%= cl_image_tag @trip.photos.third.key %>
+              <%# <div class="caption"><h5>Making new friends! 🐴</h5></div> %>
+            </div>
+          </div>
+        <% else %>
+          <div class="wrapper">
+            <div class="item">
+              <div class="polaroid"><%= image_tag "scotland-wallpaper.jpg" %>
+                <%# <div class="caption"><h5>Sunset on the beach</h5></div> %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-sm-6">
+          <div class="card-background my-3 px-3 py-3">
+            <h3><strong>Reviews</strong></h3>
+            <div class="row">
+              <div class="col-xs-4">
+                <%= simple_form_for [@trip, @review] do |f| %>
+                  <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
+                  <%= f.input :content %>
+                  <%= f.submit "Add Review", class: "btn btn-flat mb-2"  %>
+                <% end %>
+              </div>
+            </div>
+            <div>
+              <% if @trip.reviews.count > 0 %>
+                <h3>User Reviews</h3>
+                <ul class="list-group list-unstyled">
+                  <% @trip.reviews.each do |review| %>
+                    <div>
+                      <li class="star-rating">
+                        <% if review.rating %>
+                          <%= '★' * review.rating %>
+                        <%end%>
+                      </li>
+                      <li class="list-group-item-borderless"><strong><%= review.user.username %></strong>, <i><%= review.created_at.strftime("%b %d, %Y") %></i></li>
+                      <li class="list-group-item-borderless mb-3"><%= review.content %></li>
+                    </div>
+                    <%# <%= link_to "Delete", review_path(review), class: "link text-decoration-none", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+                  <% end %>
+                </ul>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card-background my-3 px-3 py-3">
+            <%# <% if @trip.user.bookings %>
+            <%# <h2>You booked this trip on <%= @booking.created_at.strftime("%d/%m/%Y") %>
+            <%# <p><strong>Start date: </strong> <%= @booking.start_date.strftime("%d/%m/%Y") %>
+            <%# <p><strong>End date: </strong> <%= @booking.end_date.strftime("%d/%m/%Y") %>
+            <%# <% else %>
+            <%# <h2>Book this trip</h2> %>
+            <br>
+            <%= simple_form_for [@trip, @booking] do |f| %>
+              <%= f.input :start_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
+              <%= f.input :end_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
+              <%= f.submit 'Book Trip', class: "btn btn-flat"%>
+            <% end %>
+            <%# <% end %>
+          </div>
+        </div>
+        <% if @poi %>
+          <div class="col-sm-6">
+            <div class="card-background my-3 px-3 py-3">
+              <div>
+                <% @pois.each do |poi|%>
+                  <h2 class="my-1"><strong><%= poi.category %></strong></h2>
+                  <h4 class="my-1"><strong><%= poi.name %></strong></h4>
+                  <p><strong>Description</strong></p>
+                  <p><%= poi.description %></p>
+                  <p><strong>Address</strong></p>
+                  <p><%= poi.address %></p>
+                  <br>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <script>
+          mapboxgl.accessToken = 'pk.eyJ1IjoiY20xMWp1biIsImEiOiJjbGVvbzZxb28wNDdmM3VvMTBqeXVub2trIn0.6YeYXqBNO0iFTo6kMuTM-w';
+          var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: <%= @start_coords %>,
+            zoom: 10
+          });
 
-<script>
-  mapboxgl.accessToken = 'pk.eyJ1IjoiY20xMWp1biIsImEiOiJjbGVvbzZxb28wNDdmM3VvMTBqeXVub2trIn0.6YeYXqBNO0iFTo6kMuTM-w';
-  var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: <%= @start_coords %>,
-    zoom: 10
-  });
 
-
-  var directions = new MapboxDirections({
-    accessToken: 'pk.eyJ1IjoiY20xMWp1biIsImEiOiJjbGVvbzZxb28wNDdmM3VvMTBqeXVub2trIn0.6YeYXqBNO0iFTo6kMuTM-w',
-    unit: 'metric',
-    profile: 'mapbox/driving'
-  });
-  map.addControl(directions, 'top-left');
-  map.on('load', function() {
-directions.setOrigin(<%= @start_coords %>); // On load, set the origin to "Toronto, Ontario".
-directions.setDestination(<%= @end_coords %>); // On load, set the destination to "Montreal, Quebec".
-});
-
-</script>
+          var directions = new MapboxDirections({
+            accessToken: 'pk.eyJ1IjoiY20xMWp1biIsImEiOiJjbGVvbzZxb28wNDdmM3VvMTBqeXVub2trIn0.6YeYXqBNO0iFTo6kMuTM-w',
+            unit: 'metric',
+            profile: 'mapbox/driving'
+          });
+          map.addControl(directions, 'top-left');
+          map.on('load', function() {
+          directions.setOrigin(<%= @start_coords %>); // On load, set the origin to "Toronto, Ontario".
+          directions.addWaypoint(0, [-1.898575, 52.489471]); //birmingham // <%= @stop_1_coords %>
+          directions.addWaypoint(1, [-1.080278, 53.958332]); //york // // <%= @stop_2_coords %>
+          directions.addWaypoint(2, [-1.257677, 51.752022]); //oxford // <%= @stop_3_coords %>
+          directions.addWaypoint(3, [-2.587910, 51.454514]); //bristol // <%= @stop_4_coords %>
+          directions.addWaypoint(4, [-4.224721, 57.477772]); //inverness // <%= @stop_5_coords %>
+          directions.setDestination(<%= @end_coords %>); // On load, set the destination to "Montreal, Quebec".
+          });
+        </script>

@@ -11,7 +11,14 @@ class Trip < ApplicationRecord
   has_many :reviews
   has_many :trip_pois
   has_many :pois, through: :trip_pois
+  has_many :bookings
   has_many_attached :photos
 
   acts_as_favoritable
+
+  scope :trending, -> {
+    joins(:bookings)
+      .group('trips.id')
+      .order(Arel.sql('COUNT(*) DESC'))
+  }
 end

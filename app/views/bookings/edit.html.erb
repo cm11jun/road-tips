@@ -1,0 +1,11 @@
+<div class="container w-50">
+  <div class="card-background my-3 px-3 py-3">
+    <h2>Edit Booking for <%= @booking.trip.title %> by <%= @booking.trip.user.username %></h2>
+    <br>
+      <%= simple_form_for [@trip, @booking] do |f| %>
+        <%= f.input :start_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
+        <%= f.input :end_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
+        <%= f.submit 'Edit Booking', class: "btn btn-flat"%>
+      <% end %>
+  </div>
+</div>

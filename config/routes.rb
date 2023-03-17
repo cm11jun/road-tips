@@ -4,10 +4,18 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   # resources :profiles, only: [:show]
-  get 'profile' => 'profile#show'
+
+  resources :profile
+
+  # get 'profile' => 'profile#show'
+
+  get 'my_profile' => 'profile#my_profile'
+
+  resources :bookings
 
 
   resources :trips do
+    resources :bookings
     resources :reviews, only: [:create]
     resources :pois, only: [:index, :show] do
   end

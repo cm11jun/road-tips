@@ -1,0 +1,51 @@
+<div class='container card-background my-3'>
+  <h1>Booked Trips</h1>
+  <div class="main-container mx-2">
+    <div class="col-sm-12">
+      <div class="row">
+        <% @bookings.each do |booking| %>
+          <div class="col-sm-3">
+            <div class="card-trip flex mb-4">
+              <div class="card-category">
+                <% if booking.trip.photos.attached? %>
+                  <%= cl_image_tag booking.trip.photos.first.key, height: 300, width: 400, crop: :fill, class:  %>
+                <% else %>
+                  <%= image_tag "scotland-wallpaper.jpg", height: 300, width: 400, crop: :fill, class:  %>
+                <% end %>
+              </div>
+              <div class="container card-category-infos pt-1">
+                <div class="text-end">
+                  <% if booking.trip.user %>
+                    <%= cl_image_tag booking.trip.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+                  <% end %>
+                </div>
+                <h4><%= link_to booking.trip.title, trip_path(booking.trip), class: "card-category-h4 link-dark text-decoration-none" %> by <%= booking.trip.user.username %></h4>
+                <div class="card-category-infos">
+                  <h6 class="mt-2"><strong>Booked on: </strong> <%= booking.created_at.strftime("%d/%m/%Y, at %l:%M %p") %></h6>
+                  <h6><strong>Start date: </strong> <%= booking.start_date.strftime("%d/%m/%Y") %></h6>
+                  <h6><strong>End date: </strong> <%= booking.end_date.strftime("%d/%m/%Y") %></h6>
+                  <%= link_to "Edit Booking", edit_booking_path(booking), class: "btn btn-flat my-2" %>
+                  <%= button_to "Cancel Booking", booking_path(booking), class: "btn btn-light", method: :delete, confirm: "Are you sure?"%>
+                </div>
+                <%# <br> %>
+                <%# <i class="fas fa-heart"></i> %>
+              </div>
+              <div class="text-end mr-3">
+                <div>
+                  <h2><%= booking.trip.day %> days</h2>
+                </div>
+                <div class="pb-3">
+                  <% if booking.trip.reviews.count > 0 %>
+                    <h4>★ <strong><%= booking.trip.reviews.average(:rating).round(2) %> </strong></h4>
+                  <% else %>
+                    <h4>No reviews</h4>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
