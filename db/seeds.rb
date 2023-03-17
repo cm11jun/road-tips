@@ -74,6 +74,118 @@ raj_profile = Profile.create!(
 )
 raj_profile.save
 
+wes_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679068289/wes_lbx9r4.jpg")
+wes_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+wes = User.new(email: "wes@roadtips.co.uk", username: "Wes", password: "123456", car: "Toyota Prius")
+wes.avatar.attach(io: wes_avatar, filename: "wes_lbx9r4", content_type: "image/jpg")
+wes.car_photo.attach(io: wes_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+wes.save
+
+wes_profile = Profile.create!(
+  name: 'Wes',
+  bio: 'I am a web developer.',
+  user_id: wes.id
+)
+wes_profile.save
+
+ilaria_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679070534/Ilaria_qcje20.jpg")
+ilaria_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+ilaria = User.new(email: "ilaria@roadtips.co.uk", username: "ilaria", password: "123456", car: "Toyota Prius")
+ilaria.avatar.attach(io: ilaria_avatar, filename: "Ilaria_qcje20", content_type: "image/jpg")
+ilaria.car_photo.attach(io: ilaria_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+ilaria.save
+
+ilaria_profile = Profile.create!(
+  name: 'Ilaria',
+  bio: 'I am a web developer.',
+  user_id: ilaria.id
+)
+ilaria_profile.save
+
+alex_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679073340/alex_pitebt.jpg")
+alex_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+alex = User.new(email: "alex@roadtips.co.uk", username: "alex", password: "123456", car: "Toyota Prius")
+alex.avatar.attach(io: alex_avatar, filename: "alex_pitebt", content_type: "image/jpg")
+alex.car_photo.attach(io: alex_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+alex.save
+
+alex_profile = Profile.create!(
+  name: 'Alex',
+  bio: 'I am a web developer.',
+  user_id: alex.id
+)
+alex_profile.save
+
+antonio_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679073340/antonio_sepqd6.jpg")
+antonio_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+antonio = User.new(email: "antonio@roadtips.co.uk", username: "antonio", password: "123456", car: "Toyota Prius")
+antonio.avatar.attach(io: antonio_avatar, filename: "antonio_sepqd6", content_type: "image/jpg")
+antonio.car_photo.attach(io: antonio_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+antonio.save
+
+antonio_profile = Profile.create!(
+  name: 'Antonio',
+  bio: 'I am a web developer.',
+  user_id: antonio.id
+)
+antonio_profile.save
+
+jon_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679073340/jon_l59rbx.jpg")
+jon_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+jon = User.new(email: "jon@roadtips.co.uk", username: "jon", password: "123456", car: "Toyota Prius")
+jon.avatar.attach(io: jon_avatar, filename: "jon_l59rbx", content_type: "image/jpg")
+jon.car_photo.attach(io: jon_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+jon.save
+
+jon_profile = Profile.create!(
+  name: 'Jon',
+  bio: 'I am a web developer.',
+  user_id: jon.id
+)
+jon_profile.save
+
+zuzanna_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679073340/zuzanna_ouq4mv.jpg")
+zuzanna_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+zuzanna = User.new(email: "zuzanna@roadtips.co.uk", username: "zuzanna", password: "123456", car: "Toyota Prius")
+zuzanna.avatar.attach(io: zuzanna_avatar, filename: "zuzanna_ouq4mv", content_type: "image/jpg")
+zuzanna.car_photo.attach(io: zuzanna_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+zuzanna.save
+
+zuzanna_profile = Profile.create!(
+  name: 'Zuzanna',
+  bio: 'I am a web developer.',
+  user_id: zuzanna.id
+)
+zuzanna_profile.save
+
+gador_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679073340/gador_ptzv9y.jpg")
+gador_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+gador = User.new(email: "gador@roadtips.co.uk", username: "gador", password: "123456", car: "Toyota Prius")
+gador.avatar.attach(io: gador_avatar, filename: "gador_ptzv9y", content_type: "image/jpg")
+gador.car_photo.attach(io: gador_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+gador.save
+
+gador_profile = Profile.create!(
+  name: 'Gador',
+  bio: 'I am a web developer.',
+  user_id: gador.id
+)
+gador_profile.save
+
+fran_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679073340/francesca_hgmq3x.jpg")
+fran_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+fran = User.new(email: "fran@roadtips.co.uk", username: "fran", password: "123456", car: "Toyota Prius")
+fran.avatar.attach(io: fran_avatar, filename: "francesca_hgmq3x", content_type: "image/jpg")
+fran.car_photo.attach(io: fran_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+fran.save
+
+fran_profile = Profile.create!(
+  name: 'Francesca',
+  bio: 'I am a web developer.',
+  user_id: fran.id
+)
+fran_profile.save
+
 puts "Cleaning database..."
 
 nc500 = Trip.new(
@@ -148,6 +260,57 @@ dales.photos.attach(io: dales1, filename: "malham_huexmk", content_type: "image/
 dales.photos.attach(io: dales2, filename: "ribblehead_uzc9nj", content_type: "image/jpg")
 dales.photos.attach(io: dales3, filename: "donkey_nv00bj", content_type: "image/jpg")
 dales.save
+
+leamington1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679069763/Wagamama2_gionez.jpg")
+leamington2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679068925/wagamama_zvkt2f.png")
+leamington3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679069763/Wagamama3_fyhgez.jpg")
+leamington = Trip.new(
+  user_id: wes.id,
+  title: "Trip to the Wagamama at Leamington Spa",
+  start_point: "London",
+  end_point: "Wagamama Leamington Spa",
+  region: "England",
+  summary: "Make a beeline to the Wagamama at Leamington Spa straight after class. Gotta love me some tasty Wagamama!",
+  day: 1
+)
+leamington.photos.attach(io: leamington1, filename: "Wagamama2_gionez", content_type: "image/jpg")
+leamington.photos.attach(io: leamington2, filename: "wagamama_zvkt2f", content_type: "image/jpg")
+leamington.photos.attach(io: leamington3, filename: "Wagamama3_fyhgez", content_type: "image/jpg")
+leamington.save
+
+wine1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679071084/wine1_lcieyu.webp")
+wine2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679071156/wine2_gdnsgq.jpg")
+wine3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679071157/wine3_ydoh2x.jpg")
+wine = Trip.new(
+  user_id: ilaria.id,
+  title: "Bring me the wine!",
+  start_point: "London",
+  end_point: "Hedonism Wines",
+  region: "England",
+  summary: "I need wine, just get me to the wine place! I don't care about this stupid road trip!",
+  day: 1
+)
+wine.photos.attach(io: wine1, filename: "wine1_lcieyu", content_type: "image/webp")
+wine.photos.attach(io: wine2, filename: "wine2_gdnsgq", content_type: "image/jpg")
+wine.photos.attach(io: wine3, filename: "wine3_ydoh2x", content_type: "image/jpg")
+wine.save
+
+date1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679074390/ritz1_s36m4p.jpg")
+date2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679074390/ritz2_i8tb7t.png")
+date3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679074390/ritz3_fvohot.jpg")
+date = Trip.new(
+  user_id: antonio.id,
+  title: "Road trip to the best date ever",
+  start_point: "London",
+  end_point: "The Ritz London",
+  region: "England",
+  summary: "This will without any doubt be the best date ever.",
+  day: 1
+)
+date.photos.attach(io: date1, filename: "ritz1_s36m4p", content_type: "image/jpg")
+date.photos.attach(io: date2, filename: "ritz2_i8tb7t", content_type: "image/png")
+date.photos.attach(io: date3, filename: "ritz3_fvohot", content_type: "image/jpg")
+date.save
 
 puts "Cleaning database..."
 Poi.destroy_all
@@ -482,6 +645,38 @@ pie = Poi.new(
 pie.save
 # dales pois end
 
+le_wagon = Poi.new(
+  name: "Le Wagon London",
+  category: "Landmarks",
+  description: "Computer training school in London, England",
+  address: "Shoreditch Stables, North, 138 Kingsland Rd, London E2 8DY"
+)
+le_wagon.save
+
+wagamama = Poi.new(
+  name: "Wagamama leamington spa",
+  category: "Eats",
+  description: "Asian-inspired & Japanese chain restaurant where dishes are whisked to long communal tables.",
+  address: "94 parade leamington spa, warwickshire cv32 4ay"
+)
+wagamama.save
+
+wine_shop = Poi.new(
+  name: "Hedonism Wines",
+  category: "Eats",
+  description: "Happening boutique with a huge selection of top-shelf wines & spirits, tastings & a kids' play area.",
+  address: "3-7 Davies St, London W1K 3DJ"
+)
+wine_shop.save
+
+ritz = Poi.new(
+  name: "The Ritz London",
+  category: "Eats",
+  description: "Iconic luxury hotel with a spa & dining",
+  address: "150 Piccadilly, St. James's, London W1J 9BR"
+)
+ritz.save
+
 puts "creating trip_pois"
 
 # northern_ireland TripPois start
@@ -514,5 +709,12 @@ TripPoi.create!(trip: dales, poi: loughrigg)
 TripPoi.create!(trip: dales, poi: rydal)
 TripPoi.create!(trip: dales, poi: pie)
 # dales TripPois end
+
+TripPoi.create!(trip: leamington, poi: le_wagon)
+TripPoi.create!(trip: leamington, poi: wagamama)
+
+TripPoi.create!(trip: wine, poi: wine_shop)
+
+TripPoi.create!(trip: date, poi: ritz)
 
 puts "Finished!"
