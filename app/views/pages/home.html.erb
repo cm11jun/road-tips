@@ -82,7 +82,7 @@
                     <% end %>
                   <% end %>
                 </div>
-                <h4><%= link_to trip.title, trip_path(trip), class: "card-category-h4 link-dark text-decoration-none" %> by <%= trip.user.username %></h4>
+                <h4><%= link_to trip.title, trip_path(trip), class: "card-category-h4 text-decoration-none" %> by <%= trip.user.username %></h4>
                 <div class="card-category-infos">
                   <h6><strong>From: </strong><%= trip.start_point %></h6>
                   <h6><strong>To: </strong><%= trip.end_point %></h6>
