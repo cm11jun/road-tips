@@ -2,6 +2,8 @@ class Poi < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
+
+  CATEGORIES = ["Fun Roads", "Sights", "Landmarks", "Sleeps", "Eats", "Services"].freeze
   def image_url
     case category
     when "Landmarks" then ActionController::Base.helpers.asset_path("fort.png")
@@ -14,5 +16,9 @@ class Poi < ApplicationRecord
     else
       ActionController::Base.helpers.asset_path("fort.png")
     end
+  end
+
+  def self.categories
+    CATEGORIES
   end
 end

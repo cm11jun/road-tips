@@ -705,6 +705,16 @@ ritz = Poi.new(
 )
 ritz.save
 
+north_coast = Poi.new(
+  name: "North Coast 500",
+  category: "Scenic Roads",
+  description: "The North Coast 500 is a 516-mile scenic route around the north coast of Scotland,
+   starting and ending at Inverness Castle. The route is also known as the NC500 and was launched in 2015,
+   linking many features in the north Highlands of Scotland in one touring route.",
+  address: "17-19 High St, Inverness IV1 1HY, UK"
+)
+north_coast.save
+
 puts "creating trip_pois"
 
 # northern_ireland TripPois start
