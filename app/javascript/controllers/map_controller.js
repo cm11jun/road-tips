@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 // Connects to data-controller="map"
 export default class extends Controller {
@@ -14,6 +15,9 @@ export default class extends Controller {
    });
    this.#addMarkersToMap()
    this.#fitMapToMarkers()
+
+   this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl }))
 }
 
   #fitMapToMarkers() {
@@ -27,8 +31,14 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
+      const customMarker = document.createElement('div')
+      customMarker.style.height = "25px"
+      customMarker.style.width = "25px"
+      customMarker.style.borderRadius = "50px"
+      customMarker.style.backgroundImage = `url('${marker.image_url}')`
+      customMarker.style.backgroundSize = "contain"
       const popup = new mapboxgl.Popup().setHTML(marker.info_window)
-      new mapboxgl.Marker()
+      new mapboxgl.Marker({element: customMarker})
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(this.map)

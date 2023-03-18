@@ -12,33 +12,53 @@
   <div class="poi-icons row text-center mb-2">
     <div class="d-flex justify-content-between poi-icons-links">
       <figure>
-        <i class="fa-solid fa-bridge-water fa-3x"></i>
-        <figcaption>Scenic Roads</figcaption>
+      <%= link_to trips_path do %>
+       <i class="fa-solid fa-earth-europe fa-3x"></i>
+        <figcaption>All</figcaption>
       </figure>
+      <% end %>
       <figure>
+      <%= link_to trips_path(category: "Scenic Roads") do %>
+          <i class="fa-solid fa-bridge-water fa-3x"></i>
+          <figcaption>Scenic Roads</figcaption>
+        </figure>
+      <% end %>
+      <figure>
+        <%= link_to trips_path(category: "Fun roads") do %>
         <i class="fa-solid fa-flag-checkered fa-3x"></i>
         <figcaption>Fun Roads</figcaption>
       </figure>
+      <% end %>
       <figure>
+        <%= link_to trips_path(category: "Sights") do %>
         <i class="fa-solid fa-camera fa-3x"></i>
         <figcaption>Sights</figcaption>
       </figure>
+      <% end %>
       <figure>
+        <%= link_to trips_path(category: "Landmarks") do %>
         <i class="fa-brands fa-fort-awesome fa-3x"></i>
         <figcaption>Landmarks</figcaption>
       </figure>
+      <% end %>
       <figure>
+        <%= link_to trips_path(category: "Sleeps") do %>
         <i class="fa-solid fa-bed fa-3x"></i>
         <figcaption>Sleeps</figcaption>
       </figure>
+      <% end %>
       <figure>
+        <%= link_to trips_path(category: "Eats") do %>
         <i class="fa-solid fa-utensils fa-3x"></i>
         <figcaption>Eats</figcaption>
       </figure>
+      <% end %>
       <figure>
+        <%= link_to trips_path(category: "Services") do %>
         <i class="fa-solid fa-gas-pump fa-3x"></i>
         <figcaption>Services</figcaption>
       </figure>
+      <% end %>
     </div>
   </div>
   <div class="main-container row">
@@ -58,9 +78,11 @@
               </div>
               <div class="container card-category-infos pt-1">
                 <div class="text-end">
-                  <%= cl_image_tag trip.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+                  <%= link_to profile_path(trip.user) do %>
+                    <%= cl_image_tag trip.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+                  <% end %>
                 </div>
-                <h4><%= link_to trip.title, trip_path(trip), class: "card-category-h4 link-dark text-decoration-none" %> by <%= trip.user.username %></h4>
+                <h4><%= link_to trip.title, trip_path(trip), class: "card-category-h4 text-decoration-none" %> by <%= trip.user.username %></h4>
                 <p><strong>From: </strong><%= trip.start_point %></p>
                 <p><strong>To: </strong><%= trip.end_point %></p>
                 <p><strong>Region: </strong> <%= trip.region %></p>

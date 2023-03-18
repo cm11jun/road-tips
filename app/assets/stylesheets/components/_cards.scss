@@ -101,11 +101,76 @@ body {
   position: relative;
 }
 
+.card-background {
+  overflow: hidden;
+  color: black;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  // opacity: 0.9;
+}
+
+
+.card-background > img {
+  height: 400px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.card-background h2 {
+  font-size: 24px;
+  font-weight: bold;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-background h4 {
+  font-size: 18px;
+  opacity: .7;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-background h6 {
+  font-size: 16px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-background p {
+  font-size: 16px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-background .fa-heart {
+  color: #D23333;
+  font-size: 20px;
+}
+
+.card-background .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-background-infos .card-trip-user {
+  position: relative;
+  right: -364px;
+  top: -40px;
+  width: 50px;
+}
+
+
+
 
 
 .card-trip {
   overflow: hidden;
   color: black;
+  height: 570px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   border-radius: 5px;

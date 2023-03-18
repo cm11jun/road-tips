@@ -7,13 +7,18 @@ class TripsController < ApplicationController
       @trips = Trip.all
     end
 
-    @pois = Poi.all
+    if params[:category].present?
+      @pois = Poi.where(category: params[:category])
+    else
+      @pois = Poi.all
+    end
     # The `geocoded` scope filters only flats with coordinates
     @markers = @pois.geocoded.map do |poi|
       {
         lat: poi.latitude,
         lng: poi.longitude,
-        info_window: render_to_string(partial: "popup", locals: {poi: poi})
+        info_window: render_to_string(partial: "popup", locals: {poi: poi}),
+        image_url: poi.image_url
       }
     end
   end
