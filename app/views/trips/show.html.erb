@@ -97,21 +97,27 @@
       <%# </div> %>
       <% if @trip.photos.attached? %>
         <div class="wrapper">
-          <div class="item">
-            <div class="polaroid"><%= cl_image_tag @trip.photos.first.key %>
-              <%# <div class="caption"><h5>Sunset on the beach</h5></div> %>
+          <% unless @trip.photos.first.nil?%>
+            <div class="item">
+              <div class="polaroid">
+                <%= cl_image_tag @trip.photos.first.key %>
+              </div>
             </div>
-          </div>
-          <div class="item">
-            <div class="polaroid"><%= cl_image_tag @trip.photos.second.key %>
-              <%# <div class="caption"><h5>Making new friends! 🐴</h5></div> %>
+          <% end %>
+          <% unless @trip.photos.second.nil?%>
+            <div class="item">
+              <div class="polaroid">
+                <%= cl_image_tag @trip.photos.second.key %>
+              </div>
             </div>
-          </div>
-          <div class="item">
-            <div class="polaroid"><%= cl_image_tag @trip.photos.third.key %>
-              <%# <div class="caption"><h5>Making new friends! 🐴</h5></div> %>
+          <% end %>
+          <% unless @trip.photos.third.nil?%>
+            <div class="item">
+              <div class="polaroid">
+                <%= cl_image_tag @trip.photos.third.key %>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% else %>
           <div class="wrapper">
             <div class="item">
