@@ -210,11 +210,36 @@
           map.addControl(directions, 'top-left');
           map.on('load', function() {
           directions.setOrigin(<%= @start_coords %>); // On load, set the origin to "Toronto, Ontario".
-          if (<%= @waypoint1 %>) { directions.addWaypoint(0, <%= @waypoint1 %> ); }
-          if (<%= @waypoint2 %>) { directions.addWaypoint(1, <%= @waypoint2 %> ); }
-          if (<%= @waypoint3 %>) { directions.addWaypoint(2, <%= @waypoint3 %> ); }
-          if (<%= @waypoint4 %>) { directions.addWaypoint(3, <%= @waypoint4 %> ); }
-          if (<%= @waypoint5 %>) { directions.addWaypoint(4, <%= @waypoint5 %> ); }
           directions.setDestination(<%= @end_coords %>); // On load, set the destination to "Montreal, Quebec".
           });
         </script>
+
+        <% if @waypoint1 %>
+          <script>
+            directions.addWaypoint(0, <%= @waypoint1 %> );
+          </script>
+        <% end %>
+
+        <% if @waypoint2 %>
+          <script>
+            directions.addWaypoint(1, <%= @waypoint2 %> );
+          </script>
+        <% end %>
+
+        <% if @waypoint3 %>
+          <script>
+            directions.addWaypoint(2, <%= @waypoint3 %> );
+          </script>
+        <% end %>
+
+        <% if @waypoint4 %>
+          <script>
+            directions.addWaypoint(3, <%= @waypoint4 %> );
+          </script>
+        <% end %>
+
+        <% if @waypoint5 %>
+          <script>
+            directions.addWaypoint(4, <%= @waypoint5 %> );
+          </script>
+        <% end %>

@@ -27,19 +27,21 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     @review = Review.new
     @booking = Booking.new
-    @pois = Poi.where(id: @trip.waypoint.map(&:to_i))
+    @pois = @trip.waypoint.present? ? Poi.where(id: @trip.waypoint.map(&:to_i)) : []
     # iterate over the array and for each trip_poi, find the poi it belongs to
     # return an array of pois
 
     @start_coords = Geocoder.search(@trip.start_point).first.coordinates.reverse
     @end_coords = Geocoder.search(@trip.end_point).first.coordinates.reverse
 
-    @pois_names = Poi.where(id: @trip.waypoint.map(&:to_i)).map(&:name)
-    @waypoint1 = Geocoder.search(@pois_names[0]).first&.coordinates&.reverse || false
-    @waypoint2 = Geocoder.search(@pois_names[1]).first&.coordinates&.reverse || false
-    @waypoint3 = Geocoder.search(@pois_names[2]).first&.coordinates&.reverse || false
-    @waypoint4 = Geocoder.search(@pois_names[3]).first&.coordinates&.reverse || false
-    @waypoint5 = Geocoder.search(@pois_names[4]).first&.coordinates&.reverse || false
+    @pois_names = Poi.where(id: @trip.waypoint.map(&:to_i)).map(&:name) if @pois.present?
+    if @pois_names.present?
+      @waypoint1 = Geocoder.search(@pois_names[0]).first&.coordinates&.reverse || false
+      @waypoint2 = Geocoder.search(@pois_names[1]).first&.coordinates&.reverse || false
+      @waypoint3 = Geocoder.search(@pois_names[2]).first&.coordinates&.reverse || false
+      @waypoint4 = Geocoder.search(@pois_names[3]).first&.coordinates&.reverse || false
+      @waypoint5 = Geocoder.search(@pois_names[4]).first&.coordinates&.reverse || false
+    end
   end
 
   def new
