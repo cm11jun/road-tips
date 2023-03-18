@@ -42,9 +42,8 @@
     </div>
     <br>
     <div class="card-background mt-2 px-3 py-3">
-      <h2>Trips I've created</h2>
-      <br>
       <div class="col-sm-12">
+        <h2 class="my-2">Trips I've created</h2>
         <div class="row">
           <% @trips.each do |trip| %>
             <div class="col-sm-3">
@@ -64,7 +63,7 @@
                       <%= cl_image_tag trip.user.avatar.key, class: "card-trip-user avatar-bordered" %>
                     </div>
                   <% end %>
-                  <h4><%= link_to trip.title, trip_path(trip), class: "card-category-h4 link-dark text-decoration-none" %> by <%= trip.user.username %></h4>
+                  <h4><%= link_to trip.title, trip_path(trip), class: "card-category-h4 text-decoration-none" %> by <%= trip.user.username %></h4>
                   <div class="card-category-infos">
                     <h6><strong>From: </strong><%= trip.start_point %></h6>
                     <h6><strong>To: </strong><%= trip.end_point %></h6>
@@ -92,9 +91,8 @@
       </div>
     </div>
     <div class="card-background mt-2 px-3 py-3">
-      <h2>Trips I've booked</h2>
-      <br>
       <div class="col-sm-12">
+        <h2 class="my-2">Trips I've booked</h2>
         <div class="row">
           <% @user.bookings.each do |booking| %>
             <div class="col-sm-3">
@@ -110,15 +108,25 @@
                   <div class="text-end">
                     <% if booking.trip.user %>
                       <%= cl_image_tag booking.trip.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+                      <% friend_bookings = FriendBooking.where(booking_id: booking.id) %>
+                      <% unless friend_bookings.empty? %>
+                        <% friend_bookings.each do |friend_booking|%>
+                          <%= cl_image_tag friend_booking.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+                        <% end %>
+                      <% end %>
                     <% end %>
                   </div>
-                  <h4><%= link_to booking.trip.title, trip_path(booking.trip), class: "card-category-h4 link-dark text-decoration-none" %> by <%= booking.trip.user.username %></h4>
+                  <h4><%= link_to booking.trip.title, trip_path(booking.trip), class: "card-category-h4 text-decoration-none" %> by <%= booking.trip.user.username %></h4>
                   <div class="card-category-infos">
                     <h6 class="mt-3"><strong>Booked on: </strong> <%= booking.created_at.strftime("%d/%m/%Y, at %l:%M %p") %></h6>
                     <h6><strong>Start date: </strong> <%= booking.start_date.strftime("%d/%m/%Y") %></h6>
                     <h6><strong>End date: </strong> <%= booking.end_date.strftime("%d/%m/%Y") %></h6>
-                    <%= link_to "Edit Booking", edit_booking_path(booking), class: "btn btn-flat my-2" %>
-                    <%= button_to "Cancel Booking", booking_path(booking), class: "btn btn-light", method: :delete, confirm: "Are you sure?"%>
+                  </div>
+                  <div>
+                    <%= simple_form_for [@friend_booking] do |f| %>
+                      <%= f.hidden_field :booking_id, value: booking.id %>
+                      <%= f.submit "Join Trip", class: "btn btn-flat my-2" %>
+                    <% end %>
                   </div>
                   <%# <br> %>
                   <%# <i class="fas fa-heart"></i> %>
@@ -141,9 +149,9 @@
         </div>
       </div>
     </div>
-    <div class="card-background mt-2 px-3 py-3">
+    <%# <div class="card-background mt-2 px-3 py-3">
       <h2>My wish list <i class="fas fa-heart"></i></h2>
-    </div>
+    </div> %>
     <div class="col-12 row">
       <div class="col-6">
         <div class="card-background mt-2 px-3 py-3">
@@ -151,7 +159,7 @@
           <ul class="list-group list-unstyled">
             <% @user.reviews.each do |review| %>
               <div>
-                <h4><%= link_to review.trip.title, trip_path(review.trip), class: "card-category-h4 link-dark text-decoration-none" %> by <%= review.trip.user.username %></h4>
+                <h4><%= link_to review.trip.title, trip_path(review.trip), class: "card-category-h4 text-decoration-none" %> by <%= review.trip.user.username %></h4>
                 <li><%= '★' * review.rating %></li>
                 <li class="list-group-item-borderless"><strong><%= review.user.username %></strong>, <%= review.created_at.strftime("%b %d, %Y") %></li>
                 <li class="list-group-item-borderless mb-3"><%= review.content %></li>
@@ -167,7 +175,7 @@
             <% @user.trips.each do |trip| %>
               <% trip.reviews.each do |review| %>
                 <div>
-                  <h4><%= link_to review.trip.title, trip_path(trip), class: "card-category-h4 link-dark text-decoration-none" %> by <%= review.trip.user.username %></h4>
+                  <h4><%= link_to review.trip.title, trip_path(trip), class: "card-category-h4 text-decoration-none" %> by <%= review.trip.user.username %></h4>
                   <li><%= '★' * review.rating %></li>
                   <li class="list-group-item-borderless"><strong><%= review.user.username %></strong>, <%= review.created_at.strftime("%b %d, %Y") %></li>
                   <li class="list-group-item-borderless mb-3"><%= review.content %></li>

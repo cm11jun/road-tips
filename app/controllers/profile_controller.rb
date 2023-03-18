@@ -7,13 +7,16 @@ class ProfileController < ApplicationController
   end
 
   def show
+    @friend_booking = FriendBooking.new
     @profile = @user.profile
     @trips = @profile.trips
+    # @bookings = Booking.where(user_id: params[:id])
   end
 
   def my_profile
     @profile = current_user.profile
     @trips = current_user.trips
+    @friend_bookings = FriendBooking.where(user_id: current_user)
   end
 
   # def edit

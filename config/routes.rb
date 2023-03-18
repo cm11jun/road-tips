@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'my_profile' => 'profile#my_profile'
 
   resources :bookings
+  resources :friend_bookings
 
 
   resources :trips do
