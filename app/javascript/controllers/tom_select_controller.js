@@ -5,7 +5,7 @@ export default class extends Controller {
 
   connect() {
     console.log("?");
-    const select = document.querySelector(".hahahah");
+    const select = document.querySelector(".stops");
 
     new TomSelect(select,{
       maxItems: 10,

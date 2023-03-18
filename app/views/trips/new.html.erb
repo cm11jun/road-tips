@@ -11,7 +11,7 @@
       <%= simple_form_for [@trip] do |f| %>
         <%= f.input :title %>
         <%= f.input :start_point %>
-        <%= f.input :waypoint, as: :select, collection: @pois, label_method: :name, include_blank: true, input_html: { name: 'waypoint[]', class: 'hahahah' } %>
+        <%= f.input :waypoint, as: :select, collection: @pois, label_method: :name, include_blank: true, input_html: { name: 'waypoint[]', class: 'stops' } %>
         <%= f.input :end_point %>
         <%= f.input :region %>
         <%= f.input :summary %>
