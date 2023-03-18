@@ -6,7 +6,6 @@ class Trip < ApplicationRecord
   validates :region, presence: true
   validates :day, presence: true
 
-
   belongs_to :user
   has_many :reviews
   has_many :trip_pois
