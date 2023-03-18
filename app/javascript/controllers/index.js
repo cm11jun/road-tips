@@ -18,3 +18,6 @@ application.register("star-rating", StarRatingController)
 
 import TripShowMapController from "./trip_show_map_controller"
 application.register("trip-show-map", TripShowMapController)
+
+import TomSelectController from "./tom_select_controller"
+application.register("tom-select", TomSelectController)

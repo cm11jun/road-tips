@@ -4,13 +4,15 @@
   <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
   <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
 </head>
-<div>
-  <div class="container card-background my-3 py-3 px-3">
+
+<div class="container my-3 py-3 px-3" data-controller="tom-select">
+  <div class="card-trip">
     <h1>New Trip</h1>
     <div class="d-flex col-5">
       <%= simple_form_for [@trip] do |f| %>
         <%= f.input :title %>
         <%= f.input :start_point %>
+        <%= f.input :waypoint, as: :select, collection: @pois, label_method: :name, include_blank: true, input_html: { name: 'waypoint[]', class: 'stops' } %>
         <%= f.input :end_point %>
         <%= f.input :region %>
         <%= f.input :summary %>

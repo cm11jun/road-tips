@@ -210,11 +210,11 @@
           map.addControl(directions, 'top-left');
           map.on('load', function() {
           directions.setOrigin(<%= @start_coords %>); // On load, set the origin to "Toronto, Ontario".
-          directions.addWaypoint(0, [-1.898575, 52.489471]); //birmingham // <%= @stop_1_coords %>
-          directions.addWaypoint(1, [-1.080278, 53.958332]); //york // // <%= @stop_2_coords %>
-          directions.addWaypoint(2, [-1.257677, 51.752022]); //oxford // <%= @stop_3_coords %>
-          directions.addWaypoint(3, [-2.587910, 51.454514]); //bristol // <%= @stop_4_coords %>
-          directions.addWaypoint(4, [-4.224721, 57.477772]); //inverness // <%= @stop_5_coords %>
+          if (<%= @waypoint1 %>) { directions.addWaypoint(0, <%= @waypoint1 %> ); }
+          if (<%= @waypoint2 %>) { directions.addWaypoint(1, <%= @waypoint2 %> ); }
+          if (<%= @waypoint3 %>) { directions.addWaypoint(2, <%= @waypoint3 %> ); }
+          if (<%= @waypoint4 %>) { directions.addWaypoint(3, <%= @waypoint4 %> ); }
+          if (<%= @waypoint5 %>) { directions.addWaypoint(4, <%= @waypoint5 %> ); }
           directions.setDestination(<%= @end_coords %>); // On load, set the destination to "Montreal, Quebec".
           });
         </script>

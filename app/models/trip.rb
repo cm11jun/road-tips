@@ -6,7 +6,6 @@ class Trip < ApplicationRecord
   validates :region, presence: true
   validates :day, presence: true
 
-
   belongs_to :user
   has_many :reviews
   has_many :trip_pois
@@ -15,7 +14,7 @@ class Trip < ApplicationRecord
   has_many_attached :photos
 
   acts_as_favoritable
-
+  accepts_nested_attributes_for :trip_pois
   scope :trending, -> {
     joins(:bookings)
       .group('trips.id')
