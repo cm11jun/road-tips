@@ -6,38 +6,6 @@
 </head>
 <div class="container">
   <br>
-  <div class="poi-icons row text-center mb-2">
-    <div class="d-flex justify-content-between poi-icons-links">
-      <figure>
-        <i class="fa-solid fa-bridge-water fa-3x"></i>
-        <figcaption>Scenic Roads</figcaption>
-      </figure>
-      <figure>
-        <i class="fa-solid fa-flag-checkered fa-3x"></i>
-        <figcaption>Fun Roads</figcaption>
-      </figure>
-      <figure>
-        <i class="fa-solid fa-camera fa-3x"></i>
-        <figcaption>Sights</figcaption>
-      </figure>
-      <figure>
-        <i class="fa-brands fa-fort-awesome fa-3x"></i>
-        <figcaption>Landmarks</figcaption>
-      </figure>
-      <figure>
-        <i class="fa-solid fa-bed fa-3x"></i>
-        <figcaption>Sleeps</figcaption>
-      </figure>
-      <figure>
-        <i class="fa-solid fa-utensils fa-3x"></i>
-        <figcaption>Eats</figcaption>
-      </figure>
-      <figure>
-        <i class="fa-solid fa-gas-pump fa-3x"></i>
-        <figcaption>Services</figcaption>
-      </figure>
-    </div>
-  </div>
   <div class="row flex-wrap">
     <div class="row col-sm-4 card-background mb-3">
       <div class="card-background-infos py-3">
@@ -57,9 +25,9 @@
           <p><strong>Summary</strong></p>
           <p><%= @trip.summary %></p>
           <%# <%= link_to "Favourite", favorites_update_path(trip: @trip), class: "btn btn-success my-2" %>
-          <br>
+          <%# <br>
           <i class="fas fa-heart"></i>
-          <br>
+          <br> %>
           <% if @trip.user == current_user %>
             <%= link_to "Edit Trip", edit_trip_path(@trip), class: "btn btn-flat my-2" %>
             <%= button_to "Delete Trip", trip_path(@trip), class: "btn btn-light", method: :delete, confirm: "Are you sure?"%>
@@ -129,7 +97,7 @@
         </div>
         <div class="col-sm-6">
           <div class="card-background my-3 px-3 py-3">
-            <h3><strong>Reviews</strong></h3>
+            <h2>Reviews</h2>
             <div class="row">
               <div class="col-xs-4">
                 <%= simple_form_for [@trip, @review] do |f| %>
@@ -141,7 +109,7 @@
             </div>
             <div>
               <% if @trip.reviews.count > 0 %>
-                <h3>User Reviews</h3>
+                <h2>User Reviews</h2>
                 <ul class="list-group list-unstyled">
                   <% @trip.reviews.each do |review| %>
                     <div>
@@ -172,7 +140,7 @@
             <%= simple_form_for [@trip, @booking] do |f| %>
               <%= f.input :start_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
               <%= f.input :end_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
-              <%= f.submit 'Book Trip', class: "btn btn-flat"%>
+              <%= f.submit 'Save Trip', class: "btn btn-flat"%>
             <% end %>
             <%# <% end %>
           </div>

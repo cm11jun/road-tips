@@ -174,7 +174,7 @@ gador_profile.save
 
 fran_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679073340/francesca_hgmq3x.jpg")
 fran_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
-fran = User.new(email: "fran@roadtips.co.uk", username: "Fran", password: "123456", car: "Toyota Prius")
+fran = User.new(email: "fran@roadtips.co.uk", username: "Francesca", password: "123456", car: "Toyota Prius")
 fran.avatar.attach(io: fran_avatar, filename: "francesca_hgmq3x", content_type: "image/jpg")
 fran.car_photo.attach(io: fran_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
 fran.save
@@ -185,6 +185,216 @@ fran_profile = Profile.create!(
   user_id: fran.id
 )
 fran_profile.save
+
+asula_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679259772/asula_pv1zgm.jpg")
+asula_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+asula = User.new(email: "asula@roadtips.co.uk", username: "Asula", password: "123456", car: "Toyota Prius")
+asula.avatar.attach(io: asula_avatar, filename: "asula_pv1zgm", content_type: "image/jpg")
+asula.car_photo.attach(io: asula_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+asula.save
+
+asula_profile = Profile.create!(
+  name: 'asula',
+  bio: 'I am a web developer.',
+  user_id: asula.id
+)
+asula_profile.save
+
+faryal_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679259772/faryal_tqlkmo.jpg")
+faryal_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+faryal = User.new(email: "faryal@roadtips.co.uk", username: "Faryal", password: "123456", car: "Toyota Prius")
+faryal.avatar.attach(io: faryal_avatar, filename: "faryal_tqlkmo", content_type: "image/jpg")
+faryal.car_photo.attach(io: faryal_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+faryal.save
+
+faryal_profile = Profile.create!(
+  name: 'Faryal',
+  bio: 'I am a web developer.',
+  user_id: faryal.id
+)
+faryal_profile.save
+
+iain_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679259772/iain_f1slgg.png")
+iain_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+iain = User.new(email: "iain@roadtips.co.uk", username: "Iain", password: "123456", car: "Toyota Prius")
+iain.avatar.attach(io: iain_avatar, filename: "iain_f1slgg", content_type: "image/png")
+iain.car_photo.attach(io: iain_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+iain.save
+
+iain_profile = Profile.create!(
+  name: 'Iain',
+  bio: 'I am a web developer.',
+  user_id: iain.id
+)
+iain_profile.save
+
+liv_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679259772/liv_bnf5fw.jpg")
+liv_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+liv = User.new(email: "liv@roadtips.co.uk", username: "Liv", password: "123456", car: "Toyota Prius")
+liv.avatar.attach(io: liv_avatar, filename: "liv_bnf5fw", content_type: "image/jpg")
+liv.car_photo.attach(io: liv_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+liv.save
+
+liv_profile = Profile.create!(
+  name: 'Liv',
+  bio: 'I am a web developer.',
+  user_id: liv.id
+)
+liv_profile.save
+
+jan_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679259772/jan_zvbl1h.jpg")
+jan_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+jan = User.new(email: "jan@roadtips.co.uk", username: "Jan", password: "123456", car: "Toyota Prius")
+jan.avatar.attach(io: jan_avatar, filename: "jan_zvbl1h", content_type: "image/jpg")
+jan.car_photo.attach(io: jan_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+jan.save
+
+jan_profile = Profile.create!(
+  name: 'Jan',
+  bio: 'I am a web developer.',
+  user_id: jan.id
+)
+jan_profile.save
+
+kenneth_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679259772/kenneth_uqamue.jpg")
+kenneth_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+kenneth = User.new(email: "kenneth@roadtips.co.uk", username: "Kenneth", password: "123456", car: "Toyota Prius")
+kenneth.avatar.attach(io: kenneth_avatar, filename: "kenneth_uqamue", content_type: "image/jpg")
+kenneth.car_photo.attach(io: kenneth_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+kenneth.save
+
+kenneth_profile = Profile.create!(
+  name: 'Kenneth',
+  bio: 'I am a web developer.',
+  user_id: kenneth.id
+)
+kenneth_profile.save
+
+joe_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679259771/joe_evcqiu.png")
+joe_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+joe = User.new(email: "joe@roadtips.co.uk", username: "Joe", password: "123456", car: "Toyota Prius")
+joe.avatar.attach(io: joe_avatar, filename: "joe_evcqiu", content_type: "image/png")
+joe.car_photo.attach(io: joe_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+joe.save
+
+joe_profile = Profile.create!(
+  name: 'Joe',
+  bio: 'I am a web developer.',
+  user_id: joe.id
+)
+joe_profile.save
+
+giulio_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679259771/giulio_qkxqsx.png")
+giulio_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+giulio = User.new(email: "giulio@roadtips.co.uk", username: "Giulio", password: "123456", car: "Toyota Prius")
+giulio.avatar.attach(io: giulio_avatar, filename: "giulio_qkxqsx", content_type: "image/png")
+giulio.car_photo.attach(io: giulio_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+giulio.save
+
+giulio_profile = Profile.create!(
+  name: 'Giulio',
+  bio: 'I am a web developer.',
+  user_id: giulio.id
+)
+giulio_profile.save
+
+lewis_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679259771/lewis_leevvk.jpg")
+lewis_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+lewis = User.new(email: "lewis@roadtips.co.uk", username: "Lewis", password: "123456", car: "Toyota Prius")
+lewis.avatar.attach(io: lewis_avatar, filename: "lewis_leevvk", content_type: "image/jpg")
+lewis.car_photo.attach(io: lewis_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+lewis.save
+
+lewis_profile = Profile.create!(
+  name: 'Lewis',
+  bio: 'I am a web developer.',
+  user_id: lewis.id
+)
+lewis_profile.save
+
+ayse_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679259771/aysegul_qdtxex.jpg")
+ayse_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+ayse = User.new(email: "ayse@roadtips.co.uk", username: "Ayse", password: "123456", car: "Toyota Prius")
+ayse.avatar.attach(io: ayse_avatar, filename: "aysegul_qdtxex", content_type: "image/jpg")
+ayse.car_photo.attach(io: ayse_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+ayse.save
+
+ayse_profile = Profile.create!(
+  name: 'Ayse',
+  bio: 'I am a web developer.',
+  user_id: ayse.id
+)
+ayse_profile.save
+
+ellen_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679259771/ellen_thdthy.jpg")
+ellen_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+ellen = User.new(email: "ellen@roadtips.co.uk", username: "Ellen", password: "123456", car: "Toyota Prius")
+ellen.avatar.attach(io: ellen_avatar, filename: "ellen_thdthy", content_type: "image/jpg")
+ellen.car_photo.attach(io: ellen_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+ellen.save
+
+ellen_profile = Profile.create!(
+  name: 'Ellen',
+  bio: 'I am a web developer.',
+  user_id: ellen.id
+)
+ellen_profile.save
+
+ina_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679259772/ina_wgbqyu.jpg")
+ina_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+ina = User.new(email: "ina@roadtips.co.uk", username: "Ina", password: "123456", car: "Toyota Prius")
+ina.avatar.attach(io: ina_avatar, filename: "ina_wgbqyu", content_type: "image/jpg")
+ina.car_photo.attach(io: ina_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+ina.save
+
+ina_profile = Profile.create!(
+  name: 'Ina',
+  bio: 'I am a web developer.',
+  user_id: ina.id
+)
+ina_profile.save
+
+simon_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679259772/simon_esuwm0.jpg")
+simon_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+simon = User.new(email: "simon@roadtips.co.uk", username: "Simon", password: "123456", car: "Toyota Prius")
+simon.avatar.attach(io: simon_avatar, filename: "simon_esuwm0", content_type: "image/jpg")
+simon.car_photo.attach(io: simon_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+simon.save
+
+simon_profile = Profile.create!(
+  name: 'Simon',
+  bio: 'I am a web developer.',
+  user_id: simon.id
+)
+simon_profile.save
+
+lola_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679259772/lola_l1ockd.jpg")
+lola_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+lola = User.new(email: "lola@roadtips.co.uk", username: "Lola", password: "123456", car: "Toyota Prius")
+lola.avatar.attach(io: lola_avatar, filename: "lola_l1ockd", content_type: "image/jpg")
+lola.car_photo.attach(io: lola_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+lola.save
+
+lola_profile = Profile.create!(
+  name: 'Lola',
+  bio: 'I am a web developer.',
+  user_id: lola.id
+)
+lola_profile.save
+
+aiub_avatar = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679259772/aiub_aqoeit.jpg")
+aiub_car_photo = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678226485/prius_yr53wx.webp")
+aiub = User.new(email: "aiub@roadtips.co.uk", username: "Aiub", password: "123456", car: "Toyota Prius")
+aiub.avatar.attach(io: aiub_avatar, filename: "aiub_aqoeit", content_type: "image/jpg")
+aiub.car_photo.attach(io: aiub_car_photo, filename: "prius_yr53wx", content_type: "image/webp")
+aiub.save
+
+aiub_profile = Profile.create!(
+  name: 'Aiub',
+  bio: 'I am a web developer.',
+  user_id: aiub.id
+)
+aiub_profile.save
 
 puts "Cleaning database..."
 
@@ -346,7 +556,7 @@ stonehenge = Poi.new(
 stonehenge.save
 
 pyramid = Poi.new(
-  name: "Pyramid Stage at Glastonbury Festival",
+  name: "Glastonbury, Somerset, England, United Kingdom",
   category: "Landmarks",
   description: "The Pyramid Stage, is the most instantly recognised festival stage in the world. Rising from the site of a blind spring close to the Glastonbury Abbey/Stonehenge ley line, it is now in its third incarnation.",
   address: "Glastonbury, Somerset, England, United Kingdom"
@@ -757,5 +967,513 @@ TripPoi.create!(trip: date, poi: ritz)
 
 TripPoi.create!(trip: glasto, poi: stonehenge)
 TripPoi.create!(trip: glasto, poi: pyramid)
+
+# review seeds start
+review1 = Review.new(
+  rating: 5,
+  content: "What a great trip! Thanks for the suggestions!",
+  user_id: 1,
+  trip_id: 1
+)
+review1.save
+
+review2 = Review.new(
+  rating: 4,
+  content: "I had a great time",
+  user_id: 2,
+  trip_id: 1
+)
+review2.save
+
+review3 = Review.new(
+  rating: 3,
+  content: "It was ok",
+  user_id: 4,
+  trip_id: 1
+)
+review3.save
+
+review4 = Review.new(
+  rating: 5,
+  content: "Very good trip",
+  user_id: 5,
+  trip_id: 1
+)
+review4.save
+
+review5 = Review.new(
+  rating: 5,
+  content: "What a great trip! Thanks for the suggestions!",
+  user_id: 2,
+  trip_id: 2
+)
+review5.save
+
+review6 = Review.new(
+  rating: 5,
+  content: "Brilliant trip!",
+  user_id: 8,
+  trip_id: 2
+)
+review6.save
+
+review7 = Review.new(
+  rating: 4,
+  content: "It was good. We had fun!",
+  user_id: 14,
+  trip_id: 2
+)
+review7.save
+
+review7 = Review.new(
+  rating: 4,
+  content: "I had a good time",
+  user_id: 16,
+  trip_id: 2
+)
+review7.save
+
+review8 = Review.new(
+  rating: 5,
+  content: "Some great suggestions!",
+  user_id: 27,
+  trip_id: 2
+)
+review8.save
+
+review9 = Review.new(
+  rating: 5,
+  content: "Brilliant trip!",
+  user_id: 25,
+  trip_id: 1
+)
+review9.save
+
+review10 = Review.new(
+  rating: 5,
+  content: "What a great trip! Thanks for the suggestions!",
+  user_id: 8,
+  trip_id: 3
+)
+review10.save
+
+review11 = Review.new(
+  rating: 4,
+  content: "I had a great time",
+  user_id: 7,
+  trip_id: 3
+)
+review11.save
+
+review12 = Review.new(
+  rating: 3,
+  content: "It was ok",
+  user_id: 9,
+  trip_id: 3
+)
+review12.save
+
+review13 = Review.new(
+  rating: 5,
+  content: "Very good trip",
+  user_id: 10,
+  trip_id: 3
+)
+review13.save
+
+review14 = Review.new(
+  rating: 5,
+  content: "What a great trip! Thanks for the suggestions!",
+  user_id: 11,
+  trip_id: 3
+)
+review14.save
+
+review15 = Review.new(
+  rating: 5,
+  content: "Brilliant trip!",
+  user_id: 12,
+  trip_id: 3
+)
+review15.save
+
+review16 = Review.new(
+  rating: 4,
+  content: "It was good. We had fun!",
+  user_id: 13,
+  trip_id: 3
+)
+review16.save
+
+review17 = Review.new(
+  rating: 4,
+  content: "I had a good time",
+  user_id: 14,
+  trip_id: 3
+)
+review17.save
+
+review18 = Review.new(
+  rating: 5,
+  content: "Some great suggestions!",
+  user_id: 26,
+  trip_id: 3
+)
+review18.save
+
+review19 = Review.new(
+  rating: 5,
+  content: "Brilliant trip!",
+  user_id: 25,
+  trip_id: 4
+)
+review19.save
+
+review20 = Review.new(
+  rating: 5,
+  content: "What a great trip! Thanks for the suggestions!",
+  user_id: 4,
+  trip_id: 4
+)
+review20.save
+
+review21 = Review.new(
+  rating: 4,
+  content: "I had a great time",
+  user_id: 2,
+  trip_id: 4
+)
+review21.save
+
+review22 = Review.new(
+  rating: 3,
+  content: "It was ok",
+  user_id: 6,
+  trip_id: 4
+)
+review22.save
+
+review23 = Review.new(
+  rating: 5,
+  content: "Very good trip",
+  user_id: 5,
+  trip_id: 4
+)
+review23.save
+
+review24 = Review.new(
+  rating: 5,
+  content: "What a great trip! Thanks for the suggestions!",
+  user_id: 2,
+  trip_id: 4
+)
+review24.save
+
+review25 = Review.new(
+  rating: 5,
+  content: "Brilliant trip!",
+  user_id: 9,
+  trip_id: 4
+)
+review25.save
+
+review26 = Review.new(
+  rating: 4,
+  content: "It was good. We had fun!",
+  user_id: 14,
+  trip_id: 4
+)
+review26.save
+
+review27 = Review.new(
+  rating: 4,
+  content: "I had a good time",
+  user_id: 16,
+  trip_id: 4
+)
+review27.save
+
+review28 = Review.new(
+  rating: 5,
+  content: "Some great suggestions!",
+  user_id: 27,
+  trip_id: 4
+)
+review28.save
+
+review29 = Review.new(
+  rating: 5,
+  content: "Brilliant trip!",
+  user_id: 25,
+  trip_id: 4
+)
+review29.save
+
+review30 = Review.new(
+  rating: 5,
+  content: "What a great trip! Thanks for the suggestions!",
+  user_id: 1,
+  trip_id: 5
+)
+review30.save
+
+review31 = Review.new(
+  rating: 4,
+  content: "I had a great time",
+  user_id: 2,
+  trip_id: 5
+)
+review31.save
+
+review32 = Review.new(
+  rating: 3,
+  content: "It was ok",
+  user_id: 4,
+  trip_id: 5
+)
+review32.save
+
+review33 = Review.new(
+  rating: 5,
+  content: "Very good trip",
+  user_id: 5,
+  trip_id: 6
+)
+review33.save
+
+review34 = Review.new(
+  rating: 5,
+  content: "What a great trip! Thanks for the suggestions!",
+  user_id: 2,
+  trip_id: 6
+)
+review34.save
+
+review35 = Review.new(
+  rating: 5,
+  content: "Brilliant trip!",
+  user_id: 8,
+  trip_id: 6
+)
+review35.save
+
+review36 = Review.new(
+  rating: 4,
+  content: "It was good. We had fun!",
+  user_id: 14,
+  trip_id: 6
+)
+review36.save
+
+review36 = Review.new(
+  rating: 4,
+  content: "I had a good time",
+  user_id: 16,
+  trip_id: 7
+)
+review36.save
+
+review37 = Review.new(
+  rating: 5,
+  content: "Some great suggestions!",
+  user_id: 27,
+  trip_id: 7
+)
+review37.save
+
+review38 = Review.new(
+  rating: 5,
+  content: "Brilliant trip!",
+  user_id: 26,
+  trip_id: 7
+)
+review38.save
+
+review39 = Review.new(
+  rating: 5,
+  content: "What a great trip! Thanks for the suggestions!",
+  user_id: 1,
+  trip_id: 8
+)
+review39.save
+# review seeds end
+
+# booking seeds start
+booking1 = Booking.new(
+  user_id: 1,
+  trip_id: 8,
+  :start_date => DateTime.strptime("05/05/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("12/05/2023", "%d/%m/%Y")
+)
+booking1.save
+
+booking2 = Booking.new(
+  user_id: 27,
+  trip_id: 3,
+  :start_date => DateTime.strptime("20/05/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("27/05/2023", "%d/%m/%Y")
+)
+booking2.save
+
+booking3 = Booking.new(
+  user_id: 26,
+  trip_id: 3,
+  :start_date => DateTime.strptime("12/04/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("15/04/2023", "%d/%m/%Y")
+)
+booking3.save
+
+booking4 = Booking.new(
+  user_id: 25,
+  trip_id: 3,
+  :start_date => DateTime.strptime("24/06/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("28/06/2023", "%d/%m/%Y")
+)
+booking4.save
+
+booking5 = Booking.new(
+  user_id: 24,
+  trip_id: 3,
+  :start_date => DateTime.strptime("07/08/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("13/08/2023", "%d/%m/%Y")
+)
+booking5.save
+
+booking6 = Booking.new(
+  user_id: 23,
+  trip_id: 4,
+  :start_date => DateTime.strptime("05/05/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("09/05/2023", "%d/%m/%Y")
+)
+booking6.save
+
+booking7 = Booking.new(
+  user_id: 22,
+  trip_id: 4,
+  :start_date => DateTime.strptime("14/06/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("18/06/2023", "%d/%m/%Y")
+)
+booking7.save
+
+booking8 = Booking.new(
+  user_id: 21,
+  trip_id: 4,
+  :start_date => DateTime.strptime("05/05/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("12/05/2023", "%d/%m/%Y")
+)
+booking8.save
+
+booking9 = Booking.new(
+  user_id: 20,
+  trip_id: 4,
+  :start_date => DateTime.strptime("05/05/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("12/05/2023", "%d/%m/%Y")
+)
+booking9.save
+
+booking10 = Booking.new(
+  user_id: 19,
+  trip_id: 4,
+  :start_date => DateTime.strptime("05/05/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("12/05/2023", "%d/%m/%Y")
+)
+booking10.save
+
+booking11 = Booking.new(
+  user_id: 18,
+  trip_id: 2,
+  :start_date => DateTime.strptime("05/05/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("12/05/2023", "%d/%m/%Y")
+)
+booking11.save
+
+booking12 = Booking.new(
+  user_id: 17,
+  trip_id: 2,
+  :start_date => DateTime.strptime("05/05/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("12/05/2023", "%d/%m/%Y")
+)
+booking12.save
+
+booking13 = Booking.new(
+  user_id: 16,
+  trip_id: 2,
+  :start_date => DateTime.strptime("05/05/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("12/05/2023", "%d/%m/%Y")
+)
+booking13.save
+
+booking14 = Booking.new(
+  user_id: 15,
+  trip_id: 2,
+  :start_date => DateTime.strptime("05/05/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("12/05/2023", "%d/%m/%Y")
+)
+booking14.save
+
+booking15 = Booking.new(
+  user_id: 14,
+  trip_id: 2,
+  :start_date => DateTime.strptime("05/05/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("12/05/2023", "%d/%m/%Y")
+)
+booking15.save
+
+booking16 = Booking.new(
+  user_id: 13,
+  trip_id: 1,
+  :start_date => DateTime.strptime("05/05/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("12/05/2023", "%d/%m/%Y")
+)
+booking16.save
+
+booking17 = Booking.new(
+  user_id: 12,
+  trip_id: 1,
+  :start_date => DateTime.strptime("05/05/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("12/05/2023", "%d/%m/%Y")
+)
+booking17.save
+
+booking18 = Booking.new(
+  user_id: 11,
+  trip_id: 1,
+  :start_date => DateTime.strptime("05/05/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("12/05/2023", "%d/%m/%Y")
+)
+booking18.save
+
+booking19 = Booking.new(
+  user_id: 10,
+  trip_id: 1,
+  :start_date => DateTime.strptime("05/05/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("12/05/2023", "%d/%m/%Y")
+)
+booking19.save
+
+booking20 = Booking.new(
+  user_id: 9,
+  trip_id: 5,
+  :start_date => DateTime.strptime("05/05/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("12/05/2023", "%d/%m/%Y")
+)
+booking20.save
+
+booking21 = Booking.new(
+  user_id: 8,
+  trip_id: 5,
+  :start_date => DateTime.strptime("05/05/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("12/05/2023", "%d/%m/%Y")
+)
+booking21.save
+
+booking22 = Booking.new(
+  user_id: 7,
+  trip_id: 6,
+  :start_date => DateTime.strptime("05/05/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("12/05/2023", "%d/%m/%Y")
+)
+booking22.save
+# booking seeds end
 
 puts "Finished!"

@@ -1,8 +1,8 @@
 <div class="container mt-2 py-2">
   <div class="row">
-    <h2>Community</h2>
     <br>
-    <div class="col-12">
+    <div class="col-12 card-background">
+      <h2 class="px-2 py-2">Community (<%= @users.count %> RoadTippers)</h2>
       <div class="row d-flex justify-content-center">
         <div class="col-3 card-background py-2 mx-2 my-2">
           <% @profiles.each do |profile| %>
@@ -11,7 +11,9 @@
               <h4><%= profile.name %></h4>
             <% end %>
             <p>RoadTippin' since <%= profile.created_at.strftime("%B %Y") %></p>
-            <p>Created <%= profile.user.trips.count %> trips</p>
+            <% if profile.user.trips.count > 0 %>
+              <p>Created <%= profile.user.trips.count %> trips</p>
+            <% end %>
             <p>Drives a <%= profile.user.car %></p>
           </div>
           <div class="col-3 card-background py-2 mx-2 my-2">
