@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
 </head>
 <div class="container my-3 py-3 px-3" data-controller="tom-select">
-  <div class="card-trip">
+  <div class="card-background">
     <h1>Edit Trip</h1>
     <div class="d-flex col-5">
       <%= simple_form_for @trip do |f| %>
@@ -17,7 +17,7 @@
         <%= f.input :summary %>
         <%= f.input :day, collection: (1..50), label: 'Number of Days' %>
         <%= f.input :photos, label: 'Select up to 3 photos', as: :file, input_html: { multiple: true } %>
-        <%= f.submit "Edit Trip", class: "btn btn-success" %>
+        <%= f.submit "Edit Trip", class: "btn btn-flat" %>
       <% end %>
       <div class="col-2">
         <div data-controller="map"
