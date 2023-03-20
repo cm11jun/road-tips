@@ -6,9 +6,11 @@
 </head>
 <div class="container my-3 py-3 px-3" data-controller="tom-select">
   <div class="card-background">
-    <h1>New Trip</h1>
     <div class="d-flex col-5">
       <%= simple_form_for [@trip] do |f| %>
+        <div>
+          <h1 class="mb-2">New Trip</h1>
+        </div>
         <%= f.input :title %>
         <%= f.input :start_point %>
         <%= f.input :waypoint, as: :select, collection: @pois, label_method: :name, include_blank: true, input_html: { name: 'waypoint[]', class: 'stops' } %>
@@ -20,7 +22,7 @@
         <%= f.submit "Create Trip", class: "btn btn-success" %>
       <% end %>
       <div class="col-2">
-        <div data-controller="map"
+        <div class="card-background" data-controller="map"
         id='map'
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
         data-map-markers-value="<%= @markers.to_json %>"
@@ -30,3 +32,4 @@
     </div>
   </div>
 </div>
+<hr class="solid">

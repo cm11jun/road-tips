@@ -14,43 +14,43 @@
       <figure>
       <%= link_to trips_path do %>
         <i class="fa-solid fa-earth-europe fa-2x"></i>
-        <figcaption>All</figcaption>
+        <figcaption>&nbspAll</figcaption>
       </figure>
       <% end %>
       <figure>
       <%= link_to trips_path(category: "Scenic Roads") do %>
           <i class="fa-solid fa-bridge-water fa-2x"></i>
-          <figcaption>Scenic Roads</figcaption>
+          <figcaption>&nbspScenic Roads</figcaption>
         </figure>
       <% end %>
       <figure>
         <%= link_to trips_path(category: "Fun roads") do %>
         <i class="fa-solid fa-flag-checkered fa-2x"></i>
-        <figcaption>Fun Roads</figcaption>
+        <figcaption>&nbspFun Roads</figcaption>
       </figure>
       <% end %>
       <figure>
         <%= link_to trips_path(category: "Sights") do %>
         <i class="fa-solid fa-camera fa-2x"></i>
-        <figcaption>Sights</figcaption>
+        <figcaption>&nbspSights</figcaption>
       </figure>
       <% end %>
       <figure>
         <%= link_to trips_path(category: "Landmarks") do %>
         <i class="fa-brands fa-fort-awesome fa-2x"></i>
-        <figcaption>Landmarks</figcaption>
+        <figcaption>&nbspLandmarks</figcaption>
       </figure>
       <% end %>
       <figure>
         <%= link_to trips_path(category: "Sleeps") do %>
         <i class="fa-solid fa-bed fa-2x"></i>
-        <figcaption>Sleeps</figcaption>
+        <figcaption>&nbspSleeps</figcaption>
       </figure>
       <% end %>
       <figure>
         <%= link_to trips_path(category: "Eats") do %>
         <i class="fa-solid fa-utensils fa-2x"></i>
-        <figcaption>Eats</figcaption>
+        <figcaption>&nbsp&nbspEats</figcaption>
       </figure>
       <% end %>
       <figure>
@@ -86,8 +86,6 @@
                 <p><strong>From: </strong><%= trip.start_point %></p>
                 <p><strong>To: </strong><%= trip.end_point %></p>
                 <p><strong>Region: </strong> <%= trip.region %></p>
-                <%# <br>
-                <i class="fas fa-heart"></i> %>
               </div>
               <div class="text-end mr-3">
                 <div>
@@ -106,10 +104,11 @@
         <% end %>
       </div>
     </div>
-    <div data-controller="map"
+    <div class="card-background" data-controller="map"
       id='map'
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
       data-map-markers-value="<%= @markers.to_json %>"
       style='width: 100vh; height: 100vh;'></div>
   </div>
 </div>
+    <hr class="solid">

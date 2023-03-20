@@ -7,16 +7,20 @@
           <div class="col-sm-3">
             <div class="card-booking flex mb-4">
               <div class="card-category">
-                <% if booking.trip.photos.attached? %>
-                  <%= cl_image_tag booking.trip.photos.first.key, height: 300, width: 400, crop: :fill, class:  %>
-                <% else %>
-                  <%= image_tag "scotland-wallpaper.jpg", height: 300, width: 400, crop: :fill, class:  %>
+                <%= link_to trip_path(booking.trip) do %>
+                  <% if booking.trip.photos.attached? %>
+                    <%= cl_image_tag booking.trip.photos.first.key, height: 300, width: 400, crop: :fill, class:  %>
+                  <% else %>
+                    <%= image_tag "scotland-wallpaper.jpg", height: 300, width: 400, crop: :fill, class:  %>
+                  <% end %>
                 <% end %>
               </div>
               <div class="container card-category-infos pt-1">
                 <div class="text-end">
                   <% if booking.trip.user %>
-                    <%= cl_image_tag booking.trip.user.avatar.key, class: "card-booking-user avatar-bordered" %>
+                    <%= link_to profile_path(booking.trip.user) do %>
+                      <%= cl_image_tag booking.trip.user.avatar.key, class: "card-booking-user avatar-bordered" %>
+                    <% end %>
                   <% end %>
                 </div>
                 <h4><%= link_to booking.trip.title, trip_path(booking.trip), class: "card-category-h4 text-decoration-none" %> by <%= booking.trip.user.username %></h4>
@@ -27,8 +31,6 @@
                   <%= link_to "Edit Booking", edit_booking_path(booking), class: "btn btn-flat my-2" %>
                   <%= button_to "Cancel Booking", booking_path(booking), class: "btn btn-light", method: :delete, confirm: "Are you sure?"%>
                 </div>
-                <%# <br> %>
-                <%# <i class="fas fa-heart"></i> %>
               </div>
               <div class="text-end mr-3">
                 <div>
@@ -48,6 +50,7 @@
       </div>
     </div>
   </div>
+  <hr class="solid">
   <div class="main-container mx-2">
     <div class="col-sm-12">
       <h2 class="my-2">Joint Trips with Friends</h2>
@@ -56,17 +59,23 @@
           <div class="col-sm-3">
             <div class="card-booking flex mb-4">
               <div class="card-category">
-                <% if friend_booking.booking.trip.photos.attached? %>
-                  <%= cl_image_tag friend_booking.booking.trip.photos.first.key, height: 300, width: 400, crop: :fill, class:  %>
-                <% else %>
-                  <%= image_tag "scotland-wallpaper.jpg", height: 300, width: 400, crop: :fill, class:  %>
+                <%= link_to trip_path(friend_booking.booking.trip) do %>
+                  <% if friend_booking.booking.trip.photos.attached? %>
+                    <%= cl_image_tag friend_booking.booking.trip.photos.first.key, height: 300, width: 400, crop: :fill, class:  %>
+                  <% else %>
+                    <%= image_tag "scotland-wallpaper.jpg", height: 300, width: 400, crop: :fill, class:  %>
+                  <% end %>
                 <% end %>
               </div>
               <div class="container card-category-infos pt-1">
                 <div class="text-end">
                   <% if friend_booking.booking.trip.user %>
-                    <%= cl_image_tag friend_booking.booking.trip.user.avatar.key, class: "card-booking-user avatar-bordered" %>
-                    <%= cl_image_tag friend_booking.user.avatar.key, class: "card-booking-user avatar-bordered" %>
+                    <%= link_to profile_path(friend_booking.booking.user.profile) do %>
+                      <%= cl_image_tag friend_booking.booking.user.avatar.key, class: "card-booking-user avatar-bordered" %>
+                    <% end %>
+                    <%= link_to profile_path(current_user) do %>
+                      <%= cl_image_tag current_user.avatar.key, class: "card-booking-user avatar-bordered" %>
+                    <% end %>
                   <% end %>
                 </div>
                 <h4><%= link_to friend_booking.booking.trip.title, trip_path(friend_booking.booking.trip), class: "card-category-h4 text-decoration-none" %> by <%= friend_booking.booking.trip.user.username %></h4>
@@ -75,10 +84,7 @@
                   <p><strong>Start date: </strong> <%= friend_booking.booking.start_date.strftime("%d/%m/%Y") %></p>
                   <p><strong>End date: </strong> <%= friend_booking.booking.end_date.strftime("%d/%m/%Y") %></p>
                   <%= link_to "Edit Booking", edit_booking_path(friend_booking.booking), class: "btn btn-flat my-2" %>
-                  <%# <%= button_to "Cancel Booking", booking_path(friend_booking.booking), class: "btn btn-light", method: :delete, confirm: "Are you sure?"%>
                 </div>
-                <%# <br> %>
-                <%# <i class="fas fa-heart"></i> %>
               </div>
               <div class="text-end mr-3">
                 <div>
@@ -99,3 +105,4 @@
     </div>
   </div>
 </div>
+<hr class="solid">

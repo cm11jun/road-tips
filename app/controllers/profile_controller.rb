@@ -10,13 +10,15 @@ class ProfileController < ApplicationController
     @friend_booking = FriendBooking.new
     @profile = @user.profile
     @trips = @profile.trips
-    # @bookings = Booking.where(user_id: params[:id])
+    @friend_bookings = FriendBooking.where(user_id: current_user)
+    @total_review_count = Review.where(trip_id: @trips.pluck(:id)).count
   end
 
   def my_profile
     @profile = current_user.profile
     @trips = current_user.trips
     @friend_bookings = FriendBooking.where(user_id: current_user)
+    @total_review_count = Review.where(trip_id: @trips.pluck(:id)).count
   end
 
   # def edit
