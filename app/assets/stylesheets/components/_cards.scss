@@ -105,11 +105,14 @@ body {
   overflow: hidden;
   color: black;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  box-shadow: 0 0 15px rgba(0,0,0,0.0);
   border-radius: 5px;
   // opacity: 0.9;
 }
 
+.card-background a {
+  text-decoration: none;
+}
 
 .card-background > img {
   height: 400px;
@@ -131,6 +134,13 @@ body {
   margin: 0;
 }
 
+.card-background h3 {
+  font-size: 22px;
+  font-weight: bold;
+  opacity: .7;
+  margin: 0;
+}
+
 .card-background h4 {
   font-size: 18px;
   opacity: .7;
@@ -145,6 +155,12 @@ body {
 }
 
 .card-background p {
+  font-size: 16px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-background li {
   font-size: 16px;
   opacity: .7;
   margin: 0;
@@ -193,6 +209,14 @@ body {
   opacity: .7;
   margin: 0;
 }
+
+.card-trip h3 {
+  font-size: 22px;
+  font-weight: bold;
+  opacity: .7;
+  margin: 0;
+}
+
 
 .card-trip h4 {
   font-size: 18px;

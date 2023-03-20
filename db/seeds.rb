@@ -522,9 +522,6 @@ date.photos.attach(io: date2, filename: "ritz2_i8tb7t", content_type: "image/png
 date.photos.attach(io: date3, filename: "ritz3_fvohot", content_type: "image/jpg")
 date.save
 
-puts "Cleaning database..."
-Poi.destroy_all
-
 glasto1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679077940/pyramid_vggmp5.jpg")
 glasto2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679077940/amaya_dcu6ub.jpg")
 glasto3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679077941/pyramid2_enrild.jpg")
@@ -542,8 +539,39 @@ glasto.photos.attach(io: glasto2, filename: "amaya_dcu6ub", content_type: "image
 glasto.photos.attach(io: glasto3, filename: "pyramid2_enrild", content_type: "image/jpg")
 glasto.save
 
-puts "Cleaning database..."
-Poi.destroy_all
+up_north1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679330595/north1_g2pkpo.jpg")
+up_north2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679330595/north2_zc8gr0.jpg")
+up_north3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679330595/north3_y94ikh.webp")
+up_north = Trip.new(
+  user_id: fran.id,
+  title: "Trip to up North innit mate",
+  start_point: "London",
+  end_point: "Hadrian's Wall, also known as the Roman Wall, Picts' Wall, or Vallum Hadriani in Latin, is a former defensive fortification of the Roman province of Britannia, begun in AD 122 in the reign of the Emperor Hadrian.",
+  region: "North England",
+  summary: "Road trip to up North an' that from Daan Saaf.",
+  day: 2
+)
+up_north.photos.attach(io: up_north1, filename: "north1_g2pkpo", content_type: "image/jpg")
+up_north.photos.attach(io: up_north2, filename: "north2_zc8gr0", content_type: "image/jpg")
+up_north.photos.attach(io: up_north3, filename: "north3_y94ikh", content_type: "image/webp")
+up_north.save
+
+brewhouse1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679351249/brewhouse1_fglrql.jpg")
+brewhouse2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679351249/brewhouse2_xeoz1u.jpg")
+brewhouse3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679351249/brewhouse3_av4j1p.jpg")
+brewhouse = Trip.new(
+  user_id: alex.id,
+  title: "Come on guys let's all go to Brewhouse",
+  start_point: "138 Kingsland Road, Hackney, London, E2 8DY, United Kingdom",
+  end_point: "400 Geffrye Street, Hackney, London, E2 8JA, United Kingdom",
+  region: "England",
+  summary: "Trip to the one and only Brewhouse!",
+  day: 1
+)
+brewhouse.photos.attach(io: brewhouse1, filename: "brewhouse1_fglrql", content_type: "image/jpg")
+brewhouse.photos.attach(io: brewhouse2, filename: "brewhouse2_xeoz1u", content_type: "image/jpg")
+brewhouse.photos.attach(io: brewhouse3, filename: "brewhouse3_av4j1p", content_type: "image/jpg")
+brewhouse.save
 
 puts "Creating pois..."
 
@@ -562,6 +590,22 @@ pyramid = Poi.new(
   address: "Glastonbury, Somerset, England, United Kingdom"
 )
 pyramid.save
+
+hadrians = Poi.new(
+  name: "Hadrian's Wall",
+  category: "Sights",
+  description: "Hadrian's Wall, also known as the Roman Wall, Picts' Wall, or Vallum Hadriani in Latin, is a former defensive fortification of the Roman province of Britannia, begun in AD 122 in the reign of the Emperor Hadrian.",
+  address: "Hadrian's Wall, Segedunum to Bowness-on-Solway, Hexham, England NE47 7AN, United Kingdom"
+)
+hadrians.save
+
+brew = Poi.new(
+  name: "Brewhouse",
+  category: "Eats",
+  description: "The greatest pub in the world!",
+  address: "400 Geffrye Street, Hackney, London, E2 8JA, United Kingdom"
+)
+brew.save
 
 cheddar_gorge = Poi.new(
   name: "Cheddar Gorge",
@@ -887,7 +931,7 @@ le_wagon = Poi.new(
   name: "Le Wagon London",
   category: "Landmarks",
   description: "Computer training school in London, England",
-  address: "Shoreditch Stables, North, 138 Kingsland Rd, London E2 8DY"
+  address: "138 Kingsland Road, London E2 8DY"
 )
 le_wagon.save
 
@@ -967,6 +1011,12 @@ TripPoi.create!(trip: date, poi: ritz)
 
 TripPoi.create!(trip: glasto, poi: stonehenge)
 TripPoi.create!(trip: glasto, poi: pyramid)
+
+TripPoi.create!(trip: up_north, poi: hadrians)
+
+TripPoi.create!(trip: brewhouse, poi: le_wagon)
+TripPoi.create!(trip: brewhouse, poi: brew)
+
 
 # review seeds start
 review1 = Review.new(
@@ -1296,6 +1346,63 @@ review39 = Review.new(
   trip_id: 8
 )
 review39.save
+
+review40 = Review.new(
+  rating: 5,
+  content: "The best trip to the greatest pub of all time!",
+  user_id: 1,
+  trip_id: 10
+)
+review40.save
+
+review41 = Review.new(
+  rating: 5,
+  content: "What a great trip! Thanks for the suggestions!",
+  user_id: 6,
+  trip_id: 10
+)
+review41.save
+
+review42 = Review.new(
+  rating: 5,
+  content: "Brilliant trip!",
+  user_id: 5,
+  trip_id: 10
+)
+review42.save
+
+review43 = Review.new(
+  rating: 5,
+  content: "What a great trip! Thanks for the suggestions!",
+  user_id: 6,
+  trip_id: 10
+)
+review43.save
+
+review44 = Review.new(
+  rating: 5,
+  content: "Amazing trip! Thanks for the suggestions!",
+  user_id: 7,
+  trip_id: 10
+)
+review44.save
+
+review45 = Review.new(
+  rating: 5,
+  content: "What a great trip! Thanks for the suggestions!",
+  user_id: 8,
+  trip_id: 10
+)
+review45.save
+
+review46 = Review.new(
+  rating: 5,
+  content: "The best pub ever!",
+  user_id: 9,
+  trip_id: 10
+)
+review46.save
+
 # review seeds end
 
 # booking seeds start
@@ -1474,6 +1581,78 @@ booking22 = Booking.new(
   :end_date => DateTime.strptime("12/05/2023", "%d/%m/%Y")
 )
 booking22.save
+
+booking23 = Booking.new(
+  user_id: 1,
+  trip_id: 10,
+  :start_date => DateTime.strptime("25/03/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("25/03/2023", "%d/%m/%Y")
+)
+booking23.save
+
+booking24 = Booking.new(
+  user_id: 5,
+  trip_id: 10,
+  :start_date => DateTime.strptime("25/03/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("25/03/2023", "%d/%m/%Y")
+)
+booking24.save
+
+booking25 = Booking.new(
+  user_id: 6,
+  trip_id: 10,
+  :start_date => DateTime.strptime("25/03/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("25/03/2023", "%d/%m/%Y")
+)
+booking25.save
+
+booking26 = Booking.new(
+  user_id: 7,
+  trip_id: 10,
+  :start_date => DateTime.strptime("25/03/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("25/03/2023", "%d/%m/%Y")
+)
+booking26.save
+
+booking27 = Booking.new(
+  user_id: 8,
+  trip_id: 10,
+  :start_date => DateTime.strptime("25/03/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("25/03/2023", "%d/%m/%Y")
+)
+booking27.save
+
+booking28 = Booking.new(
+  user_id: 9,
+  trip_id: 10,
+  :start_date => DateTime.strptime("25/03/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("25/03/2023", "%d/%m/%Y")
+)
+booking28.save
+
+booking29 = Booking.new(
+  user_id: 10,
+  trip_id: 10,
+  :start_date => DateTime.strptime("25/03/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("25/03/2023", "%d/%m/%Y")
+)
+booking29.save
+
+booking30 = Booking.new(
+  user_id: 11,
+  trip_id: 10,
+  :start_date => DateTime.strptime("25/03/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("25/03/2023", "%d/%m/%Y")
+)
+booking30.save
+
+booking30 = Booking.new(
+  user_id: 12,
+  trip_id: 10,
+  :start_date => DateTime.strptime("25/03/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("25/03/2023", "%d/%m/%Y")
+)
+booking30.save
 # booking seeds end
 
 puts "Finished!"
