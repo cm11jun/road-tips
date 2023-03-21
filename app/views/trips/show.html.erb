@@ -163,17 +163,17 @@
   </div>
 </div>
 <script>
-  mapboxgl.accessToken = 'pk.eyJ1IjoiY20xMWp1biIsImEiOiJjbGVvbzZxb28wNDdmM3VvMTBqeXVub2trIn0.6YeYXqBNO0iFTo6kMuTM-w';
+  mapboxgl.accessToken = "<%= ENV['MAPBOX_API_KEY'] %>"
   var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
+    style: 'mapbox://styles/cm11jun/clfipa1av000101rx4ues13y7',
     center: <%= @start_coords %>,
     zoom: 10
   });
 
 
   var directions = new MapboxDirections({
-    accessToken: 'pk.eyJ1IjoiY20xMWp1biIsImEiOiJjbGVvbzZxb28wNDdmM3VvMTBqeXVub2trIn0.6YeYXqBNO0iFTo6kMuTM-w',
+    accessToken: "<%= ENV['MAPBOX_API_KEY'] %>",
     unit: 'metric',
     profile: 'mapbox/driving'
   });
