@@ -546,7 +546,7 @@ up_north = Trip.new(
   user_id: fran.id,
   title: "Trip to up North innit mate",
   start_point: "London",
-  end_point: "Hadrian's Wall, also known as the Roman Wall, Picts' Wall, or Vallum Hadriani in Latin, is a former defensive fortification of the Roman province of Britannia, begun in AD 122 in the reign of the Emperor Hadrian.",
+  end_point: "Hadrian's Wall",
   region: "North England",
   summary: "Road trip to up North an' that from Daan Saaf.",
   day: 2
