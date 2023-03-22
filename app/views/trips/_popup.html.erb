@@ -1,7 +1,3 @@
-<div>
-<div>
-<h1><%=poi.name%></h1>
+<%= cl_image_tag poi.photo.key, height: 150, width: 200, crop: :fill %>
+<h4><%= poi.name %></h4>
 <p><%= poi.address %></p>
-hello
-</div>
-</div>

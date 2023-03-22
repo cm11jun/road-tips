@@ -575,143 +575,178 @@ brewhouse.save
 
 puts "Creating pois..."
 
+stonehenge1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438007/stonehenge_ug9vcc.jpg")
 stonehenge = Poi.new(
   name: "Stonehenge",
   category: "Landmarks",
   description: "Stonehenge is a prehistoric monument on Salisbury Plain. It is the most architecturally sophisticated prehistoric stone circle in the world.",
   address: "SP4 7DE"
 )
+stonehenge.photo.attach(io: stonehenge1, filename: "stonehenge_ug9vcc", content_type: "image/jpg")
 stonehenge.save
 
+glasto1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679077940/pyramid_vggmp5.jpg")
 pyramid = Poi.new(
   name: "Glastonbury, Somerset, England, United Kingdom",
   category: "Landmarks",
   description: "The Pyramid Stage, is the most instantly recognised festival stage in the world. Rising from the site of a blind spring close to the Glastonbury Abbey/Stonehenge ley line, it is now in its third incarnation.",
   address: "Glastonbury, Somerset, England, United Kingdom"
 )
+pyramid.photo.attach(io: glasto1, filename: "pyramid_vggmp5", content_type: "image/jpg")
 pyramid.save
 
+up_north2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679330595/north2_zc8gr0.jpg")
 hadrians = Poi.new(
   name: "Hadrian's Wall",
   category: "Sights",
   description: "Hadrian's Wall, also known as the Roman Wall, Picts' Wall, or Vallum Hadriani in Latin, is a former defensive fortification of the Roman province of Britannia, begun in AD 122 in the reign of the Emperor Hadrian.",
   address: "Hadrian's Wall, Segedunum to Bowness-on-Solway, Hexham, England NE47 7AN, United Kingdom"
 )
+hadrians.photo.attach(io: up_north2, filename: "north2_zc8gr0", content_type: "image/jpg")
 hadrians.save
 
+brew1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438005/brewhouse_apiuv3.jpg")
 brew = Poi.new(
   name: "Brewhouse",
   category: "Eats",
   description: "The greatest pub in the world!",
   address: "400 Geffrye Street, Hackney, London, E2 8JA, United Kingdom"
 )
+brew.photo.attach(io: brew1, filename: "brewhouse_apiuv3", content_type: "image/jpg")
 brew.save
 
+cheddar_gorge1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438006/cheddar_nokdcx.jpg")
 cheddar_gorge = Poi.new(
   name: "Cheddar Gorge",
   category: "Fun roads",
   description: "Cheddar Gorge is a limestone gorge in the Mendip Hills. It is a great scenic drive but also contains many caves and the oldest complete human skeleton, among other sights.",
   address: "BS27 3QF"
 )
+cheddar_gorge.photo.attach(io: cheddar_gorge1, filename: "cheddar_nokdcx", content_type: "image/jpg")
 cheddar_gorge.save
 
+dover_castle1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438006/dover-castle_j7bcqb.jpg")
 dover_castle = Poi.new(
   name: "Dover Castle",
   category: "Landmarks",
   description: "Dover Castle is a medieval castle in Dover, Kent, England. It was founded in the 11th century and has been described as the Key to England due to its significance throughout history.",
   address: "CT16 1HU"
 )
+dover_castle.photo.attach(io: dover_castle1, filename: "dover-castle_j7bcqb", content_type: "image/jpg")
 dover_castle.save
 
+black_mountain_pass1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438005/Black-Mountain-Pass_hsseau.jpg")
 black_mountain_pass = Poi.new(
   name: "Black Mountain Pass",
   category: "Fun roads",
   description: "Black Mountain Pass is known as the most beautiful drive in Wales. The route winds its way through rolling hills, valleys and pastures, across narrow bridges and over mountain streams.",
   address: "SA20 0AR"
 )
+black_mountain_pass.photo.attach(io: black_mountain_pass1, filename: "Black-Mountain-Pass_hsseau", content_type: "image/jpg")
 black_mountain_pass.save
 
+lindisfarne_castle1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438007/lindisfarne-castle_csp7s5.png")
 lindisfarne_castle = Poi.new(
   name: "Lindisfarne Castle",
   category: "Landmarks",
   description: "Lindisfarne Castle is a 16th-century castle located on Holy Island, Northumberland, England. The island is accessible from the mainland at low tide by means of a causeway.",
   address: "TD15 2SH"
 )
+lindisfarne_castle.photo.attach(io: lindisfarne_castle1, filename: "lindisfarne-castle_csp7s5", content_type: "image/jpg")
 lindisfarne_castle.save
 
+keswick_loop1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438007/keswick-loop_gw0pqp.jpg")
 keswick_loop = Poi.new(
   name: "Keswick Loop",
   category: "Fun roads",
   description: "A drive of many natural wonders starting from Keswick visiting some of the most beautiful lakes, valleys and mountain passes in the Lake District.",
   address: "CA13 9XA"
 )
+keswick_loop.photo.attach(io: keswick_loop1, filename: "keswick-loop_gw0pqp", content_type: "image/jpg")
 keswick_loop.save
 
+the_white_bear1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438008/the-white-bear_icpztv.jpg")
 the_white_bear = Poi.new(
   name: "The White Bear",
   category: "Eats",
   description: "The White Bear Masham is a luxury inn, restaurant and pub located in the North Yorkshire town of Masham.",
   address: "HG4 4EN"
 )
+the_white_bear.photo.attach(io: the_white_bear1, filename: "the-white-bear_icpztv", content_type: "image/jpg")
 the_white_bear.save
 
+macdonald_cardrona_hotel1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438008/macdonald_e6tlec.jpg")
 macdonald_cardrona_hotel = Poi.new(
   name: "Macdonald Cardrona Hotel",
   category: "Sleeps",
   description: "Macdonald Cardrona luxury 4 star Hotel in Peebles comes equipped with luxurious rooms, spa facilities & championship golf.",
   address: "EH45 8NE"
 )
+macdonald_cardrona_hotel.photo.attach(io: macdonald_cardrona_hotel1, filename: "macdonald_e6tlec", content_type: "image/jpg")
 macdonald_cardrona_hotel.save
 
+the_angel_inn1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438008/the_angel_inn_kdqvsb.jpg")
 the_angel_inn = Poi.new(
   name: "The Angel Inn",
   category: "Eats",
   description: "An easy amble from the shores of England's largest lake Windermere, this classic inn has sweeping views above the jolly bustle of the village below.",
   address: "LA23 3BU"
 )
+the_angel_inn.photo.attach(io: the_angel_inn1, filename: "the_angel_inn_kdqvsb", content_type: "image/jpg")
 the_angel_inn.save
 
+evo_triangle1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438006/evo_triangle_trvool.jpg")
 evo_triangle = Poi.new(
   name: "Evo Triangle",
   category: "Fun roads",
   description: "The route offers a fantastic mix of wonderful winding corners as well as superb open straights. The whole route only takes around half an hour but there's nothing stopping you from having a few goes at it!",
   address: "LL24 0TA"
 )
+evo_triangle.photo.attach(io: evo_triangle1, filename: "evo_triangle_trvool", content_type: "image/jpg")
 evo_triangle.save
 
-cobham_service_station = Poi.new(
-  name: "Cobham Service Station",
-  category: "Services",
-  description: "The service area consists of one very large amenity building and an equally large petrol station; even the forecourt is believed to be one of the largest in Britain.",
-  address: "KT11 3DB"
-)
-cobham_service_station.save
-
-charnock_richard = Poi.new(
-  name: "Charnock Richard",
-  category: "Services",
-  description: "Charnock Richard services are conveniently located just off the M6 motorway, within easy reach of Blackpool, Manchester and Liverpool.",
-  address: "PR7 5LR"
-)
-charnock_richard.save
-
+beaconsfield_service_station1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438006/beaconsfield_mpplkg.jpg")
 beaconsfield_service_station = Poi.new(
   name: "Beaconsfield Service Station",
   category: "Services",
   description: "One of the most attractive Motorway Service Areas in Europe, there is a large lakeside terrace and you can take a stroll through our landscaped grounds and preserved woodlands.",
   address: "HP9 2SE"
 )
+beaconsfield_service_station.photo.attach(io: beaconsfield_service_station1, filename: "beaconsfield_mpplkg", content_type: "image/jpg")
 beaconsfield_service_station.save
 
+beaconsfield_service_station1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438006/beaconsfield_mpplkg.jpg")
+cobham_service_station = Poi.new(
+  name: "Cobham Service Station",
+  category: "Services",
+  description: "The service area consists of one very large amenity building and an equally large petrol station; even the forecourt is believed to be one of the largest in Britain.",
+  address: "KT11 3DB"
+)
+cobham_service_station.photo.attach(io: beaconsfield_service_station1, filename: "beaconsfield_mpplkg", content_type: "image/jpg")
+cobham_service_station.save
+
+beaconsfield_service_station1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438006/beaconsfield_mpplkg.jpg")
+charnock_richard = Poi.new(
+  name: "Charnock Richard",
+  category: "Services",
+  description: "Charnock Richard services are conveniently located just off the M6 motorway, within easy reach of Blackpool, Manchester and Liverpool.",
+  address: "PR7 5LR"
+)
+charnock_richard.photo.attach(io: beaconsfield_service_station1, filename: "beaconsfield_mpplkg", content_type: "image/jpg")
+charnock_richard.save
+
+rushton_hall1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438010/rushton_abf8nn.png")
 rushton_hall = Poi.new(
   name: "Rushton Hall",
   category: "Sleeps",
   description: "A magnificent Grade I Listed Country House hotel in Kettering, Rushton Hall is nestled in 25 acres of immaculate grounds and splendid 16th Century surroundings.",
   address: "NN14 1RR"
 )
+rushton_hall.photo.attach(io: rushton_hall1, filename: "rushton_abf8nn", content_type: "image/png")
 rushton_hall.save
 
 # northern_ireland pois start
+northern_ireland2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678302977/Giants-Causeway_pzmrd7.jpg")
 giants_causeway = Poi.new(
   name: "Giant's Causeway",
   category: "Sights",
@@ -719,9 +754,10 @@ giants_causeway = Poi.new(
   the result of an ancient volcanic fissure eruption.",
   address: "Bushmills BT57 8SU"
 )
+giants_causeway.photo.attach(io: northern_ireland2, filename: "Giants-Causeway_pzmrd7", content_type: "image/jpg")
 giants_causeway.save
 
-
+northern_ireland3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678302977/rope-bridge_k3rfo6.jpg")
 rope_bridge = Poi.new(
   name: "Carrick-a-Rede Rope Bridge",
   category: "Sights",
@@ -730,9 +766,10 @@ rope_bridge = Poi.new(
   below.",
   address: "119a Whitepark Rd, Ballintoy, Antrim, Ballycastle BT54 6LS"
 )
+rope_bridge.photo.attach(io: northern_ireland3, filename: "rope-bridge_k3rfo6", content_type: "image/jpg")
 rope_bridge.save
 
-
+bushmills1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438006/bushmills_ydh1ie.jpg")
 bushmills = Poi.new(
   name: "Old Bushmills Distillery",
   category: "Landmarks",
@@ -741,9 +778,10 @@ bushmills = Poi.new(
   River Bush. The distillery is a popular tourist attraction, with around 120,000 visitors per year.",
   address: "2 Distillery Rd, Bushmills BT57 8XH"
 )
+bushmills.photo.attach(io: bushmills1, filename: "bushmills_ydh1ie", content_type: "image/jpg")
 bushmills.save
 
-
+northern_ireland1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678302977/dark-hedges_g3wgt2.jpg")
 dark_hedges = Poi.new(
   name: "The Dark Hedges",
   category: "Sights",
@@ -751,10 +789,12 @@ dark_hedges = Poi.new(
   Antrim, Northern Ireland.",
   address: "Bregagh Rd, Stranocum, Ballymoney BT53 8PX"
 )
+dark_hedges.photo.attach(io: northern_ireland1, filename: "dark-hedges_g3wgt2", content_type: "image/jpg")
 dark_hedges.save
 # northern_ireland pois end
 
 # west_scotland pois start
+glenfinnan1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679440218/glenfinnan_pvxcrq.jpg")
 glenfinnan = Poi.new(
   name: "Glenfinnan Viaduct",
   category: "Landmarks",
@@ -763,16 +803,20 @@ glenfinnan = Poi.new(
   overlooks the Glenfinnan Monument and the waters of Loch Shiel.",
   address: "A830 Rd, Glenfinnan PH37 4LT"
 )
+glenfinnan.photo.attach(io: glenfinnan1, filename: "glenfinnan_pvxcrq", content_type: "image/jpg")
 glenfinnan.save
 
+a8301 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438005/a830_ov2zu6.jpg")
 a830 = Poi.new(
   name: "A830",
   category: "Scenic roads",
   description: "Coastal road from Fort William to Mallaig.",
   address: "Lochailort station, adjacent, A830, Lochailort PH38 4L"
 )
+a830.photo.attach(io: a8301, filename: "a830_ov2zu6", content_type: "image/jpg")
 a830.save
 
+west_scotland3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678138904/beach-sunset_u4bnnd.jpg")
 camusdarach_beach = Poi.new(
   name: "Camusdarach Beach",
   category: "Sights",
@@ -780,8 +824,10 @@ camusdarach_beach = Poi.new(
   River Morar.",
   address: "Mallaig PH40 4PD"
 )
+camusdarach_beach.photo.attach(io: west_scotland3, filename: "beach-sunset_u4bnnd", content_type: "image/jpg")
 camusdarach_beach.save
 
+talisker_distillery1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438008/talisker-distillery_ypckw4.jpg")
 talisker_distillery = Poi.new(
   name: "Talisker distillery",
   category: "Landmarks",
@@ -790,8 +836,10 @@ talisker_distillery = Poi.new(
   been nominated as part of their Classic Malts series.",
   address: "Carbost, Isle of Skye IV47 8SR"
 )
+talisker_distillery.photo.attach(io: talisker_distillery1, filename: "talisker-distillery_ypckw4", content_type: "image/jpg")
 talisker_distillery.save
 
+west_scotland1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678138904/storr_jbpten.jpg")
 storr = Poi.new(
   name: "Old Man of Storr",
   category: "Sights",
@@ -800,8 +848,10 @@ storr = Poi.new(
   west.",
   address: "Portree IV51 9HX"
 )
+storr.photo.attach(io: west_scotland1, filename: "storr_jbpten", content_type: "image/jpg")
 storr.save
 
+quiraing1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438008/quirang_qfxf9w.jpg")
 quiraing = Poi.new(
   name: "Quiraing",
   category: "Sights",
@@ -809,10 +859,12 @@ quiraing = Poi.new(
   Trotternish on the Isle of Skye, Scotland.",
   address: "Portree IV51 9LA"
 )
+quiraing.photo.attach(io: quiraing1, filename: "quirang_qfxf9w", content_type: "image/jpg")
 quiraing.save
 # west_scotland pois end
 
 # dales pois start
+dales1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1678020123/malham_huexmk.jpg")
 malham = Poi.new(
   name: "Malham Cove",
   category: "Sights",
@@ -821,8 +873,10 @@ malham = Poi.new(
   than 12,000 years ago.",
   address: "Malham, Skipton BD23 4DJ"
 )
+malham.photo.attach(io: dales1, filename: "malham_huexmk", content_type: "image/jpg")
 malham.save
 
+green_grove1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438006/green-grove_kxmfuz.jpg")
 green_grove = Poi.new(
   name: "Green Grove Country House",
   category: "Sleeps",
@@ -830,8 +884,10 @@ green_grove = Poi.new(
   It offers spacious accommodation with countryside views, 7 miles from Skipton.",
   address: "Green Grove Country House, Malham, BD23 4DU, United Kingdom"
 )
+green_grove.photo.attach(io: green_grove1, filename: "green-grove_kxmfuz", content_type: "image/jpg")
 green_grove.save
 
+gordale1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438006/gordale_bo89ov.jpg")
 gordale = Poi.new(
   name: "Gordale Scar",
   category: "Sights",
@@ -840,8 +896,10 @@ gordale = Poi.new(
   from melting glaciers or a cavern collapse.",
   address: "Malham, Skipton BD23 4DL"
 )
+gordale.photo.attach(io: gordale1, filename: "gordale_bo89ov", content_type: "image/jpg")
 gordale.save
 
+kettlewell1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438007/kettlewell_w998jo.jpg")
 kettlewell = Poi.new(
   name: "Kettlewell",
   category: "Landmarks",
@@ -850,8 +908,10 @@ kettlewell = Poi.new(
   which leads north-east from the village over Park Rash Pass to Coverdale.",
   address: "Kettlewell Village Hall, Middle Lane, Kettlewell, Skipton, BD23 5QX"
 )
+kettlewell.photo.attach(io: kettlewell1, filename: "kettlewell_w998jo", content_type: "image/jpg")
 kettlewell.save
 
+dales2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678020123/ribblehead_uzc9nj.jpg")
 ribblehead = Poi.new(
   name: "Ribblehead Viaduct",
   category: "Landmarks",
@@ -860,8 +920,10 @@ ribblehead = Poi.new(
   miles north-west of Skipton and 26 miles south-east of Kendal. It is a Grade II* listed structure.",
   address: "Low Sleights Rd, Carnforth LA6 3AU"
 )
+ribblehead.photo.attach(io: dales2, filename: "ribblehead_uzc9nj", content_type: "image/jpg")
 ribblehead.save
 
+ingleton1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438006/ingleton_kjxmcg.jpg")
 ingleton = Poi.new(
   name: "Ingleton Waterfalls Trail",
   category: "Sights",
@@ -869,24 +931,30 @@ ingleton = Poi.new(
   Ingleton in the English county of North Yorkshire, now maintained by the Ingleton Scenery Company.",
   address: "Broadwood Entrance, Ingleton, Carnforth LA6 3ET"
 )
+ingleton.photo.attach(io: ingleton1, filename: "ingleton_kjxmcg", content_type: "image/jpg")
 ingleton.save
 
+pantry1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438008/wensledale_jrqdmp.jpg")
 pantry = Poi.new(
   name: "Wensleydale Pantry",
   category: "Eats",
   description: "Cafe, British",
   address: "1 Market Pl, Hawes DL8 3QX"
 )
+pantry.photo.attach(io: pantry1, filename: "wensledale_jrqdmp", content_type: "image/jpg")
 pantry.save
 
+buttertubs_pass1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438005/buttertubs_opgdix.jpg")
 buttertubs_pass = Poi.new(
   name: "Buttertubs Pass",
   category: "Scenic roads",
   description: "Buttertubs Pass is a mountain pass located in the Yorkshire Dales. The climb was rated by Jeremy Clarkson as England’s only truly spectacular road.",
   address: "DL11 6DR"
 )
+buttertubs_pass.photo.attach(io: buttertubs_pass1, filename: "buttertubs_opgdix", content_type: "image/jpg")
 buttertubs_pass.save
 
+windermere1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438007/lake-windermere_twnbr4.jpg")
 windermere = Poi.new(
   name: "Windermere",
   category: "Sights",
@@ -896,8 +964,10 @@ windermere = Poi.new(
   and the fells beyond, and Holehird Gardens, with their alpines, heathers and shrubs.",
   address: "Windermere"
 )
+windermere.photo.attach(io: windermere1, filename: "lake-windermere_twnbr4", content_type: "image/jpg")
 windermere.save
 
+loughrigg1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438007/loughrigg_qs4psj.jpg")
 loughrigg = Poi.new(
   name: "Loughrigg Fell",
   category: "Sights",
@@ -906,8 +976,10 @@ loughrigg = Poi.new(
   depression of Red Bank.",
   address: "Loughrigg Fell"
 )
+loughrigg.photo.attach(io: loughrigg1, filename: "loughrigg_qs4psj", content_type: "image/jpg")
 loughrigg.save
 
+rydal1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438008/rydal_dwqzhy.jpg")
 rydal = Poi.new(
   name: "Rydal Water",
   category: "Sights",
@@ -916,57 +988,70 @@ rydal = Poi.new(
   1,290 yards long and varies in width up to a maximum of 380 yards, covering an area of 0.12 mi².",
   address: "Ambleside, LA22 9HQ"
 )
+rydal.photo.attach(io: rydal1, filename: "rydal_dwqzhy", content_type: "image/jpg")
 rydal.save
 
+pie1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438008/pie_rz1bm8.jpg")
 pie = Poi.new(
   name: "Great North Pie Company",
   category: "Eats",
   description: "Pie restaurant",
   address: "Unit 2, Great north pie, Rothay Rd, Ambleside LA22 0EE"
 )
+pie.photo.attach(io: pie1, filename: "pie_rz1bm8", content_type: "image/jpg")
 pie.save
 # dales pois end
 
+le_wagon1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438006/le-wagon_ineydn.jpg")
 le_wagon = Poi.new(
   name: "Le Wagon London",
   category: "Landmarks",
   description: "Computer training school in London, England",
   address: "138 Kingsland Road, London E2 8DY"
 )
+le_wagon.photo.attach(io: le_wagon1, filename: "le-wagon_ineydn", content_type: "image/jpg")
 le_wagon.save
 
+leamington2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679068925/wagamama_zvkt2f.png")
 wagamama = Poi.new(
   name: "Wagamama leamington spa",
   category: "Eats",
   description: "Asian-inspired & Japanese chain restaurant where dishes are whisked to long communal tables.",
   address: "94 parade leamington spa, warwickshire cv32 4ay"
 )
+wagamama.photo.attach(io: leamington2, filename: "wagamama_zvkt2f", content_type: "image/jpg")
 wagamama.save
 
+wine1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679071084/wine1_lcieyu.webp")
 wine_shop = Poi.new(
   name: "Hedonism Wines",
   category: "Eats",
   description: "Happening boutique with a huge selection of top-shelf wines & spirits, tastings & a kids' play area.",
   address: "3-7 Davies St, London W1K 3DJ"
 )
+wine_shop.photo.attach(io: wine1, filename: "wine1_lcieyu", content_type: "image/webp")
 wine_shop.save
 
+date1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679074390/ritz1_s36m4p.jpg")
 ritz = Poi.new(
   name: "The Ritz London",
   category: "Eats",
   description: "Iconic luxury hotel with a spa & dining",
   address: "150 Piccadilly, St. James's, London W1J 9BR"
 )
+ritz.photo.attach(io: date1, filename: "ritz1_s36m4p", content_type: "image/jpg")
 ritz.save
 
+north_coast1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679438007/nc500_j5mrcr.jpg")
 north_coast = Poi.new(
   name: "North Coast 500",
   category: "Scenic Roads",
   description: "The North Coast 500 is a 516-mile scenic route around the north coast of Scotland,
-   starting and ending at Inverness Castle. The route is also known as the NC500 and was launched in 2015,
-   linking many features in the north Highlands of Scotland in one touring route.",
+  starting and ending at Inverness Castle. The route is also known as the NC500 and was launched in 2015,
+  linking many features in the north Highlands of Scotland in one touring route.",
   address: "17-19 High St, Inverness IV1 1HY, UK"
 )
+north_coast.photo.attach(io: north_coast1, filename: "nc500_j5mrcr", content_type: "image/jpg")
 north_coast.save
 
 puts "creating trip_pois"
