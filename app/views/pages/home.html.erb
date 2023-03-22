@@ -88,12 +88,10 @@
                   <p><strong>To: </strong><%= trip.end_point %></p>
                   <p><strong>Region: </strong> <%= trip.region %></p>
                 </div>
-                <%# <br>
-                <i class="fas fa-heart"></i> %>
               </div>
               <div class="text-end mr-3">
                 <div>
-                  <h2><%= trip.day %> days</h2>
+                  <h2><%= trip.day %> <%= trip.day > 1 ? "days" : "day" %></h2>
                 </div>
                 <div class="pb-3">
                   <% if trip.reviews.count > 0 %>
@@ -147,7 +145,7 @@
               </div>
               <div class="text-end mr-3">
                 <div>
-                  <h2><%= trip.day %> days</h2>
+                  <h2><%= trip.day %> <%= trip.day > 1 ? "days" : "day" %></h2>
                 </div>
                 <div class="pb-3">
                   <% if trip.reviews.count > 0 %>
