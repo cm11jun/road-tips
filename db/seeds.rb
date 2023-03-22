@@ -398,24 +398,30 @@ aiub_profile.save
 
 puts "Cleaning database..."
 
+nc5001 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679507985/nc5002_s9bmua.webp")
+nc5002 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679507985/nc5003_j1ycvx.webp")
+nc5003 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679507985/nc5001_ahkkfq.jpg")
 nc500 = Trip.new(
-  user_id: isk.id,
+  user_id: zuzanna.id,
   title: "North Coast 500",
-  start_point: "Inverness Castle",
-  end_point: "Inverness Castle",
+  start_point: "Ullapool, Highland, Scotland, United Kingdom",
+  end_point: "John o' Groats, Highland, Scotland, United Kingdom",
   region: "Scotland",
   summary: "The North Coast 500 is a 516-mile scenic route around the north coast of Scotland, starting and ending at
   Inverness Castle. The route is also known as the NC500 and was launched in 2015, linking many features in the north
     Highlands of Scotland in one touring route.",
   day: 7
 )
+nc500.photos.attach(io: nc5001, filename: "dark-nc5002_s9bmua", content_type: "image/webp")
+nc500.photos.attach(io: nc5002, filename: "dark-nc5003_j1ycvx", content_type: "image/webp")
+nc500.photos.attach(io: nc5003, filename: "dark-nc5001_ahkkfq", content_type: "image/jpg")
 nc500.save
 
 northern_ireland1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678302977/dark-hedges_g3wgt2.jpg")
 northern_ireland2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678302977/Giants-Causeway_pzmrd7.jpg")
 northern_ireland3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1678302977/rope-bridge_k3rfo6.jpg")
 northern_ireland = Trip.new(
-  user_id: jaimie.id,
+  user_id: raj.id,
   title: "Causeway Coastal Route",
   start_point: "Belfast",
   end_point: "Derry",
@@ -527,7 +533,7 @@ glasto2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v167907794
 glasto3 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679077941/pyramid2_enrild.jpg")
 glasto = Trip.new(
   user_id: jon.id,
-  title: "Trip to headline Glastonbury 2023",
+  title: "Trip to headline Glastonbury",
   start_point: "London",
   end_point: "Glastonbury, Somerset, England, United Kingdom",
   region: "England",
@@ -1012,14 +1018,14 @@ le_wagon = Poi.new(
 le_wagon.photo.attach(io: le_wagon1, filename: "le-wagon_ineydn", content_type: "image/jpg")
 le_wagon.save
 
-leamington2 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679068925/wagamama_zvkt2f.png")
+wagamama1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679508892/Wagamama_ryztzb.jpg")
 wagamama = Poi.new(
   name: "Wagamama leamington spa",
   category: "Eats",
   description: "Asian-inspired & Japanese chain restaurant where dishes are whisked to long communal tables.",
   address: "94 parade leamington spa, warwickshire cv32 4ay"
 )
-wagamama.photo.attach(io: leamington2, filename: "wagamama_zvkt2f", content_type: "image/jpg")
+wagamama.photo.attach(io: wagamama1, filename: "Wagamama_ryztzb", content_type: "image/jpg")
 wagamama.save
 
 wine1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679071084/wine1_lcieyu.webp")
@@ -1054,7 +1060,32 @@ north_coast = Poi.new(
 north_coast.photo.attach(io: north_coast1, filename: "nc500_j5mrcr", content_type: "image/jpg")
 north_coast.save
 
+bealach1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679507329/Bealach-na-Ba%CC%80_extumi.jpg")
+bealach = Poi.new(
+  name: "Bealach na Bà",
+  category: "Fun Roads",
+  description: "One of the driving highlights of the North Coast 500 is the infamous winding mountain pass
+  road known as the Bealach na Bà, which means Pass of the Cattle in Gaelic.",
+  address: "IV54 8NE, Strathcarron, Highland, Scotland, United Kingdom"
+)
+bealach.photo.attach(io: bealach1, filename: "Bealach-na-Bà_extumi", content_type: "image/jpg")
+bealach.save
+
+john_o_groats1 = URI.open("https://res.cloudinary.com/doaf60lu6/image/upload/v1679507329/johnogroates_zpu1wu.jpg")
+john_o_groats = Poi.new(
+  name: "John o' Groats",
+  category: "Landmarks",
+  description: "John o' Groats is a village 2.5 mi northeast of Canisbay, Caithness, in the far north of Scotland.",
+  address: "John o' Groats, Highland, Scotland, United Kingdom"
+)
+john_o_groats.photo.attach(io: john_o_groats1, filename: "johnogroates_zpu1wu", content_type: "image/jpg")
+john_o_groats.save
+
 puts "creating trip_pois"
+
+TripPoi.create!(trip: nc500, poi: north_coast)
+TripPoi.create!(trip: nc500, poi: bealach)
+TripPoi.create!(trip: nc500, poi: john_o_groats)
 
 # northern_ireland TripPois start
 TripPoi.create!(trip: northern_ireland, poi: giants_causeway)
@@ -1095,8 +1126,12 @@ TripPoi.create!(trip: wine, poi: wine_shop)
 TripPoi.create!(trip: date, poi: ritz)
 
 TripPoi.create!(trip: glasto, poi: stonehenge)
+TripPoi.create!(trip: glasto, poi: cheddar_gorge)
 TripPoi.create!(trip: glasto, poi: pyramid)
 
+TripPoi.create!(trip: up_north, poi: rushton_hall)
+TripPoi.create!(trip: up_north, poi: the_white_bear)
+TripPoi.create!(trip: up_north, poi: buttertubs_pass)
 TripPoi.create!(trip: up_north, poi: hadrians)
 
 TripPoi.create!(trip: brewhouse, poi: le_wagon)
@@ -1115,7 +1150,7 @@ review1.save
 review2 = Review.new(
   rating: 4,
   content: "I had a great time",
-  user_id: 2,
+  user_id: 22,
   trip_id: 1
 )
 review2.save
@@ -1139,7 +1174,7 @@ review4.save
 review5 = Review.new(
   rating: 5,
   content: "What a great trip! Thanks for the suggestions!",
-  user_id: 2,
+  user_id: 23,
   trip_id: 2
 )
 review5.save
@@ -1275,14 +1310,14 @@ review20.save
 review21 = Review.new(
   rating: 4,
   content: "I had a great time",
-  user_id: 2,
+  user_id: 22,
   trip_id: 4
 )
 review21.save
 
 review22 = Review.new(
-  rating: 3,
-  content: "It was ok",
+  rating: 2,
+  content: "It was ok I guess",
   user_id: 6,
   trip_id: 4
 )
@@ -1299,14 +1334,14 @@ review23.save
 review24 = Review.new(
   rating: 5,
   content: "What a great trip! Thanks for the suggestions!",
-  user_id: 2,
+  user_id: 24,
   trip_id: 4
 )
 review24.save
 
 review25 = Review.new(
-  rating: 5,
-  content: "Brilliant trip!",
+  rating: 1,
+  content: "It's a no from me 👎",
   user_id: 9,
   trip_id: 4
 )
@@ -1339,7 +1374,7 @@ review28.save
 review29 = Review.new(
   rating: 5,
   content: "Brilliant trip!",
-  user_id: 25,
+  user_id: 26,
   trip_id: 4
 )
 review29.save
@@ -1355,7 +1390,7 @@ review30.save
 review31 = Review.new(
   rating: 4,
   content: "I had a great time",
-  user_id: 2,
+  user_id: 25,
   trip_id: 5
 )
 review31.save
@@ -1379,7 +1414,7 @@ review33.save
 review34 = Review.new(
   rating: 5,
   content: "What a great trip! Thanks for the suggestions!",
-  user_id: 2,
+  user_id: 23,
   trip_id: 6
 )
 review34.save
@@ -1435,7 +1470,7 @@ review39.save
 review40 = Review.new(
   rating: 5,
   content: "The best trip to the greatest pub of all time!",
-  user_id: 1,
+  user_id: 17,
   trip_id: 10
 )
 review40.save
@@ -1488,11 +1523,43 @@ review46 = Review.new(
 )
 review46.save
 
+review47 = Review.new(
+  rating: 5,
+  content: "What a great trip!",
+  user_id: 9,
+  trip_id: 9
+)
+review47.save
+
+review48 = Review.new(
+  rating: 4,
+  content: "Very good trip",
+  user_id: 17,
+  trip_id: 9
+)
+review48.save
+
+review49 = Review.new(
+  rating: 3,
+  content: "It was ok",
+  user_id: 26,
+  trip_id: 9
+)
+review49.save
+
+review50 = Review.new(
+  rating: 5,
+  content: "What a great trip!",
+  user_id: 19,
+  trip_id: 9
+)
+review50.save
+
 # review seeds end
 
 # booking seeds start
 booking1 = Booking.new(
-  user_id: 1,
+  user_id: 19,
   trip_id: 8,
   :start_date => DateTime.strptime("05/05/2023", "%d/%m/%Y"),
   :end_date => DateTime.strptime("12/05/2023", "%d/%m/%Y")
@@ -1668,7 +1735,7 @@ booking22 = Booking.new(
 booking22.save
 
 booking23 = Booking.new(
-  user_id: 1,
+  user_id: 18,
   trip_id: 10,
   :start_date => DateTime.strptime("25/03/2023", "%d/%m/%Y"),
   :end_date => DateTime.strptime("25/03/2023", "%d/%m/%Y")
@@ -1708,7 +1775,7 @@ booking27 = Booking.new(
 booking27.save
 
 booking28 = Booking.new(
-  user_id: 9,
+  user_id: 19,
   trip_id: 10,
   :start_date => DateTime.strptime("25/03/2023", "%d/%m/%Y"),
   :end_date => DateTime.strptime("25/03/2023", "%d/%m/%Y")
