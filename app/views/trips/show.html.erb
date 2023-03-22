@@ -126,19 +126,12 @@
       </div>
       <div class="col-sm-6">
         <div class="card-background my-3 px-3 py-3">
-          <%# <% if @trip.user.bookings %>
-          <%# <h2>You booked this trip on <%= @booking.created_at.strftime("%d/%m/%Y") %>
-          <%# <p><strong>Start date: </strong> <%= @booking.start_date.strftime("%d/%m/%Y") %>
-          <%# <p><strong>End date: </strong> <%= @booking.end_date.strftime("%d/%m/%Y") %>
-          <%# <% else %>
-          <%# <h2>Book this trip</h2> %>
           <h2 class="mb-2">When would you like to go?</h2>
           <%= simple_form_for [@trip, @booking] do |f| %>
             <%= f.input :start_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
             <%= f.input :end_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
             <%= f.submit 'Save Trip', class: "btn btn-flat"%>
           <% end %>
-          <%# <% end %>
         </div>
         <hr class="solid">
         <div>
@@ -146,6 +139,7 @@
             <div>
               <h2 class="mb-2">Points of interest</h2>
               <% @trip.pois.each do |poi|%>
+                <%= cl_image_tag poi.photo.key, height: 300, width: 400, class: "rounded", crop: :fill %>
                 <h3 class="my-1"><strong><%= poi.category %></strong></h3>
                 <h4 class="my-1"><strong><%= poi.name %></strong></h4>
                 <p><strong>Description</strong></p>

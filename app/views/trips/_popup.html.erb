@@ -1,3 +1,9 @@
-<%= cl_image_tag poi.photo.key, height: 150, width: 200, crop: :fill %>
-<h4><%= poi.name %></h4>
-<p><%= poi.address %></p>
+<div>
+  <div class= "d-flex justify-content-center">
+    <%= cl_image_tag poi.photo.key, height: 150, width: 200, class: "rounded", crop: :fill %>
+  </div>
+  <div>
+    <h4><%= poi.name %></h4>
+    <p><%= poi.address %></p>
+  </div>
+</div>

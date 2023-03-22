@@ -20,7 +20,7 @@
         <div class="px-3">
           <h2>Achievements 🏆</h2>
           <p class="my-2">🎖️ - Earned the 'OG' medal for becoming a RoadTipper on Day 1! (Very rare - Only 2.5% of RoadTipper's have this medal!)</p>
-          <p class="my-2">🥇 - Earned the 'Creator' medal for creating 3x trips! (Rare - Only 15% of RoadTipper's have this medal!)</p>
+          <p class="my-2">🥇 - Earned the 'Creator' medal for creating 2x trips! (Rare - Only 15% of RoadTipper's have this medal!)</p>
           <p class="my-2">🥉 - Earned the 'My First Trip' medal for creating a trip! (Common - 65% of RoadTipper's have this medal!)</p>
         </div>
       </div>
@@ -70,8 +70,6 @@
                     <p><strong>To: </strong><%= trip.end_point %></p>
                     <p><strong>Region: </strong> <%= trip.region %></p>
                   </div>
-                  <%# <br>
-                  <i class="fas fa-heart"></i> %>
                 </div>
                 <div class="text-end mr-3">
                   <div>
@@ -147,7 +145,7 @@
     <div class="card-background mt-2 px-3 py-3">
       <div class="main-container mx-2">
         <div class="col-sm-12">
-          <h2 class="my-2">Joint Trips with Friends</h2>
+          <h2 class="my-2">Trips with Friends</h2>
           <div class="row">
             <% @friend_bookings.each do |friend_booking| %>
               <div class="col-sm-3">
@@ -177,7 +175,7 @@
                       <p class="mt-2"><strong>Saved on: </strong> <%= friend_booking.booking.created_at.strftime("%d/%m/%Y, %l:%M %p") %></p>
                       <p><strong>Start date: </strong> <%= friend_booking.booking.start_date.strftime("%d/%m/%Y") %></p>
                       <p><strong>End date: </strong> <%= friend_booking.booking.end_date.strftime("%d/%m/%Y") %></p>
-                      <%= link_to "Edit Booking", edit_booking_path(friend_booking.booking), class: "btn btn-flat my-2" %>
+                      <%= link_to "Edit Dates", edit_booking_path(friend_booking.booking), class: "btn btn-flat my-2" %>
                     </div>
                   </div>
                   <div class="text-end mr-3">
