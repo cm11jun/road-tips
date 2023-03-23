@@ -5,7 +5,7 @@ class FriendBookingsController < ApplicationController
     @booking = params["friend_booking"]["booking_id"]
     @friend_booking.user_id = current_user.id
     if @friend_booking.save!
-      redirect_to bookings_path, notice: "Booking successful!"
+      redirect_to bookings_path, notice: "Trip saved!"
     else
       render root_path, status: :unprocessable_entity
     end

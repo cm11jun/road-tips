@@ -1805,6 +1805,22 @@ booking30 = Booking.new(
   :end_date => DateTime.strptime("25/03/2023", "%d/%m/%Y")
 )
 booking30.save
+
+booking30 = Booking.new(
+  user_id: 15,
+  trip_id: 9,
+  :start_date => DateTime.strptime("26/03/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("28/03/2023", "%d/%m/%Y")
+)
+booking30.save
+
+booking30 = Booking.new(
+  user_id: 16,
+  trip_id: 9,
+  :start_date => DateTime.strptime("25/04/2023", "%d/%m/%Y"),
+  :end_date => DateTime.strptime("27/04/2023", "%d/%m/%Y")
+)
+booking30.save
 # booking seeds end
 
 puts "Finished!"
